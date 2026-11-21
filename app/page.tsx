@@ -395,94 +395,88 @@ export default function PortfolioPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#040a06] text-[#cbd5e1] selection:bg-emerald-600/30 selection:text-emerald-100 relative overflow-hidden font-sans">
+    <div className="min-h-screen bg-[#0b0c10] text-[#cbd5e1] selection:bg-[#c59a58]/30 selection:text-[#fdfbf7] relative overflow-hidden font-sans">
       
       {/* =========================================================================
-          BACKGROUND ARCHITECTURE (CYBER EMERALD & MATRIX MINT BLUEPRINT GRID)
+          NATURAL ARCHITECTURAL AMBIENCE (WARM GOLDEN HOUR DIFFUSED LIGHTING)
          ========================================================================= */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Dual Matrix Blueprint Grid Layers */}
-        <div className="absolute inset-0 bg-tech-grid mask-radial-hero opacity-80"></div>
-        <div className="absolute inset-0 bg-tech-grid-dense mask-radial-hero opacity-40"></div>
-        
-        {/* Dot Matrix Layer across upper sections */}
-        <div className="absolute inset-x-0 top-0 h-[800px] bg-dot-matrix mask-radial-hero opacity-35"></div>
+        {/* Subtle Architectural Hairline Grid */}
+        <div className="absolute inset-0 bg-architect-grid mask-radial-hero opacity-60"></div>
 
-        {/* Ambient Top Spotlight (Cyber Emerald Glow) */}
-        <div className="absolute -top-36 left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-gradient-to-b from-emerald-500/18 via-teal-500/10 to-transparent blur-[140px] rounded-full ambient-spotlight pointer-events-none"></div>
+        {/* Natural Diffuse Golden Hour Spotlight */}
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-gradient-to-b from-[#e2b774]/12 via-[#c59a58]/6 to-transparent blur-[160px] rounded-full ambient-spotlight pointer-events-none"></div>
 
-        {/* Ambient Mid-page Atmospheric Depth Glows */}
-        <div className="absolute top-[32%] -left-48 w-[600px] h-[600px] bg-emerald-600/10 blur-[170px] rounded-full pointer-events-none"></div>
-        <div className="absolute top-[58%] -right-48 w-[600px] h-[600px] bg-teal-600/10 blur-[170px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[950px] h-[450px] bg-emerald-700/10 blur-[180px] rounded-full pointer-events-none"></div>
+        {/* Warm Atmospheric Depth Glows */}
+        <div className="absolute top-[35%] -left-48 w-[600px] h-[600px] bg-[#c59a58]/5 blur-[180px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-[60%] -right-48 w-[600px] h-[600px] bg-[#e2b774]/5 blur-[180px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[950px] h-[450px] bg-[#c59a58]/6 blur-[190px] rounded-full pointer-events-none"></div>
 
-        {/* Top Horizon Accent Beam Line */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
+        {/* Horizon Hairline Accent Beam */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/35 to-transparent"></div>
       </div>
 
-      {/* NAVIGATION BAR - FROSTED EMERALD GLASS */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-[#040a06]/85 backdrop-blur-xl border-b border-emerald-500/15 shadow-[0_4px_30px_rgba(0,0,0,0.6)]">
+      {/* NAVIGATION BAR - REFINED LUXURY GLASS */}
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-[#0b0c10]/85 backdrop-blur-xl border-b border-[#d4af37]/15 shadow-[0_4px_30px_rgba(0,0,0,0.6)]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           
           {/* Identity */}
           <a href="#hero" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-teal-700 border border-emerald-400/40 flex items-center justify-center font-mono font-bold text-xs text-white group-hover:shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#c59a58] to-[#996d2c] border border-[#f3dfba]/40 flex items-center justify-center font-serif font-bold text-xs text-[#0c0d12] shadow-sm group-hover:shadow-[0_0_15px_rgba(200,154,88,0.4)] transition-all">
               RF
             </div>
             <div>
-              <span className="font-display text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
+              <span className="font-serif text-base font-bold text-[#fdfbf7] group-hover:text-[#f3dfba] transition-colors">
                 Muhamad Rifqi Fadil Itsnain
               </span>
-              <span className="hidden sm:inline text-xs text-emerald-400/80 font-mono ml-2">
+              <span className="hidden sm:inline text-xs text-[#d4af37]/80 font-sans ml-2">
                 Teknik Komputer UI
               </span>
             </div>
           </a>
 
           {/* Nav Links */}
-          <div className="hidden md:flex items-center gap-6 text-xs font-medium text-slate-300">
-            <a href="#about" className="hover:text-emerald-300 transition-colors font-sans">
+          <div className="hidden md:flex items-center gap-6 text-xs font-medium tracking-wide uppercase text-slate-300">
+            <a href="#about" className="hover:text-[#f3dfba] transition-colors font-sans">
               {lang === "id" ? "Tentang" : "About"}
             </a>
-            <a href="#projects" className="hover:text-emerald-300 transition-colors font-sans">
-              {lang === "id" ? "Proyek & Finpro" : "Projects & Finpro"}
+            <a href="#projects" className="hover:text-[#f3dfba] transition-colors font-sans">
+              {lang === "id" ? "Karya Finpro" : "Projects & Finpro"}
             </a>
-            <a href="#skills" className="hover:text-emerald-300 transition-colors font-sans">
+            <a href="#skills" className="hover:text-[#f3dfba] transition-colors font-sans">
               {lang === "id" ? "Keahlian" : "Skills"}
             </a>
-            <a href="#leadership" className="hover:text-emerald-300 transition-colors font-sans">
+            <a href="#leadership" className="hover:text-[#f3dfba] transition-colors font-sans">
               {lang === "id" ? "Organisasi" : "Leadership"}
             </a>
-            <a href="#contact" className="hover:text-emerald-300 transition-colors font-sans">
+            <a href="#contact" className="hover:text-[#f3dfba] transition-colors font-sans">
               {lang === "id" ? "Kontak" : "Contact"}
             </a>
           </div>
 
-          {/* Social Links Slot & Language Toggle */}
+          {/* Social Links & Language Switcher */}
           <div className="flex items-center gap-3">
             
-            {/* Social Media Slot (Header) */}
-            <div className="flex items-center gap-1.5 border-r border-emerald-500/20 pr-3">
-              {/* GitHub Slot */}
+            {/* Header Social Icons */}
+            <div className="flex items-center gap-1.5 border-r border-[#d4af37]/20 pr-3">
               <a
                 href={SOCIAL_LINKS.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 title="GitHub Profile"
-                className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-300 hover:bg-emerald-950/60 transition-colors"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-[#f3dfba] hover:bg-[#161722] transition-colors"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                 </svg>
               </a>
 
-              {/* LinkedIn Slot */}
               <a
                 href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn Profile"
-                className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-300 hover:bg-emerald-950/60 transition-colors"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-[#f3dfba] hover:bg-[#161722] transition-colors"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -491,12 +485,12 @@ export default function PortfolioPage() {
             </div>
 
             {/* Language Switcher */}
-            <div className="flex items-center p-0.5 rounded-lg bg-[#07170e] border border-emerald-500/30 text-xs font-semibold">
+            <div className="flex items-center p-0.5 rounded-lg bg-[#14151f] border border-[#d4af37]/25 text-xs font-semibold">
               <button
                 onClick={() => setLang("id")}
                 className={`px-2.5 py-1 rounded-md transition-all ${
                   lang === "id"
-                    ? "bg-emerald-600 text-white font-bold shadow-[0_0_10px_rgba(16,185,129,0.4)]"
+                    ? "bg-[#c59a58] text-[#0c0d12] font-bold shadow-[0_0_12px_rgba(197,154,88,0.35)]"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -506,7 +500,7 @@ export default function PortfolioPage() {
                 onClick={() => setLang("en")}
                 className={`px-2.5 py-1 rounded-md transition-all ${
                   lang === "en"
-                    ? "bg-emerald-600 text-white font-bold shadow-[0_0_10px_rgba(16,185,129,0.4)]"
+                    ? "bg-[#c59a58] text-[#0c0d12] font-bold shadow-[0_0_12px_rgba(197,154,88,0.35)]"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -519,7 +513,7 @@ export default function PortfolioPage() {
         </div>
       </nav>
 
-      {/* HERO SECTION WITH CLEAN PHOTO SLOT */}
+      {/* HERO SECTION WITH ARCHITECTURAL PORTRAIT FRAME */}
       <section id="hero" className="relative z-10 pt-32 pb-20 sm:pt-40 sm:pb-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -528,25 +522,26 @@ export default function PortfolioPage() {
             <div className="lg:col-span-8">
               
               {/* Status Pill */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#07170e]/90 backdrop-blur-md border border-emerald-500/35 text-xs text-emerald-200 mb-6 shadow-[0_0_20px_rgba(16,185,129,0.18)]">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#14151e]/90 backdrop-blur-md border border-[#d4af37]/30 text-xs text-[#e8c88e] mb-6 shadow-sm">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e2b774] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d4af37]"></span>
                 </span>
-                <span>
+                <span className="font-sans font-medium">
                   {lang === "id"
                     ? "Teknik Komputer • Universitas Indonesia"
                     : "Computer Engineering • Universitas Indonesia"}
                 </span>
-                <span className="text-emerald-500/40">/</span>
-                <span className="font-mono text-emerald-300 font-bold bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/25">
+                <span className="text-[#d4af37]/40">/</span>
+                <span className="font-mono text-[#f3dfba] font-bold bg-[#1e202c] px-2 py-0.5 rounded border border-[#d4af37]/25">
                   GPA: 3.60 / 4.00
                 </span>
               </div>
 
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
+              {/* Grand Elegant Heading */}
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#fdfbf7] leading-[1.12] mb-6">
                 Muhamad Rifqi Fadil{" "}
-                <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-mint-200 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#fdfbf7] via-[#f3dfba] to-[#c59a58] bg-clip-text text-transparent italic font-normal">
                   Itsnain
                 </span>
               </h1>
@@ -557,13 +552,13 @@ export default function PortfolioPage() {
                   : "Computer Engineering undergraduate at Universitas Indonesia focusing on Software Engineering, Network Security, Simulation Systems, and AI/Data Applications. Possessing a solid foundational understanding of hardware and computer architectures, while dedicating primary focus to software logic and scalable systems."}
               </p>
 
-              {/* Action Buttons & Socials */}
+              {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 mb-10">
                 <a
                   href="#projects"
-                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold text-xs tracking-wide transition-all duration-200 flex items-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] hover:-translate-y-0.5"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#c59a58] via-[#e2b774] to-[#b8863f] hover:from-[#e2b774] hover:to-[#c59a58] text-[#0c0d12] font-semibold text-xs tracking-wider uppercase transition-all duration-300 flex items-center gap-2 shadow-[0_4px_25px_rgba(200,154,88,0.28)] hover:shadow-[0_6px_35px_rgba(200,154,88,0.45)] hover:-translate-y-0.5"
                 >
-                  <span>{lang === "id" ? "Lihat Proyek & Finpro" : "Explore Projects & Finpro"}</span>
+                  <span>{lang === "id" ? "Eksplorasi Karya Rekayasa" : "Explore Engineering Works"}</span>
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                   </svg>
@@ -574,20 +569,20 @@ export default function PortfolioPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   download="CV_Muhamad_Rifqi_Fadil_Itsnain.pdf"
-                  className="px-5 py-3 rounded-xl bg-[#07170e]/80 hover:bg-[#0c2417] text-emerald-200 hover:text-white font-medium text-xs border border-emerald-500/30 hover:border-emerald-400/60 transition-all duration-200 flex items-center gap-2 backdrop-blur-md hover:-translate-y-0.5 shadow-sm"
+                  className="px-5 py-3.5 rounded-xl bg-[#14151f]/80 hover:bg-[#1d1f2e] text-[#f3dfba] hover:text-white font-medium text-xs border border-[#d4af37]/30 hover:border-[#d4af37]/60 transition-all duration-300 flex items-center gap-2 backdrop-blur-md hover:-translate-y-0.5 shadow-sm"
                 >
-                  <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 text-[#e2b774]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                   </svg>
-                  <span>{lang === "id" ? "Unduh CV (PDF)" : "Download CV (PDF)"}</span>
+                  <span>{lang === "id" ? "Unduh CV (PDF)" : "Download Curriculum Vitae"}</span>
                 </a>
 
                 <button
                   onClick={handleCopyEmail}
-                  className="px-4 py-3 rounded-xl bg-[#07170e]/60 hover:bg-[#0c2417] text-slate-300 hover:text-white font-medium text-xs border border-emerald-500/25 hover:border-emerald-400/50 transition-all flex items-center gap-1.5 backdrop-blur-md"
+                  className="px-4 py-3.5 rounded-xl bg-[#14151f]/60 hover:bg-[#1d1f2e] text-slate-300 hover:text-white font-medium text-xs border border-[#d4af37]/25 hover:border-[#d4af37]/50 transition-all flex items-center gap-1.5 backdrop-blur-md"
                   title="Copy email to clipboard"
                 >
-                  <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 text-[#e2b774]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                   </svg>
                   <span>{copiedEmail ? (lang === "id" ? "Email Tersalin!" : "Copied!") : "Copy Email"}</span>
@@ -595,19 +590,19 @@ export default function PortfolioPage() {
               </div>
 
               {/* Quick Metrics */}
-              <div className="flex items-center gap-8 pt-8 border-t border-emerald-500/20 text-xs">
+              <div className="flex items-center gap-8 pt-8 border-t border-[#d4af37]/20 text-xs">
                 <div>
-                  <div className="font-display text-2xl font-extrabold text-white">7+</div>
+                  <div className="font-serif text-3xl font-bold text-[#fdfbf7]">7+</div>
                   <div className="text-slate-400 mt-0.5 font-sans">
                     {lang === "id" ? "Karya Proyek Unggulan" : "Flagship Projects"}
                   </div>
                 </div>
-                <div className="border-l border-emerald-500/20 pl-8">
-                  <div className="font-mono text-2xl font-extrabold text-emerald-400">3.60</div>
+                <div className="border-l border-[#d4af37]/20 pl-8">
+                  <div className="font-mono text-2xl font-bold text-[#e8c88e]">3.60</div>
                   <div className="text-slate-400 mt-0.5 font-sans">GPA (/4.00)</div>
                 </div>
-                <div className="border-l border-emerald-500/20 pl-8">
-                  <div className="font-display text-2xl font-extrabold bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
+                <div className="border-l border-[#d4af37]/20 pl-8">
+                  <div className="font-serif text-2xl font-bold bg-gradient-to-r from-[#f3dfba] to-[#c59a58] bg-clip-text text-transparent">
                     Finalist
                   </div>
                   <div className="text-slate-400 mt-0.5 font-sans">TechnoScape 2025</div>
@@ -616,26 +611,26 @@ export default function PortfolioPage() {
 
             </div>
 
-            {/* Right: PHOTO SLOT (EMPTY / CLEAN PLACEHOLDER) */}
+            {/* Right: ARCHITECTURAL PORTRAIT FRAME */}
             <div className="lg:col-span-4 flex justify-center lg:justify-end">
-              <div className="w-64 sm:w-72 rounded-2xl glass-card p-4 flex flex-col items-center text-center shadow-2xl relative border-emerald-500/30">
-                {/* Tech corner accents */}
-                <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-emerald-400 rounded-tl-sm pointer-events-none"></div>
-                <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-emerald-400 rounded-tr-sm pointer-events-none"></div>
-                <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-emerald-400 rounded-bl-sm pointer-events-none"></div>
-                <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-emerald-400 rounded-br-sm pointer-events-none"></div>
+              <div className="w-64 sm:w-72 rounded-2xl glass-card p-4 flex flex-col items-center text-center shadow-2xl relative border-[#d4af37]/30">
+                {/* Refined Corner Brackets */}
+                <div className="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-[#e2b774] rounded-tl-sm pointer-events-none"></div>
+                <div className="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-[#e2b774] rounded-tr-sm pointer-events-none"></div>
+                <div className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-[#e2b774] rounded-bl-sm pointer-events-none"></div>
+                <div className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-[#e2b774] rounded-br-sm pointer-events-none"></div>
 
                 {/* Photo Slot Container */}
-                <div className="w-full aspect-[3/4] rounded-xl border border-dashed border-emerald-500/40 bg-[#05110a]/80 flex flex-col items-center justify-center p-6 text-slate-400 group transition-all hover:border-emerald-400 hover:bg-[#07190f]">
-                  <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-3 shadow-[0_0_15px_rgba(16,185,129,0.2)] group-hover:scale-105 group-hover:text-emerald-300 transition-all">
+                <div className="w-full aspect-[3/4] rounded-xl border border-dashed border-[#d4af37]/35 bg-[#0f1017]/90 flex flex-col items-center justify-center p-6 text-slate-400 group transition-all hover:border-[#e2b774] hover:bg-[#151622]">
+                  <div className="w-16 h-16 rounded-full bg-[#1b1c28] border border-[#d4af37]/30 flex items-center justify-center text-[#e8c88e] mb-3 shadow-[0_0_15px_rgba(200,154,88,0.2)] group-hover:scale-105 group-hover:text-[#f3dfba] transition-all">
                     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                   </div>
-                  <span className="text-xs font-semibold text-white mb-1 font-display">
-                    {lang === "id" ? "Slot Foto Profil" : "Profile Photo Slot"}
+                  <span className="text-xs font-semibold text-[#fdfbf7] mb-1 font-serif">
+                    {lang === "id" ? "Slot Foto Profil" : "Portrait Photograph"}
                   </span>
-                  <p className="text-[11px] text-emerald-300/80 leading-tight font-sans">
+                  <p className="text-[11px] text-[#e8c88e]/80 leading-tight font-sans">
                     {lang === "id"
                       ? "Simpan foto Anda di public/profile.jpg"
                       : "Place your image at public/profile.jpg"}
@@ -643,9 +638,9 @@ export default function PortfolioPage() {
                 </div>
 
                 {/* Subtitle Details under photo */}
-                <div className="mt-3.5 w-full text-left pt-3 border-t border-emerald-500/20">
-                  <div className="text-xs font-bold text-white font-display">Muhamad Rifqi Fadil Itsnain</div>
-                  <div className="text-[11px] font-mono text-emerald-400 mt-0.5">NPM: 2406355306</div>
+                <div className="mt-3.5 w-full text-left pt-3 border-t border-[#d4af37]/20">
+                  <div className="text-xs font-bold text-[#fdfbf7] font-serif">Muhamad Rifqi Fadil Itsnain</div>
+                  <div className="text-[11px] font-mono text-[#e8c88e] mt-0.5">NPM: 2406355306</div>
                   <div className="text-[11px] text-slate-400 mt-0.5 font-sans">Teknik Komputer • Universitas Indonesia</div>
                 </div>
 
@@ -659,27 +654,27 @@ export default function PortfolioPage() {
       {/* =========================================================================
           SECTION DIVIDER 01 // OVERVIEW & ACADEMICS
          ========================================================================= */}
-      <div className="relative w-full py-8 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full py-10 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent"></div>
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent"></div>
         </div>
-        <div className="relative z-10 px-4 py-1.5 rounded-full bg-[#07170e] border border-emerald-500/35 shadow-[0_0_20px_rgba(16,185,129,0.25)] text-[11px] font-mono tracking-widest text-emerald-300 flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>[ 01 // OVERVIEW & ACADEMIC FOUNDATION ]</span>
+        <div className="relative z-10 px-5 py-1.5 rounded-full bg-[#12131b] border border-[#d4af37]/35 shadow-[0_2px_15px_rgba(0,0,0,0.5)] text-xs font-serif tracking-widest text-[#e8c88e] flex items-center gap-2.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+          <span>SECTION I — ACADEMIC FOUNDATION & PHILOSOPHY</span>
         </div>
       </div>
 
-      {/* ABOUT ME SECTION - ELEVATED MIDNIGHT FOREST/OBSIDIAN CONTAINER */}
-      <section id="about" className="relative z-10 py-20 bg-[#06140c]/90 border-y border-emerald-500/20 shadow-inner">
+      {/* ABOUT ME SECTION - ELEVATED LUXURY GRAPHITE CONTAINER */}
+      <section id="about" className="relative z-10 py-20 bg-[#111219]/90 border-y border-[#d4af37]/15 shadow-inner">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-8">
-              <div className="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+              <div className="text-xs font-mono uppercase tracking-widest text-[#d4af37] mb-2 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#d4af37] shadow-[0_0_8px_rgba(212,175,55,0.7)]"></span>
                 <span>{lang === "id" ? "Fokus & Filosofi Rekayasa" : "Engineering Focus & Philosophy"}</span>
               </div>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fdfbf7] mb-6">
                 {lang === "id"
                   ? "Fokus pada Software, Didukung Pemahaman Hardware"
                   : "Software-Driven, Hardware-Grounded"}
@@ -698,34 +693,34 @@ export default function PortfolioPage() {
               </div>
             </div>
 
-            {/* Quick Core Strengths Box */}
+            {/* Core Pillars */}
             <div className="lg:col-span-4 space-y-3">
-              <div className="p-4 rounded-xl glass-card border-emerald-500/25">
-                <div className="text-xs font-mono font-bold text-emerald-300 mb-1 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <div className="p-4 rounded-xl glass-card border-[#d4af37]/25">
+                <div className="text-xs font-serif font-bold text-[#e8c88e] mb-1 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
                   {lang === "id" ? "Rekayasa Perangkat Lunak" : "Software Systems"}
                 </div>
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-slate-400 font-sans">
                   Fullstack TypeScript/Next.js, Python FastAPI, Java OOP, low-level C.
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl glass-card border-teal-500/25">
-                <div className="text-xs font-mono font-bold text-teal-300 mb-1 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+              <div className="p-4 rounded-xl glass-card border-[#d4af37]/25">
+                <div className="text-xs font-serif font-bold text-[#f3dfba] mb-1 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#e2b774]"></span>
                   {lang === "id" ? "Keamanan & Jaringan" : "Security & Networks"}
                 </div>
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-slate-400 font-sans">
                   SQLi lab testbeds, CTF validation, defensive API hardening, Wireshark audits.
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl glass-card border-emerald-500/25">
-                <div className="text-xs font-mono font-bold text-mint-300 text-emerald-200 mb-1 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-300"></span>
+              <div className="p-4 rounded-xl glass-card border-[#d4af37]/25">
+                <div className="text-xs font-serif font-bold text-[#d4af37] mb-1 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#c59a58]"></span>
                   {lang === "id" ? "Simulasi & AI Data" : "Simulation & AI Data"}
                 </div>
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-slate-400 font-sans">
                   Eclipse SUMO TraCI actuation, FAISS RAG, distributed Hadoop MapReduce.
                 </div>
               </div>
@@ -738,33 +733,33 @@ export default function PortfolioPage() {
       {/* =========================================================================
           SECTION DIVIDER 02 // SELECTED ENGINEERING PROJECTS
          ========================================================================= */}
-      <div className="relative w-full py-8 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full py-10 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent"></div>
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent"></div>
         </div>
-        <div className="relative z-10 px-4 py-1.5 rounded-full bg-[#07170e] border border-emerald-500/35 shadow-[0_0_20px_rgba(16,185,129,0.25)] text-[11px] font-mono tracking-widest text-emerald-300 flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>[ 02 // SELECTED ENGINEERING PROJECTS ]</span>
+        <div className="relative z-10 px-5 py-1.5 rounded-full bg-[#12131b] border border-[#d4af37]/35 shadow-[0_2px_15px_rgba(0,0,0,0.5)] text-xs font-serif tracking-widest text-[#e8c88e] flex items-center gap-2.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+          <span>SECTION II — CURATED ENGINEERING WORKS</span>
         </div>
       </div>
 
-      {/* PROJECTS & FINPRO SECTION (SOFTWARE, SECURITY, SIMULATION, AI) */}
+      {/* PROJECTS & FINPRO SECTION */}
       <section id="projects" className="relative z-10 py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           
           {/* Header & Filter */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
             <div>
-              <div className="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+              <div className="text-xs font-mono uppercase tracking-widest text-[#d4af37] mb-2 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#d4af37] shadow-[0_0_8px_rgba(212,175,55,0.7)]"></span>
                 <span>{lang === "id" ? "Katalog Proyek & Finpro" : "Projects & Finpro Portfolio"}</span>
               </div>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fdfbf7]">
                 {lang === "id" ? "Karya Rekayasa Pilihan" : "Featured Engineering Works"}
               </h2>
             </div>
 
-            {/* Filter buttons - Cyber Emerald Active Tabs */}
+            {/* Filter buttons - Champagne Gold Active Tabs */}
             <div className="flex flex-wrap gap-2">
               {[
                 { id: "all", label: { id: "Semua Proyek", en: "All Projects" } },
@@ -777,8 +772,8 @@ export default function PortfolioPage() {
                   onClick={() => setActiveCategory(btn.id as Category)}
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                     activeCategory === btn.id
-                      ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold shadow-[0_0_15px_rgba(16,185,129,0.45)] border border-emerald-400/40"
-                      : "bg-[#07170e]/80 text-slate-300 hover:text-white border border-emerald-500/25 hover:border-emerald-400/50"
+                      ? "bg-gradient-to-r from-[#c59a58] to-[#e2b774] text-[#0c0d12] font-semibold shadow-[0_0_15px_rgba(200,154,88,0.35)]"
+                      : "bg-[#14151e]/80 text-slate-300 hover:text-white border border-[#d4af37]/20 hover:border-[#d4af37]/45"
                   }`}
                 >
                   {btn.label[lang]}
@@ -792,23 +787,23 @@ export default function PortfolioPage() {
             {filteredProjects.map((p) => (
               <div
                 key={p.id}
-                className="p-6 rounded-2xl glass-card transition-all duration-300 flex flex-col justify-between group shadow-xl border-emerald-500/25 hover:border-emerald-400/60"
+                className="p-6 rounded-2xl glass-card transition-all duration-300 flex flex-col justify-between group shadow-xl border-[#d4af37]/20 hover:border-[#d4af37]/50"
               >
                 <div>
                   {/* Badge */}
                   <div className="mb-3">
-                    <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-emerald-950/90 text-emerald-300 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.15)]">
+                    <span className="px-2.5 py-1 rounded-md text-[11px] font-serif italic font-medium bg-[#1a1b26] text-[#e8c88e] border border-[#d4af37]/30 shadow-sm">
                       {p.badge[lang]}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-display text-lg font-bold text-white mb-1.5 leading-snug group-hover:text-emerald-300 transition-colors">
+                  <h3 className="font-serif text-xl font-bold text-[#fdfbf7] mb-1.5 leading-snug group-hover:text-[#f3dfba] transition-colors">
                     {p.title[lang]}
                   </h3>
 
                   {/* Tagline */}
-                  <p className="font-sans text-xs text-emerald-200/80 italic mb-3">
+                  <p className="font-sans text-xs text-[#d4af37]/85 italic mb-3">
                     {p.tagline[lang]}
                   </p>
 
@@ -824,7 +819,7 @@ export default function PortfolioPage() {
                     {p.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#040e07] text-emerald-300/90 border border-emerald-500/20 hover:border-emerald-400/40 hover:text-white transition-colors"
+                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#0f1017] text-[#e8c88e]/90 border border-[#d4af37]/20 hover:border-[#d4af37]/45 hover:text-white transition-colors"
                       >
                         {t}
                       </span>
@@ -834,10 +829,10 @@ export default function PortfolioPage() {
                   {/* View Documentation Modal Trigger */}
                   <button
                     onClick={() => setActiveProjectModal(p)}
-                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-950/90 to-teal-950/90 hover:from-emerald-600 hover:to-teal-600 text-emerald-200 hover:text-white font-semibold text-xs border border-emerald-500/40 hover:border-emerald-400/60 transition-all duration-200 flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.15)] hover:shadow-[0_0_20px_rgba(16,185,129,0.35)]"
+                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#181924] to-[#202230] hover:from-[#c59a58] hover:to-[#e2b774] text-[#f3dfba] hover:text-[#0c0d12] font-semibold text-xs border border-[#d4af37]/30 hover:border-transparent transition-all duration-300 flex items-center justify-center gap-1.5 shadow-sm"
                   >
-                    <span>{lang === "id" ? "Buka Dokumentasi Finpro" : "View Documentation"}</span>
-                    <svg className="w-3.5 h-3.5 text-emerald-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span>{lang === "id" ? "Buka Dokumentasi Finpro" : "View Engineering Documentation"}</span>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                     </svg>
                   </button>
@@ -852,26 +847,26 @@ export default function PortfolioPage() {
       {/* =========================================================================
           SECTION DIVIDER 03 // TECHNICAL STACK
          ========================================================================= */}
-      <div className="relative w-full py-8 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full py-10 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent"></div>
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent"></div>
         </div>
-        <div className="relative z-10 px-4 py-1.5 rounded-full bg-[#07170e] border border-emerald-500/35 shadow-[0_0_20px_rgba(16,185,129,0.25)] text-[11px] font-mono tracking-widest text-emerald-300 flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>[ 03 // TECHNICAL EXPERTISE & STACK ]</span>
+        <div className="relative z-10 px-5 py-1.5 rounded-full bg-[#12131b] border border-[#d4af37]/35 shadow-[0_2px_15px_rgba(0,0,0,0.5)] text-xs font-serif tracking-widest text-[#e8c88e] flex items-center gap-2.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+          <span>SECTION III — TECHNICAL REPERTOIRE & SYSTEMS</span>
         </div>
       </div>
 
-      {/* SKILLS SECTION - ELEVATED MIDNIGHT FOREST/OBSIDIAN CONTAINER */}
-      <section id="skills" className="relative z-10 py-20 bg-[#06140c]/90 border-y border-emerald-500/20 shadow-inner">
+      {/* SKILLS SECTION - ELEVATED LUXURY GRAPHITE CONTAINER */}
+      <section id="skills" className="relative z-10 py-20 bg-[#111219]/90 border-y border-[#d4af37]/15 shadow-inner">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           
           <div className="mb-10">
-            <div className="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
-              <span>{lang === "id" ? "Keahlian Teknis" : "Technical Stack"}</span>
+            <div className="text-xs font-mono uppercase tracking-widest text-[#d4af37] mb-2 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#d4af37] shadow-[0_0_8px_rgba(212,175,55,0.7)]"></span>
+              <span>{lang === "id" ? "Keahlian Teknis" : "Technical Repertoire"}</span>
             </div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fdfbf7]">
               {lang === "id" ? "Bahasa, Framework & Peralatan Rekayasa" : "Languages, Frameworks & Tooling"}
             </h2>
           </div>
@@ -879,10 +874,10 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             
             {/* Col 1 */}
-            <div className="p-6 rounded-2xl glass-card border-emerald-500/25 hover:border-emerald-400/50">
-              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-500/20">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
-                <h3 className="font-display text-xs font-bold uppercase tracking-wider text-emerald-200">
+            <div className="p-6 rounded-2xl glass-card border-[#d4af37]/20 hover:border-[#d4af37]/45">
+              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-[#d4af37]/20">
+                <span className="font-serif font-bold text-xs text-[#d4af37]">I.</span>
+                <h3 className="font-serif text-sm font-bold tracking-wide text-[#fdfbf7]">
                   {lang === "id" ? "Bahasa Pemrograman" : "Languages"}
                 </h3>
               </div>
@@ -897,10 +892,10 @@ export default function PortfolioPage() {
             </div>
 
             {/* Col 2 */}
-            <div className="p-6 rounded-2xl glass-card border-teal-500/25 hover:border-teal-400/50">
-              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-teal-500/20">
-                <span className="w-2.5 h-2.5 rounded-full bg-teal-400 shadow-[0_0_8px_rgba(20,184,166,0.8)]"></span>
-                <h3 className="font-display text-xs font-bold uppercase tracking-wider text-teal-200">
+            <div className="p-6 rounded-2xl glass-card border-[#d4af37]/20 hover:border-[#d4af37]/45">
+              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-[#d4af37]/20">
+                <span className="font-serif font-bold text-xs text-[#d4af37]">II.</span>
+                <h3 className="font-serif text-sm font-bold tracking-wide text-[#fdfbf7]">
                   {lang === "id" ? "Web & Backend" : "Web & Backend"}
                 </h3>
               </div>
@@ -915,10 +910,10 @@ export default function PortfolioPage() {
             </div>
 
             {/* Col 3 */}
-            <div className="p-6 rounded-2xl glass-card border-emerald-500/25 hover:border-emerald-400/50">
-              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-500/20">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-300 shadow-[0_0_8px_rgba(110,231,183,0.8)]"></span>
-                <h3 className="font-display text-xs font-bold uppercase tracking-wider text-emerald-300">
+            <div className="p-6 rounded-2xl glass-card border-[#d4af37]/20 hover:border-[#d4af37]/45">
+              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-[#d4af37]/20">
+                <span className="font-serif font-bold text-xs text-[#d4af37]">III.</span>
+                <h3 className="font-serif text-sm font-bold tracking-wide text-[#fdfbf7]">
                   {lang === "id" ? "Simulasi & Keamanan" : "Simulation & Security"}
                 </h3>
               </div>
@@ -933,10 +928,10 @@ export default function PortfolioPage() {
             </div>
 
             {/* Col 4 */}
-            <div className="p-6 rounded-2xl glass-card border-teal-500/25 hover:border-teal-400/50">
-              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-teal-500/20">
-                <span className="w-2.5 h-2.5 rounded-full bg-teal-300 shadow-[0_0_8px_rgba(45,212,191,0.8)]"></span>
-                <h3 className="font-display text-xs font-bold uppercase tracking-wider text-teal-300">
+            <div className="p-6 rounded-2xl glass-card border-[#d4af37]/20 hover:border-[#d4af37]/45">
+              <div className="flex items-center gap-2 mb-4 pb-2 border-b border-[#d4af37]/20">
+                <span className="font-serif font-bold text-xs text-[#d4af37]">IV.</span>
+                <h3 className="font-serif text-sm font-bold tracking-wide text-[#fdfbf7]">
                   {lang === "id" ? "Basis Data & Tools" : "Databases & Tools"}
                 </h3>
               </div>
@@ -957,13 +952,13 @@ export default function PortfolioPage() {
       {/* =========================================================================
           SECTION DIVIDER 04 // LEADERSHIP & IMPACT
          ========================================================================= */}
-      <div className="relative w-full py-8 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full py-10 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent"></div>
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent"></div>
         </div>
-        <div className="relative z-10 px-4 py-1.5 rounded-full bg-[#07170e] border border-emerald-500/35 shadow-[0_0_20px_rgba(16,185,129,0.25)] text-[11px] font-mono tracking-widest text-emerald-300 flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>[ 04 // LEADERSHIP & CAMPUS IMPACT ]</span>
+        <div className="relative z-10 px-5 py-1.5 rounded-full bg-[#12131b] border border-[#d4af37]/35 shadow-[0_2px_15px_rgba(0,0,0,0.5)] text-xs font-serif tracking-widest text-[#e8c88e] flex items-center gap-2.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+          <span>SECTION IV — ORGANIZATIONAL LEADERSHIP & IMPACT</span>
         </div>
       </div>
 
@@ -972,11 +967,11 @@ export default function PortfolioPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           
           <div className="mb-10">
-            <div className="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+            <div className="text-xs font-mono uppercase tracking-widest text-[#d4af37] mb-2 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#d4af37] shadow-[0_0_8px_rgba(212,175,55,0.7)]"></span>
               <span>{lang === "id" ? "Pengalaman Organisasi" : "Leadership & Campus Impact"}</span>
             </div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fdfbf7]">
               {lang === "id" ? "Kontribusi Organisasi & Kepanitiaan" : "Organizational Leadership & Engagement"}
             </h2>
           </div>
@@ -984,17 +979,17 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* IME RETRO */}
-            <div className="p-6 rounded-2xl glass-card border-emerald-500/25 hover:border-emerald-400/50">
+            <div className="p-6 rounded-2xl glass-card border-[#d4af37]/20 hover:border-[#d4af37]/45">
               <div className="flex justify-between items-center mb-3">
-                <span className="text-xs font-mono text-emerald-300 bg-emerald-950 px-2.5 py-0.5 rounded border border-emerald-500/40 font-semibold shadow-sm">
+                <span className="text-xs font-serif text-[#e8c88e] bg-[#1a1b27] px-3 py-0.5 rounded border border-[#d4af37]/35 font-semibold shadow-sm">
                   2025
                 </span>
-                <span className="text-[11px] font-mono text-emerald-400/80">DTE FTUI</span>
+                <span className="text-[11px] font-sans text-[#d4af37]/80">DTE FTUI</span>
               </div>
-              <h3 className="font-display text-lg font-bold text-white mb-1">
+              <h3 className="font-serif text-xl font-bold text-[#fdfbf7] mb-1">
                 Ikatan Mahasiswa Elektro (IME FTUI)
               </h3>
-              <p className="font-sans text-xs font-semibold text-emerald-300 mb-4">
+              <p className="font-sans text-xs font-semibold text-[#f3dfba] mb-4">
                 {lang === "id"
                   ? "Staff Bidang RETRO (Rohani Islam Elektro)"
                   : "RETRO Division Staff (Rohani Islam Elektro)"}
@@ -1017,17 +1012,17 @@ export default function PortfolioPage() {
             </div>
 
             {/* PSB FTUI */}
-            <div className="p-6 rounded-2xl glass-card border-emerald-500/25 hover:border-emerald-400/50">
+            <div className="p-6 rounded-2xl glass-card border-[#d4af37]/20 hover:border-[#d4af37]/45">
               <div className="flex justify-between items-center mb-3">
-                <span className="text-xs font-mono text-emerald-300 bg-emerald-950 px-2.5 py-0.5 rounded border border-emerald-500/40 font-semibold shadow-sm">
+                <span className="text-xs font-serif text-[#e8c88e] bg-[#1a1b27] px-3 py-0.5 rounded border border-[#d4af37]/35 font-semibold shadow-sm">
                   Februari 2025
                 </span>
-                <span className="text-[11px] font-mono text-emerald-400/80">FTUI</span>
+                <span className="text-[11px] font-sans text-[#d4af37]/80">FTUI</span>
               </div>
-              <h3 className="font-display text-lg font-bold text-white mb-1">
+              <h3 className="font-serif text-xl font-bold text-[#fdfbf7] mb-1">
                 Pelepasan Sarjana Baru (PSB FTUI)
               </h3>
-              <p className="font-sans text-xs font-semibold text-emerald-300 mb-4">
+              <p className="font-sans text-xs font-semibold text-[#f3dfba] mb-4">
                 {lang === "id" ? "Divisi K3 (Keselamatan & Keamanan)" : "Safety & Security Division"}
               </p>
               <ul className="font-sans text-xs text-slate-300 space-y-2 list-disc list-inside">
@@ -1055,23 +1050,23 @@ export default function PortfolioPage() {
       {/* =========================================================================
           SECTION DIVIDER 05 // CONNECT & COLLABORATE
          ========================================================================= */}
-      <div className="relative w-full py-8 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full py-10 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent"></div>
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent"></div>
         </div>
-        <div className="relative z-10 px-4 py-1.5 rounded-full bg-[#07170e] border border-emerald-500/35 shadow-[0_0_20px_rgba(16,185,129,0.25)] text-[11px] font-mono tracking-widest text-emerald-300 flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>[ 05 // CONNECT & COLLABORATE ]</span>
+        <div className="relative z-10 px-5 py-1.5 rounded-full bg-[#12131b] border border-[#d4af37]/35 shadow-[0_2px_15px_rgba(0,0,0,0.5)] text-xs font-serif tracking-widest text-[#e8c88e] flex items-center gap-2.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
+          <span>SECTION V — CORRESPONDENCE & DIRECT INQUIRIES</span>
         </div>
       </div>
 
-      {/* CONTACT & SOCIAL MEDIA SLOTS SECTION - OBSIDIAN FOREST CONTAINER */}
-      <section id="contact" className="relative z-10 py-20 bg-[#051009] border-t border-emerald-500/25 shadow-inner">
+      {/* CONTACT & SOCIAL SECTION */}
+      <section id="contact" className="relative z-10 py-20 bg-[#0e0f16] border-t border-[#d4af37]/20 shadow-inner">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
           
           <div className="max-w-2xl mx-auto mb-10">
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
-              {lang === "id" ? "Hubungi Saya & Media Sosial" : "Get in Touch & Social Links"}
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fdfbf7] mb-3">
+              {lang === "id" ? "Hubungi Saya & Media Sosial" : "Get in Touch & Direct Inquiries"}
             </h2>
             <p className="font-sans text-xs sm:text-sm text-slate-300">
               {lang === "id"
@@ -1080,15 +1075,15 @@ export default function PortfolioPage() {
             </p>
           </div>
 
-          {/* Social Media Slot Grid */}
+          {/* Social Links Grid */}
           <div className="flex flex-wrap justify-center items-center gap-3 mb-12">
             
-            {/* LinkedIn Slot */}
+            {/* LinkedIn */}
             <a
               href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-[#07170e]/90 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/30 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+              className="px-4 py-2.5 rounded-xl bg-[#14151e]/90 hover:bg-[#c59a58] text-[#f3dfba] hover:text-[#0c0d12] border border-[#d4af37]/25 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_4px_20px_rgba(200,154,88,0.35)]"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -1096,12 +1091,12 @@ export default function PortfolioPage() {
               <span>LinkedIn</span>
             </a>
 
-            {/* GitHub Slot */}
+            {/* GitHub */}
             <a
               href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-[#07170e]/90 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/30 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+              className="px-4 py-2.5 rounded-xl bg-[#14151e]/90 hover:bg-[#c59a58] text-[#f3dfba] hover:text-[#0c0d12] border border-[#d4af37]/25 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_4px_20px_rgba(200,154,88,0.35)]"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
@@ -1109,12 +1104,12 @@ export default function PortfolioPage() {
               <span>GitHub</span>
             </a>
 
-            {/* Instagram Slot */}
+            {/* Instagram */}
             <a
               href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-[#07170e]/90 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/30 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+              className="px-4 py-2.5 rounded-xl bg-[#14151e]/90 hover:bg-[#c59a58] text-[#f3dfba] hover:text-[#0c0d12] border border-[#d4af37]/25 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_4px_20px_rgba(200,154,88,0.35)]"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -1122,23 +1117,23 @@ export default function PortfolioPage() {
               <span>Instagram</span>
             </a>
 
-            {/* Email Slot */}
+            {/* Email */}
             <a
               href={SOCIAL_LINKS.email}
-              className="px-4 py-2.5 rounded-xl bg-[#07170e]/90 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/30 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+              className="px-4 py-2.5 rounded-xl bg-[#14151e]/90 hover:bg-[#c59a58] text-[#f3dfba] hover:text-[#0c0d12] border border-[#d4af37]/25 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_4px_20px_rgba(200,154,88,0.35)]"
             >
-              <svg className="w-4 h-4 text-emerald-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-[#e2b774] group-hover:text-[#0c0d12]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               <span>Email</span>
             </a>
 
-            {/* Phone / WA Slot */}
+            {/* Phone */}
             <a
               href={`tel:${SOCIAL_LINKS.phone}`}
-              className="px-4 py-2.5 rounded-xl bg-[#07170e]/90 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/30 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+              className="px-4 py-2.5 rounded-xl bg-[#14151e]/90 hover:bg-[#c59a58] text-[#f3dfba] hover:text-[#0c0d12] border border-[#d4af37]/25 hover:border-transparent text-xs font-medium transition-all flex items-center gap-2 hover:-translate-y-0.5 shadow-sm hover:shadow-[0_4px_20px_rgba(200,154,88,0.35)]"
             >
-              <svg className="w-4 h-4 text-emerald-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-[#e2b774] group-hover:text-[#0c0d12]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               <span>{SOCIAL_LINKS.phone}</span>
@@ -1146,10 +1141,10 @@ export default function PortfolioPage() {
 
           </div>
 
-          <div className="pt-8 border-t border-emerald-500/20 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+          <div className="pt-8 border-t border-[#d4af37]/20 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
             <p>© 2026 Muhamad Rifqi Fadil Itsnain. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <a href="#hero" className="hover:text-emerald-300 transition-colors font-mono">
+              <a href="#hero" className="hover:text-[#f3dfba] transition-colors font-serif">
                 {lang === "id" ? "Kembali ke Atas ↑" : "Back to Top ↑"}
               </a>
             </div>
@@ -1158,18 +1153,18 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* DOCUMENTATION MODAL - CYBER EMERALD TECHNICAL DESIGN VIEW */}
+      {/* DOCUMENTATION MODAL - LUXURY ARCHITECTURAL DESIGN VIEW */}
       {activeProjectModal && (
-        <div className="fixed inset-0 z-50 bg-[#020704]/85 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="max-w-2xl w-full bg-[#07170e] border border-emerald-500/40 rounded-2xl p-6 sm:p-8 relative shadow-[0_0_50px_rgba(16,185,129,0.25)] overflow-y-auto max-h-[90vh]">
+        <div className="fixed inset-0 z-50 bg-[#07070b]/85 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="max-w-2xl w-full bg-[#12131c] border border-[#d4af37]/35 rounded-2xl p-6 sm:p-8 relative shadow-[0_0_50px_rgba(0,0,0,0.85)] overflow-y-auto max-h-[90vh]">
             
-            {/* Top Glowing Beam */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
+            {/* Top Champagne Beam */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#e2b774] to-transparent"></div>
 
             {/* Close Button */}
             <button
               onClick={() => setActiveProjectModal(null)}
-              className="absolute top-5 right-5 p-2 rounded-lg bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 hover:text-white transition-colors border border-emerald-500/30"
+              className="absolute top-5 right-5 p-2 rounded-lg bg-[#1a1b28] hover:bg-[#25273a] text-[#e8c88e] hover:text-white transition-colors border border-[#d4af37]/30"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -1178,34 +1173,34 @@ export default function PortfolioPage() {
 
             {/* Badge */}
             <div className="mb-2">
-              <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-medium bg-emerald-950 text-emerald-300 border border-emerald-500/40">
+              <span className="px-2.5 py-0.5 rounded text-[11px] font-serif italic font-medium bg-[#1a1b28] text-[#e8c88e] border border-[#d4af37]/35">
                 {activeProjectModal.badge[lang]}
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="font-display text-xl font-bold text-white mb-1.5">
+            <h3 className="font-serif text-2xl font-bold text-[#fdfbf7] mb-1.5">
               {activeProjectModal.title[lang]}
             </h3>
-            <p className="text-xs font-mono text-emerald-300/80 mb-6">
+            <p className="text-xs font-mono text-[#d4af37]/80 mb-6">
               {activeProjectModal.tech.join(" • ")}
             </p>
 
             {/* Architecture Overview */}
             <div className="mb-6">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-200 mb-2 font-display flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#e8c88e] mb-2 font-serif flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
                 <span>{lang === "id" ? "Arsitektur & Spesifikasi Rekayasa:" : "Technical Architecture & System Design:"}</span>
               </h4>
-              <p className="text-xs text-slate-300 leading-relaxed p-4 rounded-xl bg-[#030a06] border border-emerald-500/25 font-sans">
+              <p className="text-xs text-slate-300 leading-relaxed p-4 rounded-xl bg-[#0b0c12] border border-[#d4af37]/20 font-sans">
                 {activeProjectModal.documentation[lang].architecture}
               </p>
             </div>
 
             {/* Key Challenges */}
             <div className="mb-6">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-200 mb-2 font-display flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-teal-400"></span>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#e8c88e] mb-2 font-serif flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#e2b774]"></span>
                 <span>{lang === "id" ? "Tantangan Kritis & Solusi Teknis:" : "Key Technical Challenges Solved:"}</span>
               </h4>
               <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside font-sans">
@@ -1217,8 +1212,8 @@ export default function PortfolioPage() {
 
             {/* Deliverables */}
             <div className="mb-6">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-200 mb-2 font-display flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-mint-400 bg-emerald-300"></span>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#e8c88e] mb-2 font-serif flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#c59a58]"></span>
                 <span>{lang === "id" ? "Deliverable & Hasil Proyek:" : "Deliverables & Artifacts:"}</span>
               </h4>
               <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside font-sans">
@@ -1230,17 +1225,17 @@ export default function PortfolioPage() {
 
             {/* Metrics */}
             {activeProjectModal.documentation[lang].metrics && (
-              <div className="p-3.5 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-xs text-emerald-200 mb-6 font-mono">
+              <div className="p-3.5 rounded-xl bg-[#181926] border border-[#d4af37]/30 text-xs text-[#f3dfba] mb-6 font-serif">
                 <strong className="text-white">{lang === "id" ? "Tolok Ukur: " : "Benchmark: "}</strong>
                 {activeProjectModal.documentation[lang].metrics}
               </div>
             )}
 
             {/* Modal Footer */}
-            <div className="flex justify-end pt-4 border-t border-emerald-500/20">
+            <div className="flex justify-end pt-4 border-t border-[#d4af37]/20">
               <button
                 onClick={() => setActiveProjectModal(null)}
-                className="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold text-xs transition-colors shadow-md"
+                className="px-5 py-2 rounded-xl bg-gradient-to-r from-[#c59a58] to-[#e2b774] hover:from-[#e2b774] hover:to-[#c59a58] text-[#0c0d12] font-semibold text-xs transition-colors shadow-md"
               >
                 {lang === "id" ? "Tutup" : "Close"}
               </button>
