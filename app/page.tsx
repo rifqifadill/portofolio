@@ -546,7 +546,7 @@ export default function PortfolioPage() {
                 </span>
               </h1>
 
-              <p className="font-sans text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mb-8">
+              <p className="font-sans text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mb-8 text-justify">
                 {lang === "id"
                   ? "Mahasiswa Teknik Komputer UI yang berfokus pada Rekayasa Perangkat Lunak, Keamanan Jaringan, Sistem Simulasi, dan Aplikasi Berbasis AI/Data. Memiliki pondasi kuat dalam memahami cara kerja perangkat keras dan arsitektur komputer, namun memilih mendedikasikan fokus utama pada perancangan logika sistem dan rekayasa software."
                   : "Computer Engineering undergraduate at Universitas Indonesia focusing on Software Engineering, Network Security, Simulation Systems, and AI/Data Applications. Possessing a solid foundational understanding of hardware and computer architectures, while dedicating primary focus to software logic and scalable systems."}
@@ -679,7 +679,7 @@ export default function PortfolioPage() {
                   ? "Fokus pada Software, Didukung Pemahaman Hardware"
                   : "Software-Driven, Hardware-Grounded"}
               </h2>
-              <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+              <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-sans text-justify">
                 <p>
                   {lang === "id"
                     ? "Di S1 Teknik Komputer Universitas Indonesia, saya mempelajari struktur internal CPU, arsitektur memori, serta logika gerbang silikon. Pemahaman mendalam tentang cara kerja mesin ini memberi saya keunggulan unik dalam merancang perangkat lunak yang efisien, aman, dan terukur secara komputasi."
