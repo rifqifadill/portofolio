@@ -21,7 +21,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#060913] text-[#cbd5e1] font-sans antialiased selection:bg-blue-600/30 selection:text-blue-100">
+      <body className="bg-[#040a06] text-[#cbd5e1] font-sans antialiased selection:bg-emerald-600/30 selection:text-emerald-100">
         {children}
       </body>
     </html>
