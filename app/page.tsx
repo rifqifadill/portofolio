@@ -441,7 +441,7 @@ export default function PortfolioPage() {
               {lang === "id" ? "Tentang" : "About"}
             </a>
             <a href="#projects" className="hover:text-[#f3dfba] transition-colors font-sans">
-              {lang === "id" ? "Karya Finpro" : "Projects & Finpro"}
+              {lang === "id" ? "Proyek" : "Projects"}
             </a>
             <a href="#skills" className="hover:text-[#f3dfba] transition-colors font-sans">
               {lang === "id" ? "Keahlian" : "Skills"}
@@ -743,7 +743,7 @@ export default function PortfolioPage() {
         </div>
       </div>
 
-      {/* PROJECTS & FINPRO SECTION */}
+      {/* PROJECTS SECTION */}
       <section id="projects" className="relative z-10 py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           
@@ -752,7 +752,7 @@ export default function PortfolioPage() {
             <div>
               <div className="text-xs font-mono uppercase tracking-widest text-[#d4af37] mb-2 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#d4af37] shadow-[0_0_8px_rgba(212,175,55,0.7)]"></span>
-                <span>{lang === "id" ? "Katalog Proyek & Finpro" : "Projects & Finpro Portfolio"}</span>
+                <span>{lang === "id" ? "Katalog Proyek" : "Projects Portfolio"}</span>
               </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#fdfbf7]">
                 {lang === "id" ? "Karya Rekayasa Pilihan" : "Featured Engineering Works"}
@@ -831,7 +831,7 @@ export default function PortfolioPage() {
                     onClick={() => setActiveProjectModal(p)}
                     className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#181924] to-[#202230] hover:from-[#c59a58] hover:to-[#e2b774] text-[#f3dfba] hover:text-[#0c0d12] font-semibold text-xs border border-[#d4af37]/30 hover:border-transparent transition-all duration-300 flex items-center justify-center gap-1.5 shadow-sm"
                   >
-                    <span>{lang === "id" ? "Buka Dokumentasi Finpro" : "View Engineering Documentation"}</span>
+                    <span>{lang === "id" ? "Buka Dokumentasi Proyek" : "View Project Documentation"}</span>
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                     </svg>
