@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Engineering Portfolio — Muhamad Rifqi Fadil Itsnain
 
-## Getting Started
+Website portofolio modern berbasis **Next.js 16**, **React 19**, **TypeScript**, dan **Tailwind CSS**. Didesain dengan estetika monokromatis minimalis (Vercel/Linear style) yang elegan, tenang, dan nyaman di mata.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Cara Menjalankan Portofolio di Laptop
+
+1. Buka terminal (PowerShell / Command Prompt) di folder ini:
+   ```bash
+   cd "C:\Users\rifqi\my-project"
+   ```
+
+2. Jalankan server lokal:
+   ```bash
+   npm run dev
+   ```
+
+3. Buka di browser:
+   👉 **http://localhost:3000**
+
+---
+
+## 🛠️ Cara Mengedit Konten & Menyesuaikan Data
+
+Semua konten utama (profil, media sosial, proyek, dan keahlian) tersusun rapi dalam satu file utama:
+📄 **`app/page.tsx`**
+
+### 1. Menambahkan / Mengganti Foto Anda
+* Siapkan foto portrait Anda dalam format JPG.
+* Beri nama berkas **`profile.jpg`**.
+* Masukkan ke dalam folder: **`public/profile.jpg`**.
+* Foto akan otomatis tampil di bingkai foto pada halaman utama!
+
+### 2. Mengubah Tautan Media Sosial
+Di bagian paling atas file **`app/page.tsx`**, terdapat blok konfigurasi:
+```typescript
+const SOCIAL_LINKS = {
+  github: "https://github.com/rifqiitsnain",
+  linkedin: "https://linkedin.com/in/rifqiitsnain",
+  instagram: "https://instagram.com/rifqiitsnain",
+  email: "mailto:rifqiitsnain7@gmail.com",
+  phone: "+62 812-1033-2765",
+  cvDownload: "file:///C:/Users/rifqi/Downloads/CV_Muhamad_Rifqi_Fadil_Itsnain/CV_Muhamad Rifqi Fadil Itsnain_Terbaru.pdf"
+};
 ```
+Anda tinggal mengganti URL sesuai akun media sosial Anda.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Mengubah atau Menambah Proyek
+Array data proyek terletak di variabel `projectsData` di dalam **`app/page.tsx`**. Setiap proyek memiliki dukungan dwibahasa (Indonesia & Inggris) serta dokumentasi finpro lengkap (*architecture*, *keyChallenges*, *deliverables*, *metrics*).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📁 Struktur Folder
+```text
+my-project/
+├── app/
+│   ├── layout.tsx      # Font Google & Metadata SEO
+│   ├── page.tsx        # Seluruh konten, dwibahasa ID/EN, & Modal Finpro
+│   └── globals.css     # Tailwind CSS base styles
+├── public/
+│   └── profile.jpg     # Taruh foto Anda di sini (opsional)
+├── package.json        # Dependencies Next.js 16 & React 19
+├── tailwind.config.js  # Konfigurasi Tailwind CSS
+└── README.md           # Panduan ini
+```
