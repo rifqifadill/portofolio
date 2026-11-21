@@ -6,8 +6,8 @@
 
 @layer base {
   body {
-    background-color: #08090c;
-    color: #e4e4e7;
+    background-color: #060913;
+    color: #cbd5e1;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
   }
@@ -22,24 +22,24 @@
   }
 }
 
-/* Engineering Technical Blueprint Grid (Monochrome Titanium Silver) */
+/* Engineering Technical Blueprint Grid (Vibrant Royal Sapphire) */
 .bg-tech-grid {
   background-size: 64px 64px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(59, 130, 246, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.045) 1px, transparent 1px);
 }
 
 .bg-tech-grid-dense {
   background-size: 16px 16px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    linear-gradient(to right, rgba(59, 130, 246, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.018) 1px, transparent 1px);
 }
 
 /* Subtle Dot Matrix Pattern */
 .bg-dot-matrix {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(59, 130, 246, 0.09) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -54,13 +54,13 @@
   -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 50%, black 35%, transparent 85%);
 }
 
-/* Premium Frosted Glass Card with fine Titanium Silver border highlight */
+/* Premium Frosted Glass Card with fine Royal Blue border highlight */
 .glass-card {
-  background: rgba(16, 17, 24, 0.68);
+  background: rgba(11, 16, 33, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.55), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
   position: relative;
   overflow: hidden;
 }
@@ -72,18 +72,18 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
   pointer-events: none;
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(22, 24, 34, 0.82);
-  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 255, 255, 0.03);
+  border-color: rgba(59, 130, 246, 0.45);
+  background: rgba(15, 22, 46, 0.85);
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.7), 0 0 25px rgba(37, 99, 235, 0.12);
 }
 
 .glass-card:hover::before {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.7), transparent);
 }
 
 /* Ambient Pulse Animation */
@@ -107,12 +107,12 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #08090c;
+  background: #060913;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #1e293b;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #2563eb;
 }
