@@ -700,7 +700,7 @@ export default function PortfolioPage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
                   {lang === "id" ? "Rekayasa Perangkat Lunak" : "Software Systems"}
                 </div>
-                <div className="text-xs text-slate-400 font-sans">
+                <div className="text-xs text-slate-400 font-sans text-justify">
                   Fullstack TypeScript/Next.js, Python FastAPI, Java OOP, low-level C.
                 </div>
               </div>
@@ -710,7 +710,7 @@ export default function PortfolioPage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#e2b774]"></span>
                   {lang === "id" ? "Keamanan & Jaringan" : "Security & Networks"}
                 </div>
-                <div className="text-xs text-slate-400 font-sans">
+                <div className="text-xs text-slate-400 font-sans text-justify">
                   SQLi lab testbeds, CTF validation, defensive API hardening, Wireshark audits.
                 </div>
               </div>
@@ -720,7 +720,7 @@ export default function PortfolioPage() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#c59a58]"></span>
                   {lang === "id" ? "Simulasi & AI Data" : "Simulation & AI Data"}
                 </div>
-                <div className="text-xs text-slate-400 font-sans">
+                <div className="text-xs text-slate-400 font-sans text-justify">
                   Eclipse SUMO TraCI actuation, FAISS RAG, distributed Hadoop MapReduce.
                 </div>
               </div>
@@ -808,7 +808,7 @@ export default function PortfolioPage() {
                   </p>
 
                   {/* Description */}
-                  <p className="font-sans text-xs text-slate-300 leading-relaxed mb-5">
+                  <p className="font-sans text-xs text-slate-300 leading-relaxed mb-5 text-justify">
                     {p.description[lang]}
                   </p>
                 </div>
@@ -994,7 +994,7 @@ export default function PortfolioPage() {
                   ? "Staff Bidang RETRO (Rohani Islam Elektro)"
                   : "RETRO Division Staff (Rohani Islam Elektro)"}
               </p>
-              <ul className="font-sans text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <ul className="font-sans text-xs text-slate-300 space-y-2 list-disc list-inside text-justify">
                 {lang === "id" ? (
                   <>
                     <li>Mengelola dan mengoordinasikan program pembinaan karakter serta kegiatan kerohanian Islam di lingkungan Departemen Teknik Elektro UI.</li>
@@ -1025,7 +1025,7 @@ export default function PortfolioPage() {
               <p className="font-sans text-xs font-semibold text-[#f3dfba] mb-4">
                 {lang === "id" ? "Divisi K3 (Keselamatan & Keamanan)" : "Safety & Security Division"}
               </p>
-              <ul className="font-sans text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <ul className="font-sans text-xs text-slate-300 space-y-2 list-disc list-inside text-justify">
                 {lang === "id" ? (
                   <>
                     <li>Merumuskan rencana keselamatan darurat dan evakuasi venue acara.</li>
@@ -1192,7 +1192,7 @@ export default function PortfolioPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#d4af37]"></span>
                 <span>{lang === "id" ? "Arsitektur & Spesifikasi Rekayasa:" : "Technical Architecture & System Design:"}</span>
               </h4>
-              <p className="text-xs text-slate-300 leading-relaxed p-4 rounded-xl bg-[#0b0c12] border border-[#d4af37]/20 font-sans">
+              <p className="text-xs text-slate-300 leading-relaxed p-4 rounded-xl bg-[#0b0c12] border border-[#d4af37]/20 font-sans text-justify">
                 {activeProjectModal.documentation[lang].architecture}
               </p>
             </div>
@@ -1203,7 +1203,7 @@ export default function PortfolioPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#e2b774]"></span>
                 <span>{lang === "id" ? "Tantangan Kritis & Solusi Teknis:" : "Key Technical Challenges Solved:"}</span>
               </h4>
-              <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside font-sans">
+              <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside font-sans text-justify">
                 {activeProjectModal.documentation[lang].keyChallenges.map((c, i) => (
                   <li key={i} className="leading-relaxed">{c}</li>
                 ))}
@@ -1216,7 +1216,7 @@ export default function PortfolioPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#c59a58]"></span>
                 <span>{lang === "id" ? "Deliverable & Hasil Proyek:" : "Deliverables & Artifacts:"}</span>
               </h4>
-              <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside font-sans">
+              <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside font-sans text-justify">
                 {activeProjectModal.documentation[lang].deliverables.map((d, i) => (
                   <li key={i} className="leading-relaxed">{d}</li>
                 ))}
