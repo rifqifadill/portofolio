@@ -4,7 +4,7 @@ Website portofolio modern berbasis **Next.js 16**, **React 19**, **TypeScript**,
 
 ---
 
-## 🚀 Cara Menjalankan Portofolio di Laptop
+## Cara Menjalankan Portofolio di Laptop
 
 1. Buka terminal (PowerShell / Command Prompt) di folder ini:
    ```bash
