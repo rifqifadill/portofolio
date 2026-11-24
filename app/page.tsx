@@ -385,6 +385,7 @@ export default function PortfolioPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTabHealthAuth, setActiveTabHealthAuth] = useState<"flow" | "security" | "stack">("flow");
   const [expandedIndexProject, setExpandedIndexProject] = useState<string | null>("security-lab");
+  const [activeSection, setActiveSection] = useState<string>("hero");
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("rifqiitsnain7@gmail.com");
@@ -396,6 +397,36 @@ export default function PortfolioPage() {
     if (activeCategory === "all") return true;
     return p.category === activeCategory;
   });
+
+  const indexedProjects = filteredProjects.filter(
+    (p) => p.id !== "healthauth" && p.id !== "katup"
+  );
+
+  // IntersectionObserver to dynamically highlight active nav section
+  React.useEffect(() => {
+    const sectionIds = ["hero", "about", "projects", "capabilities", "experience", "contact"];
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   // Keyboard escape listener for modal
   React.useEffect(() => {
@@ -412,58 +443,93 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-[#090a0c] text-[#e4e4e7] selection:bg-emerald-500/20 selection:text-emerald-200 relative overflow-hidden font-sans">
       
       {/* =========================================================================
-          ARCHITECTURAL BACKGROUND — DELIBERATE HAIRLINE GRID & VIGNETTE
+          ARCHITECTURAL BACKGROUND — SUBTLE HAIRLINE GRID & VIGNETTE
          ========================================================================= */}
-      <div className="fixed inset-0 bg-editorial-grid pointer-events-none opacity-30 z-0"></div>
+      <div className="fixed inset-0 bg-editorial-grid pointer-events-none opacity-25 z-0"></div>
       <div className="fixed inset-0 mask-radial-vignette pointer-events-none bg-gradient-to-b from-transparent via-[#090a0c]/60 to-[#090a0c] z-0"></div>
 
       {/* =========================================================================
           PERSISTENT EDITORIAL NAVIGATION
          ========================================================================= */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-[#090a0c]/90 backdrop-blur-md border-b border-white/[0.07]">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-[#090a0c]/90 backdrop-blur-md border-b border-white/[0.08]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           
           {/* Identity Monogram & Affiliation */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 min-w-0">
             <a
               href="#hero"
-              className="flex items-center gap-2.5 group focus:outline-none focus:ring-1 focus:ring-emerald-400"
+              className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400 rounded"
             >
-              <div className="w-8 h-8 rounded bg-white/[0.05] border border-white/[0.12] flex items-center justify-center font-mono text-xs font-bold text-white group-hover:border-emerald-400/60 transition-colors">
+              <div className="w-8 h-8 rounded bg-white/[0.05] border border-white/[0.12] flex items-center justify-center font-mono text-xs font-bold text-white group-hover:border-emerald-400/60 transition-colors flex-shrink-0">
                 RF
               </div>
-              <div className="flex flex-col">
-                <span className="font-display text-sm font-semibold tracking-tight text-white group-hover:text-emerald-300 transition-colors">
+              <div className="flex flex-col min-w-0">
+                <span className="font-display text-sm font-semibold tracking-tight text-white group-hover:text-emerald-300 transition-colors truncate">
                   Muhamad Rifqi
                 </span>
-                <span className="font-mono text-[10px] text-zinc-400 tracking-wider">
+                <span className="font-mono text-[10px] text-zinc-400 tracking-wider truncate max-w-[130px] sm:max-w-none">
                   S1 TEKNIK KOMPUTER UI
                 </span>
               </div>
             </a>
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-7 font-mono text-xs text-zinc-400">
-            <a href="#about" className="hover:text-white transition-colors">
+          {/* Desktop Navigation Links with Active Scrollspy Highlight */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8 font-mono text-xs">
+            <a
+              href="#about"
+              className={`transition-colors ${
+                activeSection === "about"
+                  ? "text-emerald-400 font-semibold"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
               01. {lang === "id" ? "Filosofi" : "About"}
             </a>
-            <a href="#projects" className="hover:text-white transition-colors">
+            <a
+              href="#projects"
+              className={`transition-colors ${
+                activeSection === "projects"
+                  ? "text-emerald-400 font-semibold"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
               02. {lang === "id" ? "Proyek Rekayasa" : "Engineering Works"}
             </a>
-            <a href="#capabilities" className="hover:text-white transition-colors">
+            <a
+              href="#capabilities"
+              className={`transition-colors ${
+                activeSection === "capabilities"
+                  ? "text-emerald-400 font-semibold"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
               03. {lang === "id" ? "Kapabilitas Sistem" : "Capabilities"}
             </a>
-            <a href="#experience" className="hover:text-white transition-colors">
+            <a
+              href="#experience"
+              className={`transition-colors ${
+                activeSection === "experience"
+                  ? "text-emerald-400 font-semibold"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
               04. {lang === "id" ? "Rekam Jejak" : "Experience"}
             </a>
-            <a href="#contact" className="hover:text-white transition-colors">
+            <a
+              href="#contact"
+              className={`transition-colors ${
+                activeSection === "contact"
+                  ? "text-emerald-400 font-semibold"
+                  : "text-zinc-400 hover:text-white"
+              }`}
+            >
               05. {lang === "id" ? "Kontak" : "Contact"}
             </a>
           </nav>
 
           {/* Utility Actions: Language Toggle & CV */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             
             {/* Language Switcher */}
             <div className="flex items-center p-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono">
@@ -506,7 +572,7 @@ export default function PortfolioPage() {
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded text-zinc-400 hover:text-white focus:outline-none"
+              className="md:hidden p-2 rounded text-zinc-400 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400"
               aria-label="Toggle navigation menu"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -524,43 +590,53 @@ export default function PortfolioPage() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-white/[0.08] bg-[#0c0e12] px-4 py-6 space-y-4 font-mono text-sm">
+          <div className="md:hidden border-t border-white/[0.08] bg-[#0c0e12]/95 backdrop-blur-xl px-4 py-6 space-y-4 font-mono text-sm">
             <a
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-emerald-400"
+              className={`block transition-colors ${
+                activeSection === "about" ? "text-emerald-400 font-semibold" : "text-zinc-300 hover:text-emerald-400"
+              }`}
             >
               01. {lang === "id" ? "Filosofi Rekayasa" : "Engineering Philosophy"}
             </a>
             <a
               href="#projects"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-emerald-400"
+              className={`block transition-colors ${
+                activeSection === "projects" ? "text-emerald-400 font-semibold" : "text-zinc-300 hover:text-emerald-400"
+              }`}
             >
               02. {lang === "id" ? "Proyek Rekayasa" : "Engineering Works"}
             </a>
             <a
               href="#capabilities"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-emerald-400"
+              className={`block transition-colors ${
+                activeSection === "capabilities" ? "text-emerald-400 font-semibold" : "text-zinc-300 hover:text-emerald-400"
+              }`}
             >
               03. {lang === "id" ? "Kapabilitas Sistem" : "Capabilities Matrix"}
             </a>
             <a
               href="#experience"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-emerald-400"
+              className={`block transition-colors ${
+                activeSection === "experience" ? "text-emerald-400 font-semibold" : "text-zinc-300 hover:text-emerald-400"
+              }`}
             >
               04. {lang === "id" ? "Rekam Jejak" : "Experience & Education"}
             </a>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-emerald-400"
+              className={`block transition-colors ${
+                activeSection === "contact" ? "text-emerald-400 font-semibold" : "text-zinc-300 hover:text-emerald-400"
+              }`}
             >
               05. {lang === "id" ? "Kontak" : "Contact"}
             </a>
-            <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+            <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between">
               <a
                 href={SOCIAL_LINKS.cvDownload}
                 download
@@ -568,7 +644,7 @@ export default function PortfolioPage() {
               >
                 Unduh CV (PDF)
               </a>
-              <span className="text-xs text-zinc-400">IPK: 3.60 / 4.00</span>
+              <span className="text-xs text-zinc-400 font-mono">IPK: 3.60 / 4.00</span>
             </div>
           </div>
         )}
@@ -582,15 +658,15 @@ export default function PortfolioPage() {
         {/* =========================================================================
             SECTION 01: HERO MASTHEAD (ASYMMETRIC, CONFIDENT, AUTHENTIC)
            ========================================================================= */}
-        <section id="hero" className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-16 sm:pt-14 sm:pb-24 border-b border-white/[0.07]">
+        <section id="hero" className="max-w-6xl mx-auto px-4 sm:px-6 pt-6 pb-16 sm:pt-12 sm:pb-24 border-b border-white/[0.07]">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
             {/* Left Column (8 cols): Masthead Headline, Bio, & Action Triggers */}
             <div className="lg:col-span-8 flex flex-col justify-center">
               
               {/* Availability & Location Beacon */}
-              <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded bg-white/[0.03] border border-white/[0.08] w-fit mb-6">
+              <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded bg-white/[0.03] border border-white/[0.08] w-fit mb-5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
                 <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-300">
                   {lang === "id"
@@ -600,20 +676,36 @@ export default function PortfolioPage() {
               </div>
 
               {/* Primary Name Display */}
-              <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-white mb-5 leading-[1.08]">
+              <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-4 leading-[1.1]">
                 Muhamad Rifqi Fadil
                 <span className="text-zinc-400 font-normal"> Itsnain</span>
               </h1>
 
-              {/* Bio Paragraph (Exact Indonesian phrasing from verified user image, text-justify) */}
-              <p className="font-sans text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mb-8 text-justify">
+              {/* Mobile Portrait Card (Visible on mobile/tablet, right after name for immediate visual connection) */}
+              <div className="lg:hidden my-4 max-w-xs mx-auto w-full bg-[#0e1014] p-2.5 rounded border border-white/[0.09] shadow-xl">
+                <div className="relative aspect-[4/5] w-full rounded overflow-hidden bg-zinc-900 border border-white/[0.05]">
+                  <img
+                    src="/profile.jpg"
+                    alt="Muhamad Rifqi Fadil Itsnain - Computer Engineering UI"
+                    className="w-full h-full object-cover filter contrast-[1.04] brightness-[0.98]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090a0c]/85 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2 rounded bg-[#090a0c]/90 backdrop-blur-sm border border-white/[0.1] font-mono text-[10px] text-zinc-300">
+                    <span className="text-emerald-400 block font-semibold">UNIVERSITAS INDONESIA</span>
+                    <span className="text-zinc-400 block text-[9px]">DTE FTUI • IPK: 3.60 / 4.00</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bio Paragraph (Exact Indonesian wording from verified user image, text-justify) */}
+              <p className="font-sans text-sm sm:text-base lg:text-lg text-zinc-300 leading-relaxed max-w-2xl mb-6 sm:mb-8 text-justify">
                 {lang === "id"
                   ? "Mahasiswa Teknik Komputer UI yang berfokus pada Rekayasa Perangkat Lunak, Keamanan Jaringan, Sistem Simulasi, dan Aplikasi Berbasis AI/Data. Memiliki pondasi kuat dalam memahami cara kerja perangkat keras dan arsitektur komputer, namun memilih mendedikasikan fokus utama pada perancangan logika sistem dan rekayasa software."
                   : "Computer Engineering undergraduate at Universitas Indonesia focusing on Software Engineering, Network Security, Simulation Systems, and AI/Data-driven Applications. Grounded with a strong foundation in hardware architecture, while dedicating primary focus to system logic design and software engineering."}
               </p>
 
-              {/* Technical Domains Registry (Horizontal Lineage instead of repetitive floating pills) */}
-              <div className="pt-4 pb-8 mb-8 border-y border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
+              {/* Technical Domains Registry (Horizontal Lineage) */}
+              <div className="pt-3 pb-6 mb-6 sm:pt-4 sm:pb-8 sm:mb-8 border-y border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 font-mono text-xs">
                 <div>
                   <span className="text-[10px] uppercase text-zinc-400 block tracking-wider">DOMAIN 01</span>
                   <span className="text-zinc-200 font-medium">Software Engineering</span>
@@ -633,12 +725,12 @@ export default function PortfolioPage() {
               </div>
 
               {/* Actions & Channels Bar */}
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
                 
                 {/* Primary CTA: Jelajahi Proyek */}
                 <a
                   href="#projects"
-                  className="px-5 py-2.5 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold tracking-wide transition-all duration-200 flex items-center gap-2 shadow-lg"
+                  className="px-4 sm:px-5 py-2.5 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold tracking-wide transition-all duration-200 flex items-center gap-2 shadow-lg"
                 >
                   <span>{lang === "id" ? "Jelajahi Proyek" : "Explore Projects"}</span>
                   <svg className="w-3.5 h-3.5 text-[#090a0c]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -650,7 +742,7 @@ export default function PortfolioPage() {
                 <a
                   href={SOCIAL_LINKS.cvDownload}
                   download
-                  className="px-4 py-2.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-zinc-200 hover:text-white font-mono text-xs font-medium transition-colors flex items-center gap-2"
+                  className="px-3.5 sm:px-4 py-2.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-zinc-200 hover:text-white font-mono text-xs font-medium transition-colors flex items-center gap-2"
                 >
                   <span>CV (PDF)</span>
                   <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -661,7 +753,7 @@ export default function PortfolioPage() {
                 {/* Copy Email Button with instant feedback */}
                 <button
                   onClick={handleCopyEmail}
-                  className="px-4 py-2.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-zinc-200 hover:text-white font-mono text-xs transition-colors flex items-center gap-2"
+                  className="px-3.5 sm:px-4 py-2.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-zinc-200 hover:text-white font-mono text-xs transition-colors flex items-center gap-2"
                   title="Salin alamat email ke clipboard"
                 >
                   <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -671,7 +763,7 @@ export default function PortfolioPage() {
                 </button>
 
                 {/* Social Quick Links */}
-                <div className="flex items-center gap-1.5 ml-auto sm:ml-2">
+                <div className="flex items-center gap-1.5 sm:ml-auto">
                   <a
                     href={SOCIAL_LINKS.github}
                     target="_blank"
@@ -711,8 +803,8 @@ export default function PortfolioPage() {
 
             </div>
 
-            {/* Right Column (4 cols): Architectural Portrait Monograph Frame */}
-            <div className="lg:col-span-4 flex flex-col items-center lg:items-end">
+            {/* Right Column (4 cols): Architectural Portrait Monograph Frame (Desktop) */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col items-end">
               <div className="w-full max-w-sm bg-[#0e1014] p-3 rounded border border-white/[0.09] shadow-2xl">
                 
                 {/* Clean Aspect-Ratio Portrait Container */}
@@ -747,9 +839,9 @@ export default function PortfolioPage() {
         {/* =========================================================================
             SECTION 02: ENGINEERING PHILOSOPHY & FOUNDATIONS (ABOUT)
            ========================================================================= */}
-        <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-b border-white/[0.07]">
+        <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 border-b border-white/[0.07]">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
             
             {/* Section Descriptor */}
             <div className="lg:col-span-4">
@@ -765,7 +857,7 @@ export default function PortfolioPage() {
 
             {/* Editorial Content Column */}
             <div className="lg:col-span-8">
-              <div className="space-y-4 font-sans text-sm text-zinc-300 leading-relaxed mb-10">
+              <div className="space-y-4 font-sans text-sm text-zinc-300 leading-relaxed mb-8 sm:mb-10">
                 <p className="text-justify leading-relaxed">
                   {lang === "id"
                     ? "Menempuh pendidikan di S1 Teknik Komputer Universitas Indonesia memberi saya pemahaman komprehensif mengenai bagaimana silikon, arsitektur memori, dan instruksi CPU bekerja secara fisik. Pengetahuan tentang cara kerja komputasi pada tingkat terendah ini menjadi keunggulan mendasar dalam merancang arsitektur perangkat lunak yang berkinerja tinggi, hemat memori, dan terukur secara deterministik."
@@ -778,10 +870,10 @@ export default function PortfolioPage() {
                 </p>
               </div>
 
-              {/* Three Structural Principles (High-Density Spec Format instead of generic floating cards) */}
+              {/* Three Structural Principles (High-Density Spec Format) */}
               <div className="border-t border-white/[0.08] divide-y divide-white/[0.06] font-mono text-xs">
                 
-                <div className="py-4 grid grid-cols-1 md:grid-cols-12 gap-3 items-baseline">
+                <div className="py-4 grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-baseline">
                   <div className="md:col-span-4 text-emerald-400 font-semibold tracking-wider">
                     01. MECHANICAL SYMPATHY
                   </div>
@@ -792,7 +884,7 @@ export default function PortfolioPage() {
                   </div>
                 </div>
 
-                <div className="py-4 grid grid-cols-1 md:grid-cols-12 gap-3 items-baseline">
+                <div className="py-4 grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-baseline">
                   <div className="md:col-span-4 text-emerald-400 font-semibold tracking-wider">
                     02. DETERMINISTIC ACTUATION
                   </div>
@@ -803,7 +895,7 @@ export default function PortfolioPage() {
                   </div>
                 </div>
 
-                <div className="py-4 grid grid-cols-1 md:grid-cols-12 gap-3 items-baseline">
+                <div className="py-4 grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-baseline">
                   <div className="md:col-span-4 text-emerald-400 font-semibold tracking-wider">
                     03. ZERO-TRUST RIGOR
                   </div>
@@ -825,15 +917,15 @@ export default function PortfolioPage() {
         {/* =========================================================================
             SECTION 03: FEATURED ENGINEERING WORKS & SYSTEMS SHOWCASE
            ========================================================================= */}
-        <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-b border-white/[0.07]">
+        <section id="projects" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 border-b border-white/[0.07]">
           
           {/* Section Header & Architectural Filters */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
             <div>
               <span className="font-mono text-xs uppercase tracking-widest text-emerald-400/90 block mb-2">
                 02 // {lang === "id" ? "PROYEK REKAYASA SISTEM" : "ENGINEERING SYSTEMS PORTFOLIO"}
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <h2 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
                 {lang === "id" ? "Proyek Pilihan & Dokumentasi Sistem" : "Featured Engineering Dossiers"}
               </h2>
             </div>
@@ -865,7 +957,7 @@ export default function PortfolioPage() {
               BREAKOUT FEATURE 01: HEALTHAUTH (AI CLINICAL ASSISTANT & RAG)
              ===================================================================== */}
           {(activeCategory === "all" || activeCategory === "ai_data") && (
-            <div className="mb-14 rounded border border-white/[0.1] bg-[#0c0e12] overflow-hidden">
+            <div className="mb-12 sm:mb-14 rounded border border-white/[0.1] bg-[#0c0e12] overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-12">
                 
                 {/* Left Column: Context, Narrative, & Benchmarks */}
@@ -999,21 +1091,21 @@ export default function PortfolioPage() {
 
                     {activeTabHealthAuth === "stack" && (
                       <div className="space-y-2 font-mono text-xs">
-                        <div className="flex justify-between py-1 border-b border-white/[0.05]">
+                        <div className="flex justify-between py-1 border-b border-white/[0.05] gap-2">
                           <span className="text-zinc-400">Frontend</span>
-                          <span className="text-zinc-200">Next.js 16, React 19, Tailwind</span>
+                          <span className="text-zinc-200 text-right">Next.js 16, React 19, Tailwind</span>
                         </div>
-                        <div className="flex justify-between py-1 border-b border-white/[0.05]">
+                        <div className="flex justify-between py-1 border-b border-white/[0.05] gap-2">
                           <span className="text-zinc-400">Microservice</span>
-                          <span className="text-zinc-200">Python FastAPI</span>
+                          <span className="text-zinc-200 text-right">Python FastAPI</span>
                         </div>
-                        <div className="flex justify-between py-1 border-b border-white/[0.05]">
+                        <div className="flex justify-between py-1 border-b border-white/[0.05] gap-2">
                           <span className="text-zinc-400">Vector Index</span>
-                          <span className="text-zinc-200">FAISS &amp; LangChain</span>
+                          <span className="text-zinc-200 text-right">FAISS &amp; LangChain</span>
                         </div>
-                        <div className="flex justify-between py-1 border-b border-white/[0.05]">
+                        <div className="flex justify-between py-1 border-b border-white/[0.05] gap-2">
                           <span className="text-zinc-400">ML Pipeline</span>
-                          <span className="text-zinc-200">Random Forest (&gt;88% Acc)</span>
+                          <span className="text-zinc-200 text-right">Random Forest (&gt;88% Acc)</span>
                         </div>
                       </div>
                     )}
@@ -1033,7 +1125,7 @@ export default function PortfolioPage() {
               BREAKOUT FEATURE 02: KATUP (MICROSCOPIC TRAFFIC SIMULATION)
              ===================================================================== */}
           {(activeCategory === "all" || activeCategory === "software_systems") && (
-            <div className="mb-16 rounded border border-white/[0.1] bg-[#0c0e12] overflow-hidden">
+            <div className="mb-14 sm:mb-16 rounded border border-white/[0.1] bg-[#0c0e12] overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-12">
                 
                 {/* Left Column: Simulation Architecture Diagram & Data telemetry */}
@@ -1128,144 +1220,145 @@ export default function PortfolioPage() {
           )}
 
           {/* =====================================================================
-              ENGINEERING PROJECT INDEX (PROJECTS 03 - 07)
-              BESPOKE TABULAR SPEC REGISTRY INSTEAD OF REPETITIVE CARD BOXES
+              ENGINEERING PROJECT INDEX (FILTER-AWARE)
              ===================================================================== */}
-          <div>
-            <div className="flex items-center justify-between pb-3 mb-6 border-b border-white/[0.08]">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-xs uppercase tracking-wider text-emerald-400 font-semibold">
-                  // {lang === "id" ? "INDEKS SPESIFIKASI PROYEK" : "PROJECT SPECIFICATION INDEX"}
-                </span>
-                <span className="font-mono text-xs text-zinc-400">
-                  (03 — 07)
+          {indexedProjects.length > 0 && (
+            <div>
+              <div className="flex items-center justify-between pb-3 mb-6 border-b border-white/[0.08]">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs uppercase tracking-wider text-emerald-400 font-semibold">
+                    // {lang === "id" ? "INDEKS SPESIFIKASI PROYEK" : "PROJECT SPECIFICATION INDEX"}
+                  </span>
+                  <span className="font-mono text-xs text-zinc-400">
+                    ({indexedProjects.length} {lang === "id" ? "proyek" : "entries"})
+                  </span>
+                </div>
+                <span className="font-mono text-[11px] text-zinc-400 hidden sm:inline-block">
+                  {lang === "id" ? "Klik baris untuk ekspansi dokumen teknis" : "Click row to expand technical specifications"}
                 </span>
               </div>
-              <span className="font-mono text-[11px] text-zinc-400">
-                {lang === "id" ? "Klik untuk melihat detail & dokumentasi" : "Click entry for detailed architectural review"}
-              </span>
-            </div>
 
-            <div className="border border-white/[0.08] divide-y divide-white/[0.06] rounded bg-[#0b0d11]">
-              {projectsData.slice(2).map((p, idx) => {
-                const isExpanded = expandedIndexProject === p.id;
-                return (
-                  <div key={p.id} className="transition-colors hover:bg-white/[0.015]">
-                    
-                    {/* Index Row Summary Bar */}
-                    <div
-                      onClick={() => setExpandedIndexProject(isExpanded ? null : p.id)}
-                      className="p-5 sm:p-6 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4"
-                    >
-                      <div className="flex items-start sm:items-center gap-4">
-                        <span className="font-mono text-xs text-emerald-400/90 font-bold w-7">
-                          0{idx + 3}.
-                        </span>
-                        <div>
-                          <div className="flex flex-wrap items-center gap-2 mb-1">
-                            <h4 className="font-display text-base sm:text-lg font-bold text-white hover:text-emerald-300 transition-colors">
-                              {p.title[lang]}
-                            </h4>
-                            <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] font-mono text-[10px] text-zinc-400">
-                              {p.badge[lang]}
-                            </span>
+              <div className="border border-white/[0.08] divide-y divide-white/[0.06] rounded bg-[#0b0d11]">
+                {indexedProjects.map((p, idx) => {
+                  const isExpanded = expandedIndexProject === p.id;
+                  return (
+                    <div key={p.id} className="transition-colors hover:bg-white/[0.015]">
+                      
+                      {/* Index Row Summary Bar */}
+                      <div
+                        onClick={() => setExpandedIndexProject(isExpanded ? null : p.id)}
+                        className="p-4 sm:p-6 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 select-none"
+                      >
+                        <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
+                          <span className="font-mono text-xs text-emerald-400/90 font-bold w-6 flex-shrink-0">
+                            0{idx + 3}.
+                          </span>
+                          <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-2 mb-1">
+                              <h4 className="font-display text-base sm:text-lg font-bold text-white hover:text-emerald-300 transition-colors">
+                                {p.title[lang]}
+                              </h4>
+                              <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] font-mono text-[10px] text-zinc-400">
+                                {p.badge[lang]}
+                              </span>
+                            </div>
+                            <p className="font-sans text-xs text-zinc-400 italic">
+                              {p.tagline[lang]}
+                            </p>
                           </div>
-                          <p className="font-sans text-xs text-zinc-400 italic">
-                            {p.tagline[lang]}
-                          </p>
+                        </div>
+
+                        <div className="flex items-center gap-3 self-end md:self-auto font-mono text-xs flex-shrink-0">
+                          <span className="text-zinc-400 hidden lg:inline-block">
+                            {p.tech.slice(0, 3).join(" • ")}
+                          </span>
+                          <div className="w-6 h-6 rounded bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-zinc-300">
+                            {isExpanded ? "−" : "+"}
+                          </div>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 self-end md:self-auto font-mono text-xs">
-                        <span className="text-zinc-400 hidden lg:inline-block">
-                          {p.tech.slice(0, 3).join(" • ")}
-                        </span>
-                        <div className="w-6 h-6 rounded bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-zinc-300">
-                          {isExpanded ? "−" : "+"}
+                      {/* Expandable Technical Details Drawer */}
+                      {isExpanded && (
+                        <div className="px-4 pb-6 pt-2 sm:px-6 border-t border-white/[0.05] bg-[#08090c]">
+                          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                            
+                            <div className="lg:col-span-8 space-y-4">
+                              <div>
+                                <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 block mb-1">
+                                  {lang === "id" ? "RINGKASAN REKAYASA" : "ENGINEERING SUMMARY"}
+                                </span>
+                                <p className="font-sans text-xs text-zinc-300 leading-relaxed text-justify">
+                                  {p.description[lang]}
+                                </p>
+                              </div>
+
+                              <div className="p-3.5 rounded bg-[#0d0f14] border border-white/[0.06] font-mono text-xs">
+                                <span className="text-[10px] text-zinc-400 uppercase block mb-1">
+                                  {lang === "id" ? "ARSITEKTUR & DESAIN SISTEM" : "SYSTEM ARCHITECTURE"}
+                                </span>
+                                <p className="text-zinc-300 text-[11px] leading-relaxed text-justify">
+                                  {p.documentation[lang].architecture}
+                                </p>
+                              </div>
+                            </div>
+
+                            <div className="lg:col-span-4 space-y-4 font-mono text-xs">
+                              <div>
+                                <span className="text-[10px] text-zinc-400 uppercase block mb-1.5">TECH STACK</span>
+                                <div className="flex flex-wrap gap-1">
+                                  {p.tech.map((t) => (
+                                    <span key={t} className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.07] text-[10px] text-zinc-300">
+                                      {t}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {p.documentation[lang].metrics && (
+                                <div className="p-2.5 rounded bg-emerald-500/[0.06] border border-emerald-500/20">
+                                  <span className="text-[9px] text-emerald-400 uppercase block font-semibold">TOLOK UKUR / METRIK</span>
+                                  <span className="text-zinc-200 text-[11px]">{p.documentation[lang].metrics}</span>
+                                </div>
+                              )}
+
+                              <div className="pt-2">
+                                <button
+                                  onClick={() => setActiveProjectModal(p)}
+                                  className="w-full py-2 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold tracking-wide transition-colors flex items-center justify-center gap-1.5"
+                                >
+                                  <span>{lang === "id" ? "Buka Dokumentasi Lengkap" : "View Full Dossier"}</span>
+                                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+
+                          </div>
                         </div>
-                      </div>
+                      )}
+
                     </div>
-
-                    {/* Expandable Technical Details Drawer */}
-                    {isExpanded && (
-                      <div className="px-5 pb-6 pt-2 sm:px-6 border-t border-white/[0.05] bg-[#08090c]">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                          
-                          <div className="lg:col-span-8 space-y-4">
-                            <div>
-                              <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-400 block mb-1">
-                                {lang === "id" ? "RINGKASAN REKAYASA" : "ENGINEERING SUMMARY"}
-                              </span>
-                              <p className="font-sans text-xs text-zinc-300 leading-relaxed text-justify">
-                                {p.description[lang]}
-                              </p>
-                            </div>
-
-                            <div className="p-3.5 rounded bg-[#0d0f14] border border-white/[0.06] font-mono text-xs">
-                              <span className="text-[10px] text-zinc-400 uppercase block mb-1">
-                                {lang === "id" ? "ARSITEKTUR & DESAIN SISTEM" : "SYSTEM ARCHITECTURE"}
-                              </span>
-                              <p className="text-zinc-300 text-[11px] leading-relaxed text-justify">
-                                {p.documentation[lang].architecture}
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="lg:col-span-4 space-y-4 font-mono text-xs">
-                            <div>
-                              <span className="text-[10px] text-zinc-400 uppercase block mb-1.5">TECH STACK</span>
-                              <div className="flex flex-wrap gap-1">
-                                {p.tech.map((t) => (
-                                  <span key={t} className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.07] text-[10px] text-zinc-300">
-                                    {t}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-
-                            {p.documentation[lang].metrics && (
-                              <div className="p-2.5 rounded bg-emerald-500/[0.06] border border-emerald-500/20">
-                                <span className="text-[9px] text-emerald-400 uppercase block font-semibold">TOLOK UKUR / METRIK</span>
-                                <span className="text-zinc-200 text-[11px]">{p.documentation[lang].metrics}</span>
-                              </div>
-                            )}
-
-                            <div className="pt-2">
-                              <button
-                                onClick={() => setActiveProjectModal(p)}
-                                className="w-full py-2 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold tracking-wide transition-colors flex items-center justify-center gap-1.5"
-                              >
-                                <span>{lang === "id" ? "Buka Dokumentasi Lengkap" : "View Full Dossier"}</span>
-                                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                              </button>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    )}
-
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
         </section>
 
         {/* =========================================================================
             SECTION 04: ARCHITECTURAL CAPABILITIES MATRIX (SKILLS)
            ========================================================================= */}
-        <section id="capabilities" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-b border-white/[0.07]">
+        <section id="capabilities" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 border-b border-white/[0.07]">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
             <div>
               <span className="font-mono text-xs uppercase tracking-widest text-emerald-400/90 block mb-2">
                 03 // {lang === "id" ? "KAPABILITAS TEKNIS" : "TECHNICAL CAPABILITIES"}
               </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <h2 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
                 {lang === "id" ? "Matriks Sistem & Toolchain" : "Architectural Toolchain Matrix"}
               </h2>
             </div>
@@ -1276,20 +1369,20 @@ export default function PortfolioPage() {
             </p>
           </div>
 
-          {/* Unified Engineering Matrix (Hierarchical Spec Rows instead of 6 repetitive cards) */}
+          {/* Unified Engineering Matrix (Hierarchical Spec Rows) */}
           <div className="border border-white/[0.08] divide-y divide-white/[0.06] rounded bg-[#0b0d11]">
             
             {/* Layer 01: Low-Level Systems */}
-            <div className="p-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+            <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
                 <span className="font-mono text-[10px] text-emerald-400 font-bold block">LAYER 01</span>
                 <h3 className="font-display text-sm font-bold text-white">Low-Level & Hardware</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Memory & Processor</span>
               </div>
               <div className="md:col-span-9">
-                <div className="flex flex-wrap gap-2 mb-2 font-mono text-xs">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 font-mono text-xs">
                   {["C (Pointers, malloc/realloc, Structs)", "Java (OOP, Concurrency)", "MIPS Instruction Set", "Computer Organization", "Assembly Logic"].map((s) => (
-                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200">
+                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200 text-[11px] sm:text-xs">
                       {s}
                     </span>
                   ))}
@@ -1303,16 +1396,16 @@ export default function PortfolioPage() {
             </div>
 
             {/* Layer 02: Backend & Distributed Data */}
-            <div className="p-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+            <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
                 <span className="font-mono text-[10px] text-emerald-400 font-bold block">LAYER 02</span>
                 <h3 className="font-display text-sm font-bold text-white">Backend & Distributed Data</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Microservices & Big Data</span>
               </div>
               <div className="md:col-span-9">
-                <div className="flex flex-wrap gap-2 mb-2 font-mono text-xs">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 font-mono text-xs">
                   {["Python (FastAPI, Flask)", "Node.js (Express 5)", "Apache Hadoop (HDFS, MapReduce)", "PostgreSQL (Neon)", "Prisma ORM", "REST API"].map((s) => (
-                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200">
+                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200 text-[11px] sm:text-xs">
                       {s}
                     </span>
                   ))}
@@ -1326,16 +1419,16 @@ export default function PortfolioPage() {
             </div>
 
             {/* Layer 03: Simulation & Intelligent Systems */}
-            <div className="p-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+            <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
                 <span className="font-mono text-[10px] text-emerald-400 font-bold block">LAYER 03</span>
                 <h3 className="font-display text-sm font-bold text-white">Simulation & Intelligent Systems</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Modeling & RAG</span>
               </div>
               <div className="md:col-span-9">
-                <div className="flex flex-wrap gap-2 mb-2 font-mono text-xs">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 font-mono text-xs">
                   {["Eclipse SUMO", "Python TraCI", "FAISS Vector Index", "LangChain", "Scikit-Learn", "Prompt Grounding"].map((s) => (
-                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200">
+                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200 text-[11px] sm:text-xs">
                       {s}
                     </span>
                   ))}
@@ -1349,16 +1442,16 @@ export default function PortfolioPage() {
             </div>
 
             {/* Layer 04: Security & Networking */}
-            <div className="p-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+            <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
                 <span className="font-mono text-[10px] text-emerald-400 font-bold block">LAYER 04</span>
                 <h3 className="font-display text-sm font-bold text-white">Security & Networking</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Hardening & Defense</span>
               </div>
               <div className="md:col-span-9">
-                <div className="flex flex-wrap gap-2 mb-2 font-mono text-xs">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 font-mono text-xs">
                   {["SQL Injection Defense", "Parameterized Queries", "Helmet Security Headers", "Express Rate Limiting", "Wireshark", "Network Protocols (TCP/IP)"].map((s) => (
-                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200">
+                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200 text-[11px] sm:text-xs">
                       {s}
                     </span>
                   ))}
@@ -1372,16 +1465,16 @@ export default function PortfolioPage() {
             </div>
 
             {/* Layer 05: Modern Frontend Systems */}
-            <div className="p-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+            <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
                 <span className="font-mono text-[10px] text-emerald-400 font-bold block">LAYER 05</span>
                 <h3 className="font-display text-sm font-bold text-white">Frontend Engineering</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Interface & Systems</span>
               </div>
               <div className="md:col-span-9">
-                <div className="flex flex-wrap gap-2 mb-2 font-mono text-xs">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 font-mono text-xs">
                   {["TypeScript", "React 19", "Next.js 16 (App Router)", "Tailwind CSS", "HTML5 Semantic", "Responsive Systems"].map((s) => (
-                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200">
+                    <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200 text-[11px] sm:text-xs">
                       {s}
                     </span>
                   ))}
@@ -1399,60 +1492,74 @@ export default function PortfolioPage() {
         </section>
 
         {/* =========================================================================
-            SECTION 05: ACADEMIC & ORGANIZATIONAL RECORD (EXPERIENCE)
+            SECTION 05: ACADEMIC & ORGANIZATIONAL RECORD (CHRONOLOGICAL STREAM)
            ========================================================================= */}
-        <section id="experience" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-b border-white/[0.07]">
+        <section id="experience" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 border-b border-white/[0.07]">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
             
             <div className="lg:col-span-4">
               <span className="font-mono text-xs uppercase tracking-widest text-emerald-400/90 block mb-2">
                 04 // {lang === "id" ? "REKAM JEJAK" : "ACADEMIC & LEADERSHIP"}
               </span>
-              <h2 className="font-display text-3xl font-bold text-white tracking-tight">
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 {lang === "id" ? "Pendidikan & Organisasi" : "Track Record"}
               </h2>
             </div>
 
-            <div className="lg:col-span-8 space-y-8">
+            {/* Continuous Vertical Timeline Stream */}
+            <div className="lg:col-span-8 relative pl-6 sm:pl-8 border-l border-white/[0.12] space-y-10">
               
               {/* Milestone 01: Universitas Indonesia */}
-              <div className="p-6 rounded border border-white/[0.08] bg-[#0c0e12]">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <span className="font-mono text-xs text-emerald-400 font-semibold">2024 — PRESENT</span>
-                  <span className="font-mono text-[11px] text-zinc-400">DEPOK, INDONESIA</span>
+              <div className="relative">
+                {/* Node beacon */}
+                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-[#090a0c]"></div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5 font-mono text-xs">
+                  <span className="text-emerald-400 font-semibold tracking-wider">2024 — SEKARANG</span>
+                  <span className="text-zinc-400 text-[11px]">DEPOK, INDONESIA</span>
                 </div>
-                <h3 className="font-display text-xl font-bold text-white mb-1">
+                
+                <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-1">
                   S1 Teknik Komputer — Universitas Indonesia
                 </h3>
+                
                 <p className="font-mono text-xs text-zinc-400 mb-3">
-                  Fakultas Teknik, Departemen Teknik Elektro (DTE FTUI) • IPK Kumulatif: <strong className="text-emerald-400">3.60 / 4.00</strong>
+                  Fakultas Teknik, Departemen Teknik Elektro (DTE FTUI) • IPK: <strong className="text-emerald-400 font-semibold">3.60 / 4.00</strong>
                 </p>
-                <p className="text-xs text-zinc-300 leading-relaxed mb-4 text-justify">
+                
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-4 text-justify">
                   {lang === "id"
                     ? "Mendalami kurikulum inti rekayasa sistem komputer: Pemrograman Berorientasi Objek (Java), Struktur Data & Algoritma, Arsitektur & Organisasi Komputer (MIPS & Desain Memori), Pemrograman Terstruktur (C), Sistem Basis Data (PostgreSQL), Teknologi Big Data Terapan (Hadoop), dan Keamanan Jaringan."
                     : "Pursuing rigorous coursework across Computer Systems Engineering: Object-Oriented Programming (Java), Data Structures & Algorithms, Computer Architecture & Organization (MIPS), Structured Systems Programming (C), Relational Database Systems (PostgreSQL), Big Data Analytics (Hadoop HDFS), and Network Security."}
                 </p>
+
                 <div className="flex flex-wrap gap-2 font-mono text-[11px]">
                   <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] text-zinc-300">NPM: 2406355306</span>
                   <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] text-zinc-300">GPA: 3.60 / 4.00</span>
-                  <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] text-zinc-300">FTUI Depok Campus</span>
+                  <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] text-zinc-300">FTUI Kampus Depok</span>
                 </div>
               </div>
 
               {/* Milestone 02: IME FTUI */}
-              <div className="p-6 rounded border border-white/[0.08] bg-[#0c0e12]">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <span className="font-mono text-xs text-zinc-300 bg-white/[0.05] px-2 py-0.5 rounded">2025</span>
-                  <span className="font-mono text-[11px] text-zinc-400">DTE FTUI</span>
+              <div className="relative">
+                {/* Node beacon */}
+                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-zinc-600 ring-4 ring-[#090a0c]"></div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5 font-mono text-xs">
+                  <span className="text-zinc-300 tracking-wider">2025</span>
+                  <span className="text-zinc-400 text-[11px]">DTE FTUI</span>
                 </div>
+
                 <h3 className="font-display text-lg font-bold text-white mb-1">
                   Ikatan Mahasiswa Elektro (IME FTUI)
                 </h3>
+
                 <p className="font-sans text-xs font-semibold text-emerald-400 mb-3">
                   {lang === "id" ? "Staff Bidang RETRO (Rohani Islam Elektro)" : "Staff of RETRO Division (Rohani Islam Elektro)"}
                 </p>
-                <ul className="text-xs text-zinc-300 space-y-1.5 list-disc list-inside text-justify">
+
+                <ul className="text-xs sm:text-sm text-zinc-300 space-y-2 list-disc list-inside text-justify">
                   {lang === "id" ? (
                     <>
                       <li>Mengelola dan mengoordinasikan program pembinaan karakter serta kegiatan kerohanian Islam di lingkungan Departemen Teknik Elektro UI.</li>
@@ -1470,18 +1577,24 @@ export default function PortfolioPage() {
               </div>
 
               {/* Milestone 03: PSB FTUI */}
-              <div className="p-6 rounded border border-white/[0.08] bg-[#0c0e12]">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <span className="font-mono text-xs text-zinc-300 bg-white/[0.05] px-2 py-0.5 rounded">FEBRUARI 2025</span>
-                  <span className="font-mono text-[11px] text-zinc-400">FTUI</span>
+              <div className="relative">
+                {/* Node beacon */}
+                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-zinc-600 ring-4 ring-[#090a0c]"></div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5 font-mono text-xs">
+                  <span className="text-zinc-300 tracking-wider">FEBRUARI 2025</span>
+                  <span className="text-zinc-400 text-[11px]">FTUI</span>
                 </div>
+
                 <h3 className="font-display text-lg font-bold text-white mb-1">
                   Pelepasan Sarjana Baru (PSB FTUI)
                 </h3>
+
                 <p className="font-sans text-xs font-semibold text-emerald-400 mb-3">
                   {lang === "id" ? "Divisi K3 (Keselamatan & Keamanan)" : "Safety & Security Division (K3)"}
                 </p>
-                <ul className="text-xs text-zinc-300 space-y-1.5 list-disc list-inside text-justify">
+
+                <ul className="text-xs sm:text-sm text-zinc-300 space-y-2 list-disc list-inside text-justify">
                   {lang === "id" ? (
                     <>
                       <li>Merumuskan rencana keselamatan darurat dan evakuasi venue acara Pelepasan Sarjana Baru FTUI.</li>
@@ -1507,16 +1620,16 @@ export default function PortfolioPage() {
         {/* =========================================================================
             SECTION 06: CONTACT & COMMUNICATION CHANNELS
            ========================================================================= */}
-        <section id="contact" className="max-w-6xl mx-auto px-4 sm:px-6 py-24">
+        <section id="contact" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24">
           
-          <div className="rounded border border-white/[0.1] bg-[#0c0e12] p-8 sm:p-14">
+          <div className="rounded border border-white/[0.1] bg-[#0c0e12] p-6 sm:p-14">
             
             <div className="max-w-2xl">
               <span className="font-mono text-xs uppercase tracking-widest text-emerald-400/90 block mb-3">
                 05 // {lang === "id" ? "INISIASI KOMUNIKASI" : "GET IN TOUCH"}
               </span>
               
-              <h2 className="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4 leading-tight">
+              <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4 leading-tight">
                 {lang === "id"
                   ? "Mari Membangun Sistem yang Terukur & Aman"
                   : "Let's Build Resilient, Scalable Software"}
@@ -1529,10 +1642,10 @@ export default function PortfolioPage() {
               </p>
 
               {/* Action Buttons: Email Direct + CV */}
-              <div className="flex flex-wrap items-center gap-3 mb-10">
+              <div className="flex flex-wrap items-center gap-3 mb-8 sm:mb-10">
                 <a
                   href={SOCIAL_LINKS.email}
-                  className="px-6 py-3 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-bold tracking-wide transition-colors flex items-center gap-2 shadow-lg"
+                  className="px-5 sm:px-6 py-3 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-bold tracking-wide transition-colors flex items-center gap-2 shadow-lg"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -1560,7 +1673,7 @@ export default function PortfolioPage() {
               </div>
 
               {/* Direct Channels List (Exact 'Instagram' clean label) */}
-              <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/[0.08] text-xs font-mono text-zinc-400">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t border-white/[0.08] text-xs font-mono text-zinc-400">
                 <a
                   href={SOCIAL_LINKS.github}
                   target="_blank"
@@ -1569,7 +1682,7 @@ export default function PortfolioPage() {
                 >
                   <span>GitHub // @rifqifadill</span>
                 </a>
-                <span className="text-zinc-700">•</span>
+                <span className="text-zinc-700 hidden sm:inline">•</span>
                 <a
                   href={SOCIAL_LINKS.linkedin}
                   target="_blank"
@@ -1578,7 +1691,7 @@ export default function PortfolioPage() {
                 >
                   <span>LinkedIn</span>
                 </a>
-                <span className="text-zinc-700">•</span>
+                <span className="text-zinc-700 hidden sm:inline">•</span>
                 <a
                   href={SOCIAL_LINKS.instagram}
                   target="_blank"
@@ -1587,7 +1700,7 @@ export default function PortfolioPage() {
                 >
                   <span>Instagram</span>
                 </a>
-                <span className="text-zinc-700">•</span>
+                <span className="text-zinc-700 hidden sm:inline">•</span>
                 <a
                   href={`tel:${SOCIAL_LINKS.phone}`}
                   className="hover:text-emerald-300 transition-colors flex items-center gap-1.5"
@@ -1624,19 +1737,19 @@ export default function PortfolioPage() {
       </footer>
 
       {/* =========================================================================
-          INTERACTIVE ARCHITECTURAL DOSSIER MODAL
+          INTERACTIVE ARCHITECTURAL DOSSIER MODAL (STICKY HEADER & FOOTER)
          ========================================================================= */}
       {activeProjectModal && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md"
           onClick={() => setActiveProjectModal(null)}
         >
           <div
-            className="w-full max-w-2xl bg-[#0e1014] border border-white/[0.12] rounded p-6 sm:p-8 shadow-2xl relative my-8"
+            className="w-full max-w-2xl max-h-[88vh] flex flex-col bg-[#0e1014] border border-white/[0.12] rounded shadow-2xl relative my-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="flex items-start justify-between gap-4 pb-4 border-b border-white/[0.08] mb-6">
+            {/* Modal Header (Fixed / Non-scrolling) */}
+            <div className="flex-shrink-0 p-5 sm:p-6 pb-4 border-b border-white/[0.08] flex items-start justify-between gap-4">
               <div>
                 <span className="font-mono text-[10px] text-emerald-400 uppercase tracking-widest block mb-1">
                   // {lang === "id" ? "DOKUMENTASI REKAYASA TEKNIS" : "TECHNICAL ENGINEERING DOSSIER"}
@@ -1647,7 +1760,7 @@ export default function PortfolioPage() {
               </div>
               <button
                 onClick={() => setActiveProjectModal(null)}
-                className="w-8 h-8 rounded bg-white/[0.05] hover:bg-white/[0.12] border border-white/[0.08] text-zinc-400 hover:text-white flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded bg-white/[0.05] hover:bg-white/[0.12] border border-white/[0.08] text-zinc-400 hover:text-white flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-emerald-400"
                 aria-label="Tutup modal"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1656,61 +1769,68 @@ export default function PortfolioPage() {
               </button>
             </div>
 
-            {/* Project Title */}
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-2 leading-snug">
-              {activeProjectModal.title[lang]}
-            </h3>
-            <p className="text-xs font-mono text-zinc-400 mb-6">
-              {activeProjectModal.tech.join(" • ")}
-            </p>
-
-            {/* Architecture Overview */}
-            <div className="mb-6">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-emerald-400"></span>
-                <span>{lang === "id" ? "Arsitektur & Desain Sistem:" : "Technical Architecture & System Design:"}</span>
-              </h4>
-              <p className="text-xs text-zinc-300 leading-relaxed p-4 rounded bg-[#090a0c] border border-white/[0.06] font-mono text-justify">
-                {activeProjectModal.documentation[lang].architecture}
-              </p>
-            </div>
-
-            {/* Key Challenges */}
-            <div className="mb-6">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-emerald-400"></span>
-                <span>{lang === "id" ? "Tantangan Teknis Kritis & Solusi:" : "Key Technical Challenges Solved:"}</span>
-              </h4>
-              <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside font-sans text-justify">
-                {activeProjectModal.documentation[lang].keyChallenges.map((c, i) => (
-                  <li key={i} className="leading-relaxed">{c}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Deliverables */}
-            <div className="mb-6">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-emerald-400"></span>
-                <span>{lang === "id" ? "Deliverable & Hasil Rekayasa:" : "Deliverables & Artifacts:"}</span>
-              </h4>
-              <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside font-sans text-justify">
-                {activeProjectModal.documentation[lang].deliverables.map((d, i) => (
-                  <li key={i} className="leading-relaxed">{d}</li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Metrics */}
-            {activeProjectModal.documentation[lang].metrics && (
-              <div className="p-3.5 rounded bg-[#090a0c] border border-emerald-500/30 text-xs text-zinc-300 mb-6 font-mono">
-                <strong className="text-emerald-400">{lang === "id" ? "Tolok Ukur: " : "Benchmark: "}</strong>
-                {activeProjectModal.documentation[lang].metrics}
+            {/* Modal Scrollable Body */}
+            <div className="overflow-y-auto p-5 sm:p-6 space-y-6">
+              
+              {/* Project Title & Stack summary */}
+              <div>
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-2 leading-snug">
+                  {activeProjectModal.title[lang]}
+                </h3>
+                <p className="text-xs font-mono text-zinc-400">
+                  {activeProjectModal.tech.join(" • ")}
+                </p>
               </div>
-            )}
 
-            {/* Modal Footer */}
-            <div className="flex justify-end pt-4 border-t border-white/[0.08]">
+              {/* Architecture Overview */}
+              <div>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-emerald-400"></span>
+                  <span>{lang === "id" ? "Arsitektur & Desain Sistem:" : "Technical Architecture & System Design:"}</span>
+                </h4>
+                <p className="text-xs text-zinc-300 leading-relaxed p-4 rounded bg-[#090a0c] border border-white/[0.06] font-mono text-justify">
+                  {activeProjectModal.documentation[lang].architecture}
+                </p>
+              </div>
+
+              {/* Key Challenges */}
+              <div>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-emerald-400"></span>
+                  <span>{lang === "id" ? "Tantangan Teknis Kritis & Solusi:" : "Key Technical Challenges Solved:"}</span>
+                </h4>
+                <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside font-sans text-justify">
+                  {activeProjectModal.documentation[lang].keyChallenges.map((c, i) => (
+                    <li key={i} className="leading-relaxed">{c}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Deliverables */}
+              <div>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-emerald-400"></span>
+                  <span>{lang === "id" ? "Deliverable & Hasil Rekayasa:" : "Deliverables & Artifacts:"}</span>
+                </h4>
+                <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside font-sans text-justify">
+                  {activeProjectModal.documentation[lang].deliverables.map((d, i) => (
+                    <li key={i} className="leading-relaxed">{d}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Metrics */}
+              {activeProjectModal.documentation[lang].metrics && (
+                <div className="p-3.5 rounded bg-[#090a0c] border border-emerald-500/30 text-xs text-zinc-300 font-mono">
+                  <strong className="text-emerald-400">{lang === "id" ? "Tolok Ukur: " : "Benchmark: "}</strong>
+                  {activeProjectModal.documentation[lang].metrics}
+                </div>
+              )}
+
+            </div>
+
+            {/* Modal Footer (Fixed / Non-scrolling) */}
+            <div className="flex-shrink-0 p-4 sm:p-5 border-t border-white/[0.08] flex justify-end bg-[#0a0c0f]">
               <button
                 onClick={() => setActiveProjectModal(null)}
                 className="px-5 py-2 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono font-semibold text-xs transition-colors"
