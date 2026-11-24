@@ -10,8 +10,7 @@ const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/muhamad-rifqi-fadil-itsnain-984512320",
   instagram: "https://instagram.com/rifqiitsnain_",
   email: "mailto:rifqiitsnain7@gmail.com",
-  phone: "+62 812-1033-2765",
-  cvDownload: "/cv.pdf"
+  phone: "+62 812-1033-2765"
 };
 
 type Language = "id" | "en";
@@ -557,17 +556,7 @@ export default function PortfolioPage() {
               </button>
             </div>
 
-            {/* Direct CV Download Link */}
-            <a
-              href={SOCIAL_LINKS.cvDownload}
-              download
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[0.04] hover:bg-white/[0.09] border border-white/[0.12] text-xs font-mono text-zinc-200 hover:text-white transition-colors"
-            >
-              <span>CV (PDF)</span>
-              <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-            </a>
+
 
             {/* Mobile Hamburger Toggle */}
             <button
@@ -636,15 +625,11 @@ export default function PortfolioPage() {
             >
               05. {lang === "id" ? "Kontak" : "Contact"}
             </a>
-            <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between">
-              <a
-                href={SOCIAL_LINKS.cvDownload}
-                download
-                className="text-xs text-emerald-400 font-semibold"
-              >
-                Unduh CV (PDF)
-              </a>
-              <span className="text-xs text-zinc-400 font-mono">IPK: 3.60 / 4.00</span>
+            <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
+              <span className="text-emerald-400 font-semibold tracking-wide">
+                {lang === "id" ? "STATUS: TERBUKA UNTUK MAGANG" : "STATUS: OPEN FOR INTERNSHIP"}
+              </span>
+              <span className="text-zinc-400">IPK: 3.60 / 4.00</span>
             </div>
           </div>
         )}
@@ -738,15 +723,14 @@ export default function PortfolioPage() {
                   </svg>
                 </a>
 
-                {/* Secondary CTA: Download CV */}
+                {/* Secondary CTA: Inisiasi Kontak */}
                 <a
-                  href={SOCIAL_LINKS.cvDownload}
-                  download
+                  href="#contact"
                   className="px-3.5 sm:px-4 py-2.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-zinc-200 hover:text-white font-mono text-xs font-medium transition-colors flex items-center gap-2"
                 >
-                  <span>CV (PDF)</span>
+                  <span>{lang === "id" ? "Inisiasi Kontak" : "Get in Touch"}</span>
                   <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
 
@@ -1660,16 +1644,19 @@ export default function PortfolioPage() {
                   {copiedEmail ? (lang === "id" ? "Tersalin ke Clipboard!" : "Copied!") : (lang === "id" ? "Salin Email" : "Copy Email")}
                 </button>
 
-                <a
-                  href={SOCIAL_LINKS.cvDownload}
-                  download
-                  className="px-4 py-3 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-xs font-mono text-zinc-200 hover:text-white transition-colors flex items-center gap-2"
-                >
-                  <span>Unduh CV (PDF)</span>
-                  <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                </a>
+
+              </div>
+
+              {/* Privacy Notice for Credentials & CV */}
+              <div className="p-3.5 rounded bg-white/[0.02] border border-white/[0.07] mb-8 font-mono text-xs text-zinc-400">
+                <span className="text-emerald-400 font-semibold block mb-1">
+                  // {lang === "id" ? "AKSES RESMI CURRICULUM VITAE" : "OFFICIAL CV & CREDENTIAL ACCESS"}
+                </span>
+                <span className="leading-relaxed">
+                  {lang === "id"
+                    ? "Curriculum Vitae (CV) lengkap, portofolio privat, dan transkrip akademik tersedia melalui permintaan langsung via email untuk keperluan rekrutmen magang & profesional."
+                    : "Official Curriculum Vitae (CV), private project records, and academic transcripts are provided upon direct email request for internship and professional recruitment inquiries."}
+                </span>
               </div>
 
               {/* Direct Channels List (Exact 'Instagram' clean label) */}
