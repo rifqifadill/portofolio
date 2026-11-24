@@ -9,10 +9,23 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["'Plus Jakarta Sans'", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
-        serif: ["'Cormorant Garamond'", "Georgia", "serif"],
-        display: ["'Cormorant Garamond'", "'Space Grotesk'", "serif"],
+        display: ["'Space Grotesk'", "'Plus Jakarta Sans'", "sans-serif"],
         mono: ["'JetBrains Mono'", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
+      colors: {
+        canvas: {
+          DEFAULT: "#090a0c",
+          subtle: "#0e1013",
+          surface: "#131519",
+          elevated: "#181a20",
+          border: "#20232a",
+        },
+        accent: {
+          DEFAULT: "#10b981",
+          bright: "#34d399",
+          lime: "#84cc16",
+        }
+      }
     },
   },
   plugins: [],

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,10 +6,15 @@
 
 @layer base {
   body {
-    background-color: #0b0c10;
-    color: #cbd5e1;
+    background-color: #090a0c;
+    color: #e4e4e7;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.025em;
   }
 
   code, pre, .font-code {
@@ -17,78 +22,65 @@
   }
 }
 
-/* Natural Architectural Diffuse Grid (Soft Warm Hairline) */
-.bg-architect-grid {
-  background-size: 80px 80px;
+/* Subtle Architectural Grid (Fine Editorial Hairline) */
+.bg-editorial-grid {
+  background-size: 64px 64px;
   background-image: 
-    linear-gradient(to right, rgba(218, 175, 114, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(218, 175, 114, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
-.mask-radial-hero {
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 15%, black 40%, transparent 90%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 15%, black 40%, transparent 90%);
+.mask-radial-vignette {
+  mask-image: radial-gradient(ellipse 85% 60% at 50% 10%, black 40%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 60% at 50% 10%, black 40%, transparent 95%);
 }
 
-/* Luxurious Frosted Glass Card with Champagne Gold accents */
-.glass-card {
-  background: rgba(18, 19, 26, 0.76);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(218, 175, 114, 0.16);
-  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
-  position: relative;
-  overflow: hidden;
+/* Editorial Surface Cards */
+.surface-card {
+  background: #0f1115;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(226, 183, 116, 0.35), transparent);
-  pointer-events: none;
+.surface-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #13151b;
 }
 
-.glass-card:hover {
-  border-color: rgba(226, 183, 116, 0.42);
-  background: rgba(22, 24, 34, 0.88);
-  box-shadow: 0 16px 45px -8px rgba(0, 0, 0, 0.75), 0 0 35px rgba(218, 175, 114, 0.1);
+.surface-elevated {
+  background: #14171d;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
 }
 
-.glass-card:hover::before {
-  background: linear-gradient(90deg, transparent, rgba(226, 183, 116, 0.65), transparent);
-}
-
-/* Ambient Natural Sunlight / Golden Hour Glow */
-@keyframes naturalBreathe {
+/* Restrained Signal Glow for live indicators */
+@keyframes signalPulse {
   0%, 100% {
-    transform: translate(-50%, 0) scale(1);
-    opacity: 0.85;
+    opacity: 1;
+    transform: scale(1);
   }
   50% {
-    transform: translate(-50%, -10px) scale(1.04);
-    opacity: 1;
+    opacity: 0.45;
+    transform: scale(0.92);
   }
 }
 
-.ambient-spotlight {
-  animation: naturalBreathe 12s ease-in-out infinite;
+.animate-signal {
+  animation: signalPulse 3s ease-in-out infinite;
 }
 
-/* Custom Scrollbar */
+/* Sleek Minimal Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0c10;
+  background: #090a0c;
 }
 ::-webkit-scrollbar-thumb {
-  background: #232533;
-  border-radius: 3px;
+  background: #20232a;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c59a58;
+  background: #34d399;
 }
