@@ -6,7 +6,6 @@ import React, { useState, useEffect } from "react";
 // KONFIGURASI INFORMASI KONTAK & TAUTAN RESMI
 // =============================================================================
 const SOCIAL_LINKS = {
-  github: "https://github.com/rifqifadill",
   linkedin: "https://www.linkedin.com/in/muhamad-rifqi-fadil-itsnain-984512320",
   instagram: "https://instagram.com/rifqiitsnain_",
   email: "mailto:rifqiitsnain7@gmail.com",
@@ -15,7 +14,7 @@ const SOCIAL_LINKS = {
 };
 
 type Language = "id" | "en";
-type Category = "all" | "ai_data" | "security" | "software_systems";
+type Category = "all" | "ai_data" | "software_systems";
 
 interface ProjectDoc {
   architecture: string;
@@ -33,7 +32,6 @@ interface Project {
   tagline: { id: string; en: string };
   description: { id: string; en: string };
   tech: string[];
-  repoUrl: string;
   documentation: {
     id: ProjectDoc;
     en: ProjectDoc;
@@ -61,7 +59,6 @@ const projectsData: Project[] = [
       en: "An integrated AI health platform developed for the TechnoScape National Hackathon 2025 (Team Fantastic Four). Combines Retrieval-Augmented Generation (RAG) for emergency clinical triage with machine learning pipelines predicting healthcare worker burnout and regional disease surges."
     },
     tech: ["Next.js 16", "Python FastAPI", "FAISS RAG", "Scikit-Learn", "Supabase", "Tailwind CSS"],
-    repoUrl: "https://github.com/ziehan/fantasticfourHealthAuth",
     documentation: {
       id: {
         architecture: "Arsitektur Multi-Tier: Frontend Next.js 16 App Router menyediakan dasbor terpisah (dashboard-nakes untuk asisten chat dan shift log, dashboard-pemerintah untuk pemantauan lonjakan penyakit). Backend FastAPI mengeksekusi FAISS in-memory index dari SOP medis resmi, sementara pipeline Scikit-Learn memproses data shift untuk inferensi burnout.",
@@ -112,7 +109,6 @@ const projectsData: Project[] = [
       en: "A comprehensive microscopic traffic simulator in Eclipse SUMO instrumented via Python TraCI. Mitigates upstream bottleneck spillback caused by urban infrastructure excavations by applying a fluid hydraulic valve principle across autonomous sensing, gating, and rerouting agents."
     },
     tech: ["Eclipse SUMO", "Python (TraCI)", "Multi-Agent Systems", "Netconvert", "Traffic Engineering"],
-    repoUrl: "https://github.com/rifqifadill/Katup",
     documentation: {
       id: {
         architecture: "Komunikasi Dua Arah TCP/IP: Engine C++ Eclipse SUMO dihubungkan secara real-time ke skrip Python katup_controller.py melalui soket TraCI. AgenPengamat memantau loop induksi per detik, AgenKatup memodulasi fase lampu hijau simpang hulu (metering), dan AgenRute membelokkan arus kendaraan ke koridor bypass alternatif.",
@@ -146,58 +142,7 @@ const projectsData: Project[] = [
       }
     }
   },
-  {
-    id: "security-lab",
-    title: {
-      id: "Cybersecurity Lab – Eksploitasi SQL Injection & 11 Lapisan Pengerasan Defensif",
-      en: "Cybersecurity Lab – SQL Injection Exploitation & 11-Layer Hardening Platform"
-    },
-    category: "security",
-    badge: { id: "Lab Keamanan Jaringan Komputer FTUI", en: "Network Security Lab Platform FTUI" },
-    tagline: {
-      id: "Simulasi Serangan SQLi, Validasi Flag CTF, dan 11 Mitigasi Keamanan Fullstack",
-      en: "SQLi Attack Simulation, CTF Flag Validation & 11-Layer Fullstack Countermeasures"
-    },
-    description: {
-      id: "Platform pengujian penetrasi dan mitigasi kerentanan web interaktif pada praktikum Keamanan Jaringan Komputer Netlab FTUI. Mendemonstrasikan eksploitasi SQLi bertingkat (auth bypass dan UNION extraction) dilanjutkan dengan implementasi 11 lapisan pertahanan defensif pada backend dan frontend.",
-      en: "An interactive web penetration testing and defense platform developed for the Computer Network Security Lab (Netlab FTUI). Features tiered SQL Injection exploitation scenarios paired with 11 comprehensive defensive hardening countermeasures across backend and frontend tiers."
-    },
-    tech: ["Node.js", "Express 5", "PostgreSQL (Neon)", "React 19", "Helmet", "Rate Limiting"],
-    repoUrl: "https://github.com/musyaffa-iman/cs8-kemjar-sql-injection",
-    documentation: {
-      id: {
-        architecture: "Arsitektur Pengujian Berlapis: Backend Express 5 memisahkan controller rentan untuk analisis eksploitasi dan controller terproteksi dengan parameterized query pool. Frontend React 19 menyediakan konsol pengujian, deteksi pola injeksi dini, dan verifikasi flag CTF resmi.",
-        keyChallenges: [
-          "Menganalisis vektor serangan injeksi SQL mulai dari bypass autentikasi sederhana hingga pembacaan skema tabel via UNION SELECT.",
-          "Mengamankan seluruh endpoint backend menggunakan prepared statements tanpa mengorbankan performa query pool PostgreSQL.",
-          "Mencegah Denial of Service (DoS) dan enumeration data melalui rate limiting dan pembatasan response body."
-        ],
-        deliverables: [
-          "11 modul kode pertahanan defensif pada backend Express dan frontend React.",
-          "Laporan teknis komprehensif Modul 8 (603 baris) merinci analisis kerentanan dan solusi mitigasi.",
-          "Validasi flag resmi praktikum: FLAG{kemjar8_sqli_1f9153cd3a42fbee}."
-        ],
-        contribution: "Penulis tunggal implementasi 11 langkah pengerasan keamanan: parameterized queries login/password, server-side whitelisting, generic error handling, Express rate limiting, Helmet HTTP headers, dan deteksi dini SQLi di React.",
-        metrics: "Verifikasi flag resmi praktikum: FLAG{kemjar8_sqli_1f9153cd3a42fbee} (User ID 65)"
-      },
-      en: {
-        architecture: "Layered Audit Architecture: Express 5 backend segregating vulnerable endpoints for attack vector analysis from hardened endpoints backed by parameterized query pools. React 19 frontend provides testing consoles, proactive pattern scanning, and official CTF flag verification.",
-        keyChallenges: [
-          "Analyzing tiered injection vectors progressing from basic auth bypass (' OR 1=1 --) to schema exfiltration via UNION SELECT.",
-          "Hardening database endpoints with parameterized prepared statements across PostgreSQL connection pools.",
-          "Mitigating automated enumeration and DoS threats using IP rate limiters and strict response body boundaries."
-        ],
-        deliverables: [
-          "11 defensive code hardening implementations across Express and React layers.",
-          "Comprehensive 603-line technical lab report detailing vulnerability mechanics and verified remediation.",
-          "Validated official CTF flag: FLAG{kemjar8_sqli_1f9153cd3a42fbee}."
-        ],
-        contribution: "Sole author and engineer of the 11-step defensive hardening countermeasures: login/password parameterized queries, server regex whitelisting, generic error handling, rate limiting, Helmet HTTP headers, and client-side SQLi pattern alerting.",
-        metrics: "Official CTF flag validated: FLAG{kemjar8_sqli_1f9153cd3a42fbee} (User ID 65)"
-      }
-    }
-  },
-  {
+    {
     id: "survival-game",
     title: {
       id: "Is There Anyone? – Game Eksplorasi 2D Survival Horror",
@@ -214,7 +159,6 @@ const projectsData: Project[] = [
       en: "A 2D top-down survival horror exploration game set in 'Desa Tumpang' engineered in Java LibGDX paired with a Spring Boot REST API backend. Implements 8 verified OOP design patterns, dynamic stamina and stealth mechanics, and persistent cloud save slot synchronization."
     },
     tech: ["Java 17", "LibGDX (LWJGL3)", "Spring Boot", "PostgreSQL (Neon)", "Gradle"],
-    repoUrl: "https://github.com/ziehan/Final-Project_OOP4",
     documentation: {
       id: {
         architecture: "Arsitektur Client-Server: Frontend game engine LibGDX (LWJGL3) mengelola rendering tilemap Tiled (.tmx), deteksi tabrakan fisik, dan siklus hidup layar permainan. Backend Spring Boot (port 9090) mengelola autentikasi akun dan sinkronisasi status slot save game ke database PostgreSQL Neon.",
@@ -265,7 +209,6 @@ const projectsData: Project[] = [
       en: "A dedicated campus marketplace and community platform engineered for Universitas Indonesia students. Integrates secondhand goods cataloging, student services, campus discussion feeds, product-bound messaging, and a secure Double-Confirmation Cash on Delivery (COD) workflow."
     },
     tech: ["Next.js 16.2.5", "React 19", "TypeScript", "PostgreSQL", "Prisma ORM 7.8", "Tailwind CSS"],
-    repoUrl: "https://github.com/mrshlaf/lapak-ui",
     documentation: {
       id: {
         architecture: "Fullstack Monorepo Next.js 16: Backend REST API (app/api/) dan UI (app/) disatukan dalam satu proyek. Menggunakan PostgreSQL dengan Prisma ORM 7.8 (13 tabel ternormalisasi 3NF, UUID keys, cascade deletes). Keamanan diperkuat dengan hashing password bcrypt (salt 12) dan sesi JWT pada cookie HTTP-Only via middleware Edge Runtime.",
@@ -316,7 +259,6 @@ const projectsData: Project[] = [
       en: "Design and implementation of distributed big data processing algorithms on Apache Hadoop 3.x and HDFS. Implements an in-memory bounded min-heap TreeMap pattern reducing network shuffle transfer overhead by over 99%, paired with high-throughput web server access log analytical pipelines."
     },
     tech: ["Apache Hadoop 3.3.6", "HDFS", "Java MapReduce", "YARN", "Distributed Computing"],
-    repoUrl: "https://github.com/rifqifadill",
     documentation: {
       id: {
         architecture: "Pipeline Komputasi Terdistribusi: Dataset mentah dipecah menjadi blok-blok HDFS. Mapper mengeksekusi penyaringan lokal in-memory menggunakan struktur data TreeMap (Red-Black Tree bounded min-heap ukuran 10). Hasil emisi terfilter dikelompokkan pada fase Shuffle & Sort, lalu Reducer mengagregasi peringkat teratas secara deterministik.",
@@ -362,7 +304,7 @@ export default function PortfolioPage() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTabHealthAuth, setActiveTabHealthAuth] = useState<"flow" | "security" | "stack">("flow");
-  const [expandedIndexProject, setExpandedIndexProject] = useState<string | null>("security-lab");
+  const [expandedIndexProject, setExpandedIndexProject] = useState<string | null>("survival-game");
   const [activeSection, setActiveSection] = useState<string>("hero");
 
   const handleCopyEmail = () => {
@@ -679,7 +621,7 @@ export default function PortfolioPage() {
                 </div>
                 <div>
                   <span className="text-[10px] uppercase text-zinc-400 block tracking-wider">DOMAIN 04</span>
-                  <span className="text-zinc-200 font-medium">Network Hardening</span>
+                  <span className="text-zinc-200 font-medium">Distributed Systems</span>
                 </div>
               </div>
 
@@ -722,17 +664,6 @@ export default function PortfolioPage() {
 
                 {/* Social Quick Links */}
                 <div className="flex items-center gap-1.5 sm:ml-auto">
-                  <a
-                    href={SOCIAL_LINKS.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="GitHub: github.com/rifqifadill"
-                    className="p-2.5 rounded bg-white/[0.03] hover:bg-white/[0.09] border border-white/[0.08] text-zinc-300 hover:text-white transition-colors"
-                  >
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                    </svg>
-                  </a>
                   <a
                     href={SOCIAL_LINKS.linkedin}
                     target="_blank"
@@ -818,8 +749,8 @@ export default function PortfolioPage() {
                 </p>
                 <p className="text-justify leading-relaxed">
                   {lang === "id"
-                    ? "Fokus rekayasa aktif saya terpusat pada pengembangan Fullstack Web & Microservices (TypeScript, Next.js 16, Python FastAPI), Sistem Simulasi & Aktuasi (Eclipse SUMO & TraCI), Pipeline Data Terdistribusi (Hadoop HDFS MapReduce), serta Pengujian Keamanan Jaringan (SQLi Lab, Header Hardening, Prepared Statements)."
-                    : "My active technical focus centers on Fullstack Web & Microservices (TypeScript, Next.js 16, Python FastAPI), Traffic Microscopic Simulation (Eclipse SUMO & TraCI dynamic signal actuation), Distributed Data Pipelines (Hadoop HDFS MapReduce), and Network Security Hardening."}
+                    ? "Fokus rekayasa aktif saya terpusat pada pengembangan Fullstack Web & Microservices (TypeScript, Next.js 16, Python FastAPI), Sistem Simulasi & Aktuasi (Eclipse SUMO & TraCI), Pipeline Data Terdistribusi (Hadoop HDFS MapReduce), serta Rekayasa Perangkat Lunak Berorientasi Objek (Java LibGDX)."
+                    : "My active technical focus centers on Fullstack Web & Microservices (TypeScript, Next.js 16, Python FastAPI), Traffic Microscopic Simulation (Eclipse SUMO & TraCI dynamic signal actuation), Distributed Data Pipelines (Hadoop HDFS MapReduce), and Object-Oriented Software Engineering (Java LibGDX)."}
                 </p>
               </div>
 
@@ -854,8 +785,8 @@ export default function PortfolioPage() {
                   </div>
                   <div className="md:col-span-8 text-zinc-300 font-sans text-xs leading-relaxed text-justify">
                     {lang === "id"
-                      ? "Menerapkan parameterized queries, role-based boundary, dan prompt grounding pada RAG medis guna mengeliminasi halusinasi."
-                      : "Implementing parameterized SQL queries, role-based boundary checks, and strict prompt grounding to eliminate hallucinations."}
+                      ? "Menerapkan pemisahan hak akses berbasis peran dan prompt grounding pada RAG medis guna mengeliminasi halusinasi sistem."
+                      : "Enforcing role-based boundaries and prompt grounding in medical RAG workflows to eliminate hallucinations and guarantee system integrity."}
                   </div>
                 </div>
 
@@ -886,10 +817,9 @@ export default function PortfolioPage() {
             {/* Category Filter Controls */}
             <div className="flex flex-wrap items-center gap-1.5 p-1 rounded bg-white/[0.03] border border-white/[0.08] text-xs font-mono">
               {[
-                { id: "all", label: lang === "id" ? "Semua (06)" : "All (06)" },
+                { id: "all", label: lang === "id" ? "Semua (05)" : "All (05)" },
                 { id: "ai_data", label: "AI & Data" },
-                { id: "software_systems", label: lang === "id" ? "Sistem Software" : "Systems" },
-                { id: "security", label: lang === "id" ? "Keamanan" : "Security" }
+                { id: "software_systems", label: lang === "id" ? "Sistem Rekayasa" : "Systems" }
               ].map((c) => (
                 <button
                   key={c.id}
@@ -968,14 +898,7 @@ export default function PortfolioPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
-                    <a
-                      href={projectsData[0].repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3.5 py-2 rounded bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.1] text-xs font-mono text-zinc-300 hover:text-white transition-colors"
-                    >
-                      GitHub Repository
-                    </a>
+
                   </div>
                 </div>
 
@@ -1149,14 +1072,7 @@ export default function PortfolioPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
-                    <a
-                      href={projectsData[1].repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3.5 py-2 rounded bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.1] text-xs font-mono text-zinc-300 hover:text-white transition-colors"
-                    >
-                      GitHub Repository
-                    </a>
+
                   </div>
                 </div>
 
@@ -1287,17 +1203,7 @@ export default function PortfolioPage() {
                                   </svg>
                                 </button>
 
-                                <a
-                                  href={p.repoUrl}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="w-full py-2 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] font-mono text-xs text-zinc-300 hover:text-white transition-colors flex items-center justify-center gap-1.5"
-                                >
-                                  <span>GitHub Repository</span>
-                                  <svg className="w-3 h-3 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                  </svg>
-                                </a>
+
                               </div>
                             </div>
 
@@ -1439,7 +1345,7 @@ export default function PortfolioPage() {
               </div>
               <div className="md:col-span-9">
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 font-mono text-xs">
-                  {["SQL Injection Defense", "Parameterized Queries", "Helmet Security Headers", "Express Rate Limiting", "Wireshark Packet Analysis", "TCP/IP Socket"].map((s) => (
+                  {["TCP/IP Sockets", "Wireshark Packet Analysis", "Network Topologies", "Helmet Security Headers", "Express Rate Limiting", "Session & JWT Security"].map((s) => (
                     <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200 text-[11px] sm:text-xs">
                       {s}
                     </span>
@@ -1447,8 +1353,8 @@ export default function PortfolioPage() {
                 </div>
                 <p className="font-sans text-xs text-zinc-400 text-justify">
                   {lang === "id"
-                    ? "Eksploitasi dan remediasi SQLi 11 lapisan defensif, proteksi DoS via rate limiting, analisis paket layer jaringan, dan socket TraCI."
-                    : "11-layer defensive SQLi remediation, DoS mitigation via IP rate limiters, packet inspection across network protocols, and binary TraCI sockets."}
+                    ? "Pemrograman socket TCP/IP waktu nyata, analisis protokol jaringan via Wireshark, mitigasi DoS via rate limiting, dan proteksi sesi web aman."
+                    : "Real-time TCP/IP socket programming, network protocol packet analysis via Wireshark, DoS mitigation via IP rate limiters, and secure web session management."}
                 </p>
               </div>
             </div>
@@ -1462,7 +1368,7 @@ export default function PortfolioPage() {
               </div>
               <div className="md:col-span-9">
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 font-mono text-xs">
-                  {["Git & GitHub", "Docker", "Gradle", "Linux / WSL", "Postman", "Vite"].map((s) => (
+                  {["Git Version Control", "Docker", "Gradle", "Linux / WSL", "Postman", "Vite"].map((s) => (
                     <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200 text-[11px] sm:text-xs">
                       {s}
                     </span>
@@ -1660,15 +1566,7 @@ export default function PortfolioPage() {
 
               {/* Direct Channels List (Exact 'Instagram' clean label) */}
               <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 border-t border-white/[0.08] text-xs font-mono text-zinc-400">
-                <a
-                  href={SOCIAL_LINKS.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-emerald-300 transition-colors flex items-center gap-1.5"
-                >
-                  <span>GitHub // @rifqifadill</span>
-                </a>
-                <span className="text-zinc-700 hidden sm:inline">•</span>
+
                 <a
                   href={SOCIAL_LINKS.linkedin}
                   target="_blank"
@@ -1766,17 +1664,10 @@ export default function PortfolioPage() {
                 <p className="text-xs font-mono text-zinc-400 mb-3">
                   {activeProjectModal.tech.join(" • ")}
                 </p>
-                <a
-                  href={activeProjectModal.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-400 hover:text-emerald-300 underline"
-                >
-                  <span>Repository GitHub: {activeProjectModal.repoUrl}</span>
-                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
+                <div className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span>{lang === "id" ? "Dokumentasi Arsitektur & Rekayasa Terverifikasi" : "Verified Engineering Architecture & Dossier"}</span>
+                </div>
               </div>
 
               {/* Architecture Overview */}
@@ -1839,17 +1730,10 @@ export default function PortfolioPage() {
 
             {/* Modal Footer */}
             <div className="flex-shrink-0 p-4 sm:p-5 border-t border-white/[0.08] flex items-center justify-between bg-[#0a0c0f]">
-              <a
-                href={activeProjectModal.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-mono text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5"
-              >
-                <span>Lihat Repositori</span>
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
+              <div className="text-xs font-mono text-zinc-400 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span>{lang === "id" ? "Dokumentasi Arsitektur Resmi" : "Official Architecture Dossier"}</span>
+              </div>
 
               <button
                 onClick={() => setActiveProjectModal(null)}
