@@ -45,34 +45,34 @@ const projectsData: Project[] = [
   {
     id: "healthauth",
     title: {
-      id: "HealthAuth – Sistem Cerdas Pembiayaan Kesehatan & Asisten Triase Medis",
+      id: "HealthAuth – Asisten Medis AI & Pemetaan Risiko Kesehatan",
       en: "HealthAuth – Smart Healthcare Financing & Clinical Triage Support System"
     },
     category: "ai_data",
     badge: { id: "Finalis Hackathon TechnoScape 2025", en: "Finalist TechnoScape Hackathon 2025" },
     tagline: {
-      id: "Integrasi RAG Medis, Model Prediksi Risiko, dan Dashboard Analitik Faskes",
+      id: "Asisten SOP Medis Berbasis RAG, Prediksi Burnout, dan Dashboard Faskes",
       en: "Medical RAG Pipeline, Risk Prediction Models & Healthcare Analytics Dashboards"
     },
     description: {
-      id: "Platform kecerdasan buatan terpadu yang dikembangkan untuk Hackathon Nasional TechnoScape 2025 (Tim Fantastic Four). Menggabungkan Retrieval-Augmented Generation (RAG) untuk asisten nakes dengan pipeline machine learning untuk deteksi dini risiko kelelahan nakes dan estimasi lonjakan penyakit di faskes.",
+      id: "Platform AI yang dibuat bersama tim Fantastic Four untuk Hackathon Nasional TechnoScape 2025. Memadukan asisten pencarian SOP darurat berbasis RAG dengan model machine learning untuk memprediksi risiko kelelahan (burnout) tenaga kesehatan dan potensi lonjakan penyakit di faskes.",
       en: "An integrated AI health platform developed for the TechnoScape National Hackathon 2025 (Team Fantastic Four). Combines Retrieval-Augmented Generation (RAG) for emergency clinical triage with machine learning pipelines predicting healthcare worker burnout and regional disease surges."
     },
     tech: ["Next.js 16", "Python FastAPI", "FAISS RAG", "Scikit-Learn", "Supabase", "Tailwind CSS"],
     documentation: {
       id: {
-        architecture: "Arsitektur Multi-Tier: Frontend Next.js 16 App Router menyediakan dasbor terpisah (dashboard-nakes untuk asisten chat dan shift log, dashboard-pemerintah untuk pemantauan lonjakan penyakit). Backend FastAPI mengeksekusi FAISS in-memory index dari SOP medis resmi, sementara pipeline Scikit-Learn memproses data shift untuk inferensi burnout.",
+        architecture: "Frontend Next.js 16 (App Router) memisahkan dashboard khusus nakes (asisten chat & catatan shift) dan pemerintah/admin (pantauan tren penyakit). Di sisi backend, Python FastAPI menjalankan pencarian vektor FAISS dari dokumen SOP resmi IGD, dipadukan dengan pipeline Scikit-Learn untuk membaca pola kelelahan kerja.",
         keyChallenges: [
-          "Mencegah halusinasi medis darurat dengan membatasi konteks (prompt grounding) hanya pada dokumen panduan resmi IGD.",
-          "Menghubungkan pipeline Random Forest klasifikasi burnout ke database Supabase secara real-time.",
-          "Membangun dasbor dual-role yang responsif memisahkan telemetri klinis nakes dan agregat pengambil kebijakan faskes."
+          "Menjaga agar AI tidak asal mengarang jawaban medis dengan membatasi konteks hanya ke dokumen SOP resmi IGD.",
+          "Menghubungkan model Random Forest prediksi burnout ke database Supabase secara langsung.",
+          "Merancang dashboard dua peran yang nyaman dipakai oleh tenaga medis sekaligus pembuat kebijakan."
         ],
         deliverables: [
-          "Microservice FastAPI RAG dengan latensi query semantik sub-800ms.",
-          "Model Random Forest klasifikasi burnout dan pipeline prediksi lonjakan penyakit.",
-          "Dasbor Next.js multi-role dengan integrasi autentikasi Supabase."
+          "Layanan API FastAPI berbasis RAG dengan waktu pencarian di bawah 800ms.",
+          "Model Random Forest untuk prediksi risiko burnout nakes dan potensi lonjakan penyakit.",
+          "Dashboard web Next.js multi-role lengkap dengan sistem login Supabase."
         ],
-        contribution: "Kontributor arsitektur sistem, integrasi RAG knowledge base panduan medis darurat, dan pengembangan dasbor antarmuka pengguna.",
+        contribution: "Ikut merancang arsitektur sistem, mengintegrasikan database panduan medis untuk RAG, dan membangun tampilan dashboard pengguna.",
         metrics: "Finalis Nasional Hackathon TechnoScape 2025"
       },
       en: {
@@ -95,35 +95,35 @@ const projectsData: Project[] = [
   {
     id: "katup",
     title: {
-      id: "KATUP – Simulasi Multi-Agen Kendali Titik Urai Kemacetan Perkotaan",
+      id: "KATUP – Simulasi Multi-Agen untuk Mengurai Kemacetan Kota",
       en: "KATUP – Multi-Agent Urban Traffic Bottleneck & Queue Dissipation Simulator"
     },
     category: "software_systems",
     badge: { id: "Proyek Rekayasa Perangkat Lunak UI (2026)", en: "UI Systems Engineering Project (2026)" },
     tagline: {
-      id: "Pemodelan Mikroskopik & Pengendali Sinyal Adaptif Berbasis Python TraCI",
+      id: "Simulasi Lalu Lintas Mikroskopik & Pengaturan Lampu Adaptif lewat Python TraCI",
       en: "Microscopic Simulation & Adaptive Signal Control Instrumented via Python TraCI"
     },
     description: {
-      id: "Simulasi mikroskopik komprehensif menggunakan Eclipse SUMO dan Python TraCI untuk memitigasi kemacetan akibat penyempitan lajur galian infrastruktur perkotaan. Mengimplementasikan prinsip katup hidrolik fluida melalui koordinasi Agen Pengamat, Agen Katup, dan Agen Rute.",
+      id: "Simulasi lalu lintas di Eclipse SUMO yang dikendalikan langsung lewat Python TraCI untuk mengurangi macet akibat penyempitan lajur galian jalan. Sistem ini meniru cara kerja katup air dengan memadukan agen pengamat antrean, pengatur lampu di simpang hulu, dan pengarah rute alternatif.",
       en: "A comprehensive microscopic traffic simulator in Eclipse SUMO instrumented via Python TraCI. Mitigates upstream bottleneck spillback caused by urban infrastructure excavations by applying a fluid hydraulic valve principle across autonomous sensing, gating, and rerouting agents."
     },
     tech: ["Eclipse SUMO", "Python (TraCI)", "Multi-Agent Systems", "Netconvert", "Traffic Engineering"],
     documentation: {
       id: {
-        architecture: "Komunikasi Dua Arah TCP/IP: Engine C++ Eclipse SUMO dihubungkan secara real-time ke skrip Python katup_controller.py melalui soket TraCI. AgenPengamat memantau loop induksi per detik, AgenKatup memodulasi fase lampu hijau simpang hulu (metering), dan AgenRute membelokkan arus kendaraan ke koridor bypass alternatif.",
+        architecture: "Engine Eclipse SUMO terhubung secara real-time ke skrip Python katup_controller.py lewat soket TCP/IP TraCI. AgenPengamat membaca kepadatan kendaraan tiap detik, AgenKatup mengatur durasi lampu hijau di simpang sebelumnya agar antrean tidak meluber mengunci persimpangan, dan AgenRute mengarahkan kendaraan ke jalan alternatif.",
         keyChallenges: [
-          "Mencegah fenomena spillback (antrean meluber mengunci simpang hulu) saat penyempitan jalan menyisakan 1 lajur.",
-          "Sinkronisasi siklus lampu lalu lintas adaptif tanpa melanggar batas keselamatan minimum interval kuning/merah.",
-          "Membangun generator jaringan jalan prosedural (build_network.py) yang mengompilasi berkas XML SUMO secara otomatis."
+          "Mencegah antrean kendaraan mengunci persimpangan di belakangnya saat jalan menyempit menjadi 1 lajur.",
+          "Mengubah durasi lampu lalu lintas secara dinamis tanpa melanggar batas aman waktu jeda kuning dan merah.",
+          "Membuat generator jaringan jalan otomatis (build_network.py) untuk menghasilkan konfigurasi XML SUMO dengan cepat."
         ],
         deliverables: [
-          "Pengendali multi-agen Python TraCI otonom (katup_controller.py).",
-          "Generator jaringan jalan perkotaan multi-simpang lengkap dengan poligon Kali Ciliwung dan area galian.",
-          "Laporan teknis komprehensif 38 halaman (Bab 1–4) dan draf nota kesepahaman (MoU) Dishub DKI Jakarta."
+          "Sistem kendali multi-agen Python TraCI (katup_controller.py).",
+          "Generator peta jaringan jalan multi-simpang lengkap dengan visualisasi Kali Ciliwung dan area galian.",
+          "Laporan teknis 38 halaman (Bab 1–4) beserta draf rancangan kerja sama (MoU) dengan Dishub DKI Jakarta."
         ],
-        contribution: "Pengembang topologi jaringan jalan Tahap 1, arsitek visual koridor perkotaan Tahap 5 (build_network.py), penyusun laporan Bab 4 progres TraCI, dan draf MoU.",
-        metrics: "Penurunan delay transit kendaraan hingga 28% dibandingkan siklus lampu statis"
+        contribution: "Membangun topologi jaringan jalan Tahap 1, merancang visual koridor jalan Tahap 5 (build_network.py), serta menulis laporan progres Bab 4 dan draf MoU.",
+        metrics: "Mengurangi waktu tunda perjalanan kendaraan hingga 28% dibanding lampu lalu lintas statis"
       },
       en: {
         architecture: "Bidirectional TCP/IP Protocol: Eclipse SUMO C++ engine operates in lockstep synchronization with Python katup_controller.py via TraCI socket commands. AgenPengamat samples induction loops per second, AgenKatup throttles upstream green intervals, and AgenRute reassigns routes to bypass arterials.",
@@ -145,35 +145,35 @@ const projectsData: Project[] = [
     {
     id: "survival-game",
     title: {
-      id: "Is There Anyone? – Game Eksplorasi 2D Survival Horror",
+      id: "Is There Anyone? – Game 2D Survival Horror",
       en: "Is There Anyone? – 2D Top-Down Survival Horror Exploration Game"
     },
     category: "software_systems",
     badge: { id: "Proyek Akhir PBO FTUI (Kelompok 4)", en: "OOP Final Project FTUI (Group 4)" },
     tagline: {
-      id: "Arsitektur Game Client LibGDX, Spring Boot REST API, dan 8 Pola Desain OOP",
+      id: "Game Desktop Java LibGDX, Spring Boot API, dan 8 Design Pattern OOP",
       en: "LibGDX Game Client, Spring Boot REST API & 8 Implemented OOP Design Patterns"
     },
     description: {
-      id: "Game survival horor 2D top-down berlatar 'Desa Tumpang' yang dibangun menggunakan framework Java LibGDX dan backend Spring Boot. Mengimplementasikan 8 pola desain OOP terverifikasi, mekanika stamina dinamis, stealth sembunyi, dan sinkronisasi multi-slot save game ke database cloud.",
+      id: "Game survival horor 2D top-down berlatar 'Desa Tumpang' yang dibuat dengan Java LibGDX dan backend Spring Boot. Game ini menerapkan 8 design pattern OOP, mekanik stamina dan bersembunyi, serta penyimpanan progres pemain secara online.",
       en: "A 2D top-down survival horror exploration game set in 'Desa Tumpang' engineered in Java LibGDX paired with a Spring Boot REST API backend. Implements 8 verified OOP design patterns, dynamic stamina and stealth mechanics, and persistent cloud save slot synchronization."
     },
     tech: ["Java 17", "LibGDX (LWJGL3)", "Spring Boot", "PostgreSQL (Neon)", "Gradle"],
     documentation: {
       id: {
-        architecture: "Arsitektur Client-Server: Frontend game engine LibGDX (LWJGL3) mengelola rendering tilemap Tiled (.tmx), deteksi tabrakan fisik, dan siklus hidup layar permainan. Backend Spring Boot (port 9090) mengelola autentikasi akun dan sinkronisasi status slot save game ke database PostgreSQL Neon.",
+        architecture: "Client game berbasis Java LibGDX (LWJGL3) mengatur tampilan peta dari Tiled (.tmx), tabrakan objek, dan perpindahan layar permainan. Backend Spring Boot (port 9090) mengurus login akun serta sinkronisasi slot save game ke database PostgreSQL Neon.",
         keyChallenges: [
-          "Menerapkan 8 pola desain OOP (Command, State, Strategy, Singleton, Facade, Adapter, DTO, Template Method) secara harmonis.",
-          "Mengintegrasikan komunikasi jaringan HTTP/REST asinkronus antara loop game LibGDX dan server Spring Boot tanpa lag.",
-          "Manajemen status game state yang konsisten antara sesi lokal dan database cloud."
+          "Menggabungkan 8 design pattern OOP (Command, State, Strategy, Singleton, Facade, Adapter, DTO, Template Method) supaya kode tetap rapi.",
+          "Menjaga request HTTP antara game client LibGDX dan server Spring Boot berjalan mulus tanpa bikin game patah-patah.",
+          "Memastikan status permainan lokal tetap sinkron dengan data yang tersimpan di server."
         ],
         deliverables: [
-          "Game desktop Java runnable (.jar) dan repositori kode sumber lengkap.",
-          "Server REST API Spring Boot dengan manajemen slot simpanan permainan.",
-          "Laporan presentasi teknis komprehensif 19 slide merinci arsitektur dan pola desain."
+          "Aplikasi game desktop Java (.jar) yang siap dimainkan.",
+          "Backend REST API Spring Boot untuk autentikasi akun dan penyimpanan slot save game.",
+          "Slide presentasi teknis 19 halaman yang membahas arsitektur dan design pattern game."
         ],
-        contribution: "Pengembang layar permainan inti (PlayScreen), MainMenuScreen, transisi status layar, dan integrasi penanganan input pemain.",
-        metrics: "8 Pola Desain OOP Terverifikasi & Sinkronisasi Save Slot Cloud"
+        contribution: "Mengerjakan layar utama permainan (PlayScreen), halaman menu utama (MainMenuScreen), perpindahan antar layar, serta kontrol input pemain.",
+        metrics: "8 Design Pattern OOP & Penyimpanan Save Slot Online"
       },
       en: {
         architecture: "Client-Server Architecture: LibGDX (LWJGL3) client manages Tiled map (.tmx) layer rendering, collision physics, and game screen transitions. Spring Boot REST server (port 9090) handles player authentication and synchronizes multi-slot game states to a cloud PostgreSQL database.",
@@ -195,35 +195,35 @@ const projectsData: Project[] = [
   {
     id: "lapak-ui",
     title: {
-      id: "Lapak UI – Marketplace & Komunitas Terpadu Mahasiswa UI",
+      id: "Lapak UI – Marketplace & Forum Mahasiswa UI",
       en: "Lapak UI – Campus Marketplace & Student Community Platform"
     },
     category: "software_systems",
     badge: { id: "Proyek Sistem Basis Data FTUI (Kelompok 12)", en: "Database Systems Project FTUI (Group 12)" },
     tagline: {
-      id: "Fullstack Next.js Monorepo, Skema Relasional 13 Tabel 3NF, dan Protokol COD Aman",
+      id: "Web Fullstack Next.js, 13 Tabel PostgreSQL 3NF, dan Sistem COD Konfirmasi Ganda",
       en: "Fullstack Next.js Monorepo, 13-Table 3NF Relational Schema & Secure COD Protocol"
     },
     description: {
-      id: "Platform web jual-beli barang bekas dan jasa khusus komunitas kampus Universitas Indonesia. Mengintegrasikan katalog marketplace, forum komunitas, chat terikat produk, dan alur transaksi Cash on Delivery (COD) dengan konfirmasi ganda guna mengeliminasi penipuan transaksi mahasiswa.",
+      id: "Platform jual-beli barang bekas, jasa, dan forum diskusi khusus untuk mahasiswa Universitas Indonesia. Dilengkapi katalog produk, chat per barang, serta alur COD dengan konfirmasi dua pihak supaya transaksi antar mahasiswa lebih aman.",
       en: "A dedicated campus marketplace and community platform engineered for Universitas Indonesia students. Integrates secondhand goods cataloging, student services, campus discussion feeds, product-bound messaging, and a secure Double-Confirmation Cash on Delivery (COD) workflow."
     },
     tech: ["Next.js 16.2.5", "React 19", "TypeScript", "PostgreSQL", "Prisma ORM 7.8", "Tailwind CSS"],
     documentation: {
       id: {
-        architecture: "Fullstack Monorepo Next.js 16: Backend REST API (app/api/) dan UI (app/) disatukan dalam satu proyek. Menggunakan PostgreSQL dengan Prisma ORM 7.8 (13 tabel ternormalisasi 3NF, UUID keys, cascade deletes). Keamanan diperkuat dengan hashing password bcrypt (salt 12) dan sesi JWT pada cookie HTTP-Only via middleware Edge Runtime.",
+        architecture: "Dibangun dalam satu monorepo Next.js 16 yang menyatukan frontend React 19 dan API route, lalu terhubung ke PostgreSQL lewat Prisma ORM 7.8 (13 tabel ternormalisasi 3NF). Login diamankan dengan hash password bcrypt (salt 12) dan cookie HTTP-Only JWT.",
         keyChallenges: [
-          "Merancang sistem konfirmasi ganda (Double Confirmation) COD di mana status transaksi baru selesai jika kedua belah pihak konfirmasi.",
-          "Optimasi query relasional multi-tabel (user, product, reservation, transaction, chat) tanpa kendala N+1 query.",
-          "Membangun integrasi notifikasi multi-kanal (in-app database, email Resend, dan bot Telegram)."
+          "Merancang alur COD konfirmasi ganda agar status transaksi baru dianggap selesai setelah pembeli dan penjual sama-sama konfirmasi.",
+          "Menjaga query antar banyak tabel (produk, reservasi, transaksi, chat) tetap cepat tanpa N+1 query.",
+          "Menghubungkan notifikasi lintas platform mulai dari notifikasi web, email Resend, hingga bot Telegram."
         ],
         deliverables: [
-          "Platform web Next.js 16 App Router dengan 18+ halaman fungsional.",
-          "Skema Prisma migration dan database seeder komprehensif 13 tabel relasional.",
-          "Dokumen panduan presentasi teknis mendalam merinci arsitektur database, API, dan alur bisnis."
+          "Website marketplace fullstack Next.js 16 dengan lebih dari 18 halaman aktif.",
+          "Skema migrasi Prisma dan data seeder lengkap untuk 13 tabel relasional PostgreSQL.",
+          "Dokumen panduan teknis yang merinci desain basis data, endpoint API, dan alur transaksi."
         ],
-        contribution: "Pengembang frontend utama untuk katalog marketplace dan detail produk (/marketplace, /marketplace/[id]), manajemen jualan (/sell, /my-products), wishlist (/wishlist), serta alur reservasi dan histori transaksi.",
-        metrics: "13 Tabel Relasional 3NF, Protokol Keamanan COD Double-Confirmation"
+        contribution: "Mengerjakan halaman frontend untuk jelajah katalog & detail produk (/marketplace, /marketplace/[id]), manajemen jualan (/sell, /my-products), wishlist, serta alur reservasi dan riwayat transaksi.",
+        metrics: "13 Tabel Database 3NF & Sistem COD Konfirmasi Ganda"
       },
       en: {
         architecture: "Next.js 16 Fullstack Monorepo: REST API endpoints (app/api/) and UI components (app/) unified within a single repository. Backed by PostgreSQL and Prisma ORM 7.8 (13 normalized 3NF tables, UUID primary keys, cascade deletes). Secured via bcrypt password hashing (salt round 12) and stateless JWT sessions stored in HTTP-Only cookies enforced by Edge middleware.",
@@ -245,35 +245,35 @@ const projectsData: Project[] = [
   {
     id: "big-data",
     title: {
-      id: "Hadoop MapReduce – Pipeline Analitik Big Data Terdistribusi",
+      id: "Hadoop MapReduce – Pengolahan Data & Log Server Skala Besar",
       en: "Hadoop MapReduce – Distributed Big Data Analytics Pipeline"
     },
     category: "ai_data",
     badge: { id: "Praktikum Pemrosesan Data Terdistribusi FTUI", en: "Distributed Data Processing FTUI" },
     tagline: {
-      id: "Algoritma Top-K Bounded Min-Heap & Analisis Log Akses Server Skala Besar pada HDFS",
+      id: "Optimasi Top-K dengan Bounded Min-Heap & Analisis Log Web di HDFS",
       en: "Top-K Bounded Min-Heap Pattern & Large-Scale Web Server Log Analytics on HDFS"
     },
     description: {
-      id: "Perancangan dan implementasi algoritma pemrosesan data terdistribusi berskala besar berbasis paradigma MapReduce pada kluster Apache Hadoop 3.x dan HDFS. Mengimplementasikan bounded min-heap in-memory untuk memangkas overhead jaringan fase shuffle hingga 99%+ serta pipeline analitik log web server.",
+      id: "Implementasi pengolahan data terdistribusi menggunakan MapReduce di cluster Apache Hadoop 3.x dan HDFS. Memakai teknik bounded min-heap di memori Mapper untuk memangkas transfer data antar-node lebih dari 99% saat menyaring peringkat teratas maupun menganalisis log server.",
       en: "Design and implementation of distributed big data processing algorithms on Apache Hadoop 3.x and HDFS. Implements an in-memory bounded min-heap TreeMap pattern reducing network shuffle transfer overhead by over 99%, paired with high-throughput web server access log analytical pipelines."
     },
     tech: ["Apache Hadoop 3.3.6", "HDFS", "Java MapReduce", "YARN", "Distributed Computing"],
     documentation: {
       id: {
-        architecture: "Pipeline Komputasi Terdistribusi: Dataset mentah dipecah menjadi blok-blok HDFS. Mapper mengeksekusi penyaringan lokal in-memory menggunakan struktur data TreeMap (Red-Black Tree bounded min-heap ukuran 10). Hasil emisi terfilter dikelompokkan pada fase Shuffle & Sort, lalu Reducer mengagregasi peringkat teratas secara deterministik.",
+        architecture: "File data berukuran besar dipecah ke dalam blok HDFS. Di tahap Map, program menyimpan 10 data teratas sementara di struktur TreeMap (bounded min-heap) dalam memori lokal, sehingga hanya 10 kandidat terbaik yang dikirim lewat jaringan ke tahap Reduce.",
         keyChallenges: [
-          "Mengeliminasi beban transfer jaringan (network shuffle) masif dengan menyaring 10 kandidat teratas langsung di memori lokal Mapper sebelum data dipancarkan.",
-          "Mengoreksi kesalahan sintaksis konfigurasi Driver Hadoop Job pada berkas instruksi praktikum agar kompilasi JAR berjalan tanpa galat.",
-          "Memvalidasi hasil kalkulasi agregasi log akses web server (metode HTTP, kode status respon, bandwidth) terhadap baseline sekuensial."
+          "Mengurangi beban transfer jaringan di fase shuffle dengan menyaring 10 kandidat teratas langsung di memori lokal Mapper.",
+          "Memperbaiki beberapa error sintaks pada konfigurasi Driver Hadoop Job dari panduan awal agar bisa dikompilasi ke JAR.",
+          "Mencocokkan hasil hitungan log web server (metode HTTP, status respon, dan bandwidth) dengan pemrosesan biasa."
         ],
         deliverables: [
-          "Kode sumber Java Mapper dan Reducer pola Top-K (top_10_Movies_Mapper.java, top_10_Movies_Reducer.java).",
-          "Dua laporan praktikum ilmiah komprehensif: Laporan Pemrograman MapReduce (8 halaman) dan Laporan Use Case Lanjutan (7 halaman).",
-          "Bukti eksekusi keluaran terdistribusi (part-r-00000) dan grafik evaluasi skalabilitas throughput cluster Hadoop."
+          "Kode program Java Mapper dan Reducer pola Top-K (top_10_Movies_Mapper.java, top_10_Movies_Reducer.java).",
+          "Dua laporan praktikum lengkap: Pemrograman MapReduce (8 halaman) dan Analisis Use Case Lanjutan (7 halaman).",
+          "Hasil eksekusi output cluster (part-r-00000) beserta grafik perbandingan performa cluster Hadoop."
         ],
-        contribution: "Penulis tunggal kode program Java MapReduce, perancang algoritma bounded min-heap TreeMap, dan penyusun laporan praktikum analitik log.",
-        metrics: "Reduksi muatan data transfer jaringan fase shuffle hingga 99%+ via bounded min-heap"
+        contribution: "Menulis langsung seluruh kode Java MapReduce, mengimplementasikan algoritma bounded min-heap TreeMap, serta menyusun kedua laporan analisis.",
+        metrics: "Mengurangi lalu lintas transfer data fase shuffle lebih dari 99%"
       },
       en: {
         architecture: "Distributed Compute Pipeline: Raw data partitioned into HDFS blocks. The Mapper executes local in-memory filtering using a Red-Black Tree bounded min-heap (TreeMap bounded to size 10). Emitted candidates undergo cluster shuffle and sort, where the Reducer executes deterministic global ranking.",
@@ -411,7 +411,7 @@ export default function PortfolioPage() {
                   : "text-zinc-400 hover:text-white"
               }`}
             >
-              02. {lang === "id" ? "Proyek Rekayasa" : "Engineering Works"}
+              02. {lang === "id" ? "Proyek" : "Projects"}
             </a>
             <a
               href="#capabilities"
@@ -421,7 +421,7 @@ export default function PortfolioPage() {
                   : "text-zinc-400 hover:text-white"
               }`}
             >
-              03. {lang === "id" ? "Keahlian Sistem" : "Capabilities"}
+              03. {lang === "id" ? "Keahlian" : "Capabilities"}
             </a>
             <a
               href="#experience"
@@ -431,7 +431,7 @@ export default function PortfolioPage() {
                   : "text-zinc-400 hover:text-white"
               }`}
             >
-              04. {lang === "id" ? "Rekam Jejak" : "Experience"}
+              04. {lang === "id" ? "Pengalaman" : "Experience"}
             </a>
             <a
               href="#contact"
@@ -512,7 +512,7 @@ export default function PortfolioPage() {
                 activeSection === "projects" ? "text-sky-400 font-semibold" : "text-zinc-300 hover:text-sky-400"
               }`}
             >
-              02. {lang === "id" ? "Proyek Rekayasa" : "Engineering Works"}
+              02. {lang === "id" ? "Proyek" : "Projects"}
             </a>
             <a
               href="#capabilities"
@@ -521,7 +521,7 @@ export default function PortfolioPage() {
                 activeSection === "capabilities" ? "text-sky-400 font-semibold" : "text-zinc-300 hover:text-sky-400"
               }`}
             >
-              03. {lang === "id" ? "Keahlian Sistem" : "Capabilities Matrix"}
+              03. {lang === "id" ? "Keahlian" : "Capabilities Matrix"}
             </a>
             <a
               href="#experience"
@@ -530,7 +530,7 @@ export default function PortfolioPage() {
                 activeSection === "experience" ? "text-sky-400 font-semibold" : "text-zinc-300 hover:text-sky-400"
               }`}
             >
-              04. {lang === "id" ? "Rekam Jejak" : "Experience & Education"}
+              04. {lang === "id" ? "Pengalaman" : "Experience & Education"}
             </a>
             <a
               href="#contact"
@@ -543,7 +543,7 @@ export default function PortfolioPage() {
             </a>
             <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
               <span className="text-sky-400 font-semibold tracking-wide">
-                {lang === "id" ? "STATUS: TERBUKA UNTUK MAGANG" : "STATUS: OPEN FOR INTERNSHIP"}
+                {lang === "id" ? "Terbuka untuk Magang" : "OPEN FOR INTERNSHIP"}
               </span>
               <span className="text-zinc-400">IPK: 3.60 / 4.00</span>
             </div>
@@ -571,7 +571,7 @@ export default function PortfolioPage() {
                 <span className="w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
                 <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-300">
                   {lang === "id"
-                    ? "Terbuka untuk Peluang Magang // Depok & Jakarta"
+                    ? "Terbuka untuk Magang // Depok & Jakarta"
                     : "Available for Software & Data Internships // Depok & Jakarta"}
                 </span>
               </div>
@@ -601,7 +601,7 @@ export default function PortfolioPage() {
               {/* Bio Paragraph (Justified, Exact Authentic Content) */}
               <p className="font-sans text-sm sm:text-base lg:text-lg text-zinc-300 leading-relaxed max-w-2xl mb-6 sm:mb-8 text-justify">
                 {lang === "id"
-                  ? "Mahasiswa Teknik Komputer UI yang berfokus pada Rekayasa Perangkat Lunak, Keamanan Jaringan, Sistem Simulasi, dan Aplikasi Berbasis AI/Data. Memiliki pondasi kuat dalam memahami cara kerja perangkat keras dan arsitektur komputer, namun memilih mendedikasikan fokus utama pada perancangan logika sistem dan rekayasa software."
+                  ? "Mahasiswa Teknik Komputer UI yang fokus di bidang Software Engineering, Sistem Simulasi, Pengolahan Data, dan aplikasi berbasis AI. Punya dasar yang kuat soal cara kerja hardware dan arsitektur komputer, tapi sekarang lebih banyak mendalami perancangan logika sistem dan pengembangan software."
                   : "Computer Engineering undergraduate at Universitas Indonesia focusing on Software Engineering, Network Security, Simulation Systems, and AI/Data-driven Applications. Grounded with a strong foundation in hardware architecture, while dedicating primary focus to system logic design and software engineering."}
               </p>
 
@@ -644,7 +644,7 @@ export default function PortfolioPage() {
                   href="#contact"
                   className="px-3.5 sm:px-4 py-2.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.12] text-zinc-200 hover:text-white font-mono text-xs font-medium transition-colors flex items-center gap-2"
                 >
-                  <span>{lang === "id" ? "Inisiasi Kontak" : "Get in Touch"}</span>
+                  <span>{lang === "id" ? "Hubungi Saya" : "Get in Touch"}</span>
                   <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
@@ -735,7 +735,7 @@ export default function PortfolioPage() {
               </span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
                 {lang === "id"
-                  ? "Pondasi Rekayasa Silikon untuk Perangkat Lunak Modern"
+                  ? "Memahami Hardware untuk Membangun Software yang Andal"
                   : "Hardware-Aware Foundations for Modern Software Systems"}
               </h2>
             </div>
@@ -744,12 +744,12 @@ export default function PortfolioPage() {
               <div className="space-y-4 font-sans text-sm text-zinc-300 leading-relaxed mb-8 sm:mb-10">
                 <p className="text-justify leading-relaxed">
                   {lang === "id"
-                    ? "Menempuh pendidikan di S1 Teknik Komputer Universitas Indonesia memberi saya keunggulan mendasar: memahami bagaimana prosesor, arsitektur memori, dan instruksi beroperasi secara fisik. Pemahaman tingkat rendah ini menjadi landasan dalam merancang arsitektur perangkat lunak yang berkinerja tinggi, hemat memori, dan terukur secara deterministik."
+                    ? "Kuliah di S1 Teknik Komputer Universitas Indonesia melatih saya memahami komputer dari level paling dasar—mulai dari cara kerja prosesor, alur memori, sampai eksekusi instruksi. Bekal ini bikin saya terbiasa merancang software yang cepat, hemat memori, dan rapi."
                     : "Studying Computer Engineering at Universitas Indonesia grants me a core advantage: understanding how processors, memory hierarchies, and hardware instructions physically execute. This low-level foundation guides me in engineering software architectures that are performant, cache-conscious, and predictably scalable."}
                 </p>
                 <p className="text-justify leading-relaxed">
                   {lang === "id"
-                    ? "Fokus rekayasa aktif saya terpusat pada pengembangan Fullstack Web & Microservices (TypeScript, Next.js 16, Python FastAPI), Sistem Simulasi & Aktuasi (Eclipse SUMO & TraCI), Pipeline Data Terdistribusi (Hadoop HDFS MapReduce), serta Rekayasa Perangkat Lunak Berorientasi Objek (Java LibGDX)."
+                    ? "Saat ini saya banyak mengerjakan proyek Web Fullstack & Microservices (TypeScript, Next.js 16, Python FastAPI), Simulasi Lalu Lintas (Eclipse SUMO & TraCI), pengolahan Big Data (Hadoop HDFS MapReduce), serta aplikasi berbasis Java (LibGDX & Spring Boot)."
                     : "My active technical focus centers on Fullstack Web & Microservices (TypeScript, Next.js 16, Python FastAPI), Traffic Microscopic Simulation (Eclipse SUMO & TraCI dynamic signal actuation), Distributed Data Pipelines (Hadoop HDFS MapReduce), and Object-Oriented Software Engineering (Java LibGDX)."}
                 </p>
               </div>
@@ -763,7 +763,7 @@ export default function PortfolioPage() {
                   </div>
                   <div className="md:col-span-8 text-zinc-300 font-sans text-xs leading-relaxed text-justify">
                     {lang === "id"
-                      ? "Menghindari alokasi dinamis berlebih dan memahami siklus CPU untuk menjaga efisiensi kode sistem C dan Java."
+                      ? "Menulis kode yang sadar memori dan performa agar aplikasi di C maupun Java tetap ringan tanpa membebani CPU."
                       : "Designing code structures with respect to CPU caching, memory locality, and resource lifecycle management."}
                   </div>
                 </div>
@@ -774,7 +774,7 @@ export default function PortfolioPage() {
                   </div>
                   <div className="md:col-span-8 text-zinc-300 font-sans text-xs leading-relaxed text-justify">
                     {lang === "id"
-                      ? "Menguji algoritma antrean kendaraan pada pemodelan mikroskopik waktu nyata untuk memastikan hasil simulasi terukur."
+                      ? "Menguji logika pengaturan lalu lintas langsung lewat simulasi real-time supaya hasilnya jelas dan terukur."
                       : "Verifying real-time queue dissipation algorithms through microscopic simulations under strict deterministic parameters."}
                   </div>
                 </div>
@@ -785,7 +785,7 @@ export default function PortfolioPage() {
                   </div>
                   <div className="md:col-span-8 text-zinc-300 font-sans text-xs leading-relaxed text-justify">
                     {lang === "id"
-                      ? "Menerapkan pemisahan hak akses berbasis peran dan prompt grounding pada RAG medis guna mengeliminasi halusinasi sistem."
+                      ? "Membatasi akses sesuai peran pengguna dan menjaga agar jawaban AI selalu berpatokan pada dokumen SOP resmi."
                       : "Enforcing role-based boundaries and prompt grounding in medical RAG workflows to eliminate hallucinations and guarantee system integrity."}
                   </div>
                 </div>
@@ -807,10 +807,10 @@ export default function PortfolioPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
             <div>
               <span className="font-mono text-xs uppercase tracking-widest text-sky-400/90 block mb-2">
-                02 // {lang === "id" ? "PROYEK REKAYASA SISTEM" : "ENGINEERING SYSTEMS PORTFOLIO"}
+                02 // {lang === "id" ? "PROYEK PILIHAN" : "FEATURED PROJECTS"}
               </span>
               <h2 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
-                {lang === "id" ? "Proyek Pilihan & Dokumentasi Sistem" : "Featured Engineering Dossiers"}
+                {lang === "id" ? "Proyek & Sistem yang Pernah Dibuat" : "Featured Engineering Projects"}
               </h2>
             </div>
 
@@ -819,7 +819,7 @@ export default function PortfolioPage() {
               {[
                 { id: "all", label: lang === "id" ? "Semua (05)" : "All (05)" },
                 { id: "ai_data", label: "AI & Data" },
-                { id: "software_systems", label: lang === "id" ? "Sistem Rekayasa" : "Systems" }
+                { id: "software_systems", label: lang === "id" ? "Sistem & Aplikasi" : "Systems" }
               ].map((c) => (
                 <button
                   key={c.id}
@@ -893,7 +893,7 @@ export default function PortfolioPage() {
                       onClick={() => setActiveProjectModal(projectsData[0])}
                       className="px-4 py-2 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold tracking-wide transition-all flex items-center gap-1.5"
                     >
-                      <span>{lang === "id" ? "Buka Dokumentasi Teknis" : "View Technical Dossier"}</span>
+                      <span>{lang === "id" ? "Lihat Detail Proyek" : "View Project Details"}</span>
                       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                       </svg>
@@ -1067,7 +1067,7 @@ export default function PortfolioPage() {
                       onClick={() => setActiveProjectModal(projectsData[1])}
                       className="px-4 py-2 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold tracking-wide transition-all flex items-center gap-1.5"
                     >
-                      <span>{lang === "id" ? "Buka Dokumentasi Proyek" : "View System Dossier"}</span>
+                      <span>{lang === "id" ? "Lihat Detail Proyek" : "View Project Details"}</span>
                       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                       </svg>
@@ -1088,14 +1088,14 @@ export default function PortfolioPage() {
               <div className="flex items-center justify-between pb-3 mb-6 border-b border-white/[0.08]">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-xs uppercase tracking-wider text-sky-400 font-semibold">
-                    // {lang === "id" ? "INDEKS SPESIFIKASI PROYEK" : "PROJECT SPECIFICATION INDEX"}
+                    // {lang === "id" ? "DAFTAR PROYEK LAINNYA" : "MORE PROJECTS"}
                   </span>
                   <span className="font-mono text-xs text-zinc-400">
                     ({indexedProjects.length} {lang === "id" ? "proyek" : "entries"})
                   </span>
                 </div>
                 <span className="font-mono text-[11px] text-zinc-400 hidden sm:inline-block">
-                  {lang === "id" ? "Klik baris untuk ekspansi dokumen teknis" : "Click row to expand technical specifications"}
+                  {lang === "id" ? "Klik baris untuk melihat detail proyek" : "Click row to expand project details"}
                 </span>
               </div>
 
@@ -1147,7 +1147,7 @@ export default function PortfolioPage() {
                             <div className="lg:col-span-8 space-y-4">
                               <div>
                                 <span className="font-mono text-[10px] uppercase tracking-wider text-sky-400 block mb-1">
-                                  {lang === "id" ? "RINGKASAN REKAYASA" : "ENGINEERING SUMMARY"}
+                                  {lang === "id" ? "TENTANG PROYEK" : "PROJECT OVERVIEW"}
                                 </span>
                                 <p className="font-sans text-xs text-zinc-300 leading-relaxed text-justify">
                                   {p.description[lang]}
@@ -1156,7 +1156,7 @@ export default function PortfolioPage() {
 
                               <div className="p-3.5 rounded bg-[#0d0f14] border border-white/[0.06] font-mono text-xs">
                                 <span className="text-[10px] text-zinc-400 uppercase block mb-1">
-                                  {lang === "id" ? "ARSITEKTUR & DESAIN SISTEM" : "SYSTEM ARCHITECTURE"}
+                                  {lang === "id" ? "CARA KERJA & ARSITEKTUR" : "SYSTEM ARCHITECTURE"}
                                 </span>
                                 <p className="text-zinc-300 text-[11px] leading-relaxed text-justify">
                                   {p.documentation[lang].architecture}
@@ -1165,7 +1165,7 @@ export default function PortfolioPage() {
 
                               <div className="p-3 rounded bg-white/[0.02] border border-white/[0.05] font-mono text-xs">
                                 <span className="text-[10px] text-sky-400 uppercase block mb-1">
-                                  {lang === "id" ? "KONTRIBUSI SPESIFIK RIFQI" : "RIFQI'S SPECIFIC CONTRIBUTION"}
+                                  {lang === "id" ? "PERAN & KONTRIBUSI SAYA" : "MY CONTRIBUTION"}
                                 </span>
                                 <p className="text-zinc-300 text-[11px] leading-relaxed text-justify">
                                   {p.documentation[lang].contribution}
@@ -1187,7 +1187,7 @@ export default function PortfolioPage() {
 
                               {p.documentation[lang].metrics && (
                                 <div className="p-2.5 rounded bg-sky-500/[0.06] border border-sky-500/20">
-                                  <span className="text-[9px] text-sky-400 uppercase block font-semibold">TOLOK UKUR / METRIK</span>
+                                  <span className="text-[9px] text-sky-400 uppercase block font-semibold">HASIL & PENCAPAIAN</span>
                                   <span className="text-zinc-200 text-[11px]">{p.documentation[lang].metrics}</span>
                                 </div>
                               )}
@@ -1197,7 +1197,7 @@ export default function PortfolioPage() {
                                   onClick={() => setActiveProjectModal(p)}
                                   className="w-full py-2 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold tracking-wide transition-colors flex items-center justify-center gap-1.5"
                                 >
-                                  <span>{lang === "id" ? "Buka Dokumentasi Lengkap" : "View Full Dossier"}</span>
+                                  <span>{lang === "id" ? "Lihat Detail Proyek" : "View Project Details"}</span>
                                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                   </svg>
@@ -1228,15 +1228,15 @@ export default function PortfolioPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
             <div>
               <span className="font-mono text-xs uppercase tracking-widest text-sky-400/90 block mb-2">
-                03 // {lang === "id" ? "KAPABILITAS TEKNIS" : "TECHNICAL CAPABILITIES"}
+                03 // {lang === "id" ? "SKILL & TEKNOLOGI" : "TECHNICAL SKILLS"}
               </span>
               <h2 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
-                {lang === "id" ? "Matriks Sistem & Toolchain" : "Architectural Toolchain Matrix"}
+                {lang === "id" ? "Teknologi yang Biasa Dipakai" : "Technical Toolchain"}
               </h2>
             </div>
             <p className="font-mono text-xs text-zinc-400 max-w-sm text-justify">
               {lang === "id"
-                ? "Disusun berdasarkan hierarki komputasi dari pemahaman gerbang silikon hingga arsitektur web modern."
+                ? "Mulai dari bahasa pemrograman dasar sampai framework web modern dan pengolahan big data."
                 : "Structured hierarchically from silicon-level hardware logic up to distributed web infrastructure."}
             </p>
           </div>
@@ -1261,7 +1261,7 @@ export default function PortfolioPage() {
                 </div>
                 <p className="font-sans text-xs text-zinc-400 text-justify">
                   {lang === "id"
-                    ? "Pemahaman mendalam alokasi memori manual (C), pemrograman berorientasi objek murni (Java), scripting data (Python), serta type-safety penuh pada TypeScript."
+                    ? "Terbiasa mengelola memori manual di C, konsep OOP di Java, scripting pengolahan data di Python, dan pengembangan web dengan TypeScript."
                     : "Rigorous command of low-level manual memory allocation (C), robust object-oriented architecture (Java), data scripting (Python), and type-safe systems (TypeScript)."}
                 </p>
               </div>
@@ -1284,7 +1284,7 @@ export default function PortfolioPage() {
                 </div>
                 <p className="font-sans text-xs text-zinc-400 text-justify">
                   {lang === "id"
-                    ? "Arsitektur Fullstack monorepo Next.js 16, microservice FastAPI asinkronus, API serverless Express 5, dan REST backend Spring Boot."
+                    ? "Membangun aplikasi web fullstack dengan Next.js 16 dan React, API layanan cepat dengan FastAPI maupun Express, serta backend Spring Boot."
                     : "Fullstack Next.js 16 monorepos, high-throughput asynchronous FastAPI microservices, Express 5 REST APIs, and Spring Boot cloud services."}
                 </p>
               </div>
@@ -1307,7 +1307,7 @@ export default function PortfolioPage() {
                 </div>
                 <p className="font-sans text-xs text-zinc-400 text-justify">
                   {lang === "id"
-                    ? "Pemodelan skema relasional 3NF, connection pooling serverless, ORM migrasi skema, dan komputasi terdistribusi Hadoop MapReduce."
+                    ? "Merancang struktur tabel database relasional 3NF di PostgreSQL & Prisma ORM, hingga pemrosesan data terdistribusi di Hadoop MapReduce."
                     : "Relational 3NF database normalization, serverless connection pooling, Prisma schema migrations, and distributed Hadoop HDFS analytical computation."}
                 </p>
               </div>
@@ -1330,7 +1330,7 @@ export default function PortfolioPage() {
                 </div>
                 <p className="font-sans text-xs text-zinc-400 text-justify">
                   {lang === "id"
-                    ? "Aktuasi sinyal dinamis multi-agen pada simulasi lalu lintas perkotaan SUMO, serta RAG teregulasi berbasis FAISS vektor tanpa halusinasi."
+                    ? "Mengembangkan simulasi pengaturan lalu lintas adaptif berbasis SUMO & TraCI, serta asisten pencarian dokumen RAG berbasis FAISS."
                     : "Multi-agent dynamic traffic signal actuation via real-time loop feedback in SUMO, and strict context-grounded FAISS RAG retrieval pipelines."}
                 </p>
               </div>
@@ -1353,7 +1353,7 @@ export default function PortfolioPage() {
                 </div>
                 <p className="font-sans text-xs text-zinc-400 text-justify">
                   {lang === "id"
-                    ? "Pemrograman socket TCP/IP waktu nyata, analisis protokol jaringan via Wireshark, mitigasi DoS via rate limiting, dan proteksi sesi web aman."
+                    ? "Pemrograman soket TCP/IP real-time, analisis paket jaringan dengan Wireshark, serta penerapan rate limiting dan manajemen sesi web yang aman."
                     : "Real-time TCP/IP socket programming, network protocol packet analysis via Wireshark, DoS mitigation via IP rate limiters, and secure web session management."}
                 </p>
               </div>
@@ -1376,7 +1376,7 @@ export default function PortfolioPage() {
                 </div>
                 <p className="font-sans text-xs text-zinc-400 text-justify">
                   {lang === "id"
-                    ? "Version control kolaboratif Git, otomasi build Gradle, containerization Docker, lingkungan Linux terminal, dan testing REST API."
+                    ? "Kolaborasi kode dengan Git, manajemen build di Gradle, container Docker, lingkungan Linux/WSL, serta pengujian API dengan Postman."
                     : "Collaborative Git workflows, Gradle build automation, Docker containerization, Linux terminal environments, and REST API testing."}
                 </p>
               </div>
@@ -1395,7 +1395,7 @@ export default function PortfolioPage() {
             
             <div className="lg:col-span-4">
               <span className="font-mono text-xs uppercase tracking-widest text-sky-400/90 block mb-2">
-                04 // {lang === "id" ? "REKAM JEJAK" : "ACADEMIC & LEADERSHIP"}
+                04 // {lang === "id" ? "PENGALAMAN & PENDIDIKAN" : "EDUCATION & EXPERIENCE"}
               </span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 {lang === "id" ? "Pendidikan & Organisasi" : "Track Record"}
@@ -1424,7 +1424,7 @@ export default function PortfolioPage() {
                 
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-4 text-justify">
                   {lang === "id"
-                    ? "Mendalami kurikulum inti rekayasa sistem komputer: Pemrograman Berorientasi Objek (Java), Struktur Data & Algoritma, Arsitektur & Organisasi Komputer (MIPS & Desain Memori), Pemrograman Terstruktur (C), Sistem Basis Data (PostgreSQL), Teknologi Big Data Terapan (Hadoop), dan Keamanan Jaringan."
+                    ? "Mempelajari dasar-dasar sistem komputer secara menyeluruh, mulai dari Pemrograman Berorientasi Objek (Java), Struktur Data & Algoritma, Arsitektur Komputer (MIPS), Bahasa C, Basis Data (PostgreSQL), Big Data (Hadoop), hingga Keamanan Jaringan."
                     : "Pursuing rigorous coursework across Computer Systems Engineering: Object-Oriented Programming (Java), Data Structures & Algorithms, Computer Architecture & Organization (MIPS), Structured Systems Programming (C), Relational Database Systems (PostgreSQL), Big Data Analytics (Hadoop HDFS), and Network Security."}
                 </p>
 
@@ -1448,21 +1448,21 @@ export default function PortfolioPage() {
                 </h3>
 
                 <p className="font-sans text-xs font-semibold text-sky-400 mb-3">
-                  {lang === "id" ? "Staff Bidang RETRO (Rohani Islam Elektro)" : "Staff of RETRO Division (Rohani Islam Elektro)"}
+                  {lang === "id" ? "Bendahara" : "Treasurer"}
                 </p>
 
                 <ul className="text-xs sm:text-sm text-zinc-300 space-y-2 list-disc list-inside text-justify">
                   {lang === "id" ? (
                     <>
-                      <li>Mengelola dan mengoordinasikan program pembinaan karakter serta kegiatan kerohanian Islam di lingkungan Departemen Teknik Elektro UI.</li>
-                      <li>Menyelenggarakan kajian berkala, kegiatan silaturahmi mahasiswa, dan bakti sosial kemasyarakatan.</li>
-                      <li>Menyusun laporan pertanggungjawaban kegiatan secara transparan dan berkolaborasi aktif lintas bidang di IME FTUI.</li>
+                      <li>Mengelola pencatatan keuangan, arus kas, serta pemasukan dan pengeluaran dana kegiatan organisasi di IME FTUI.</li>
+                      <li>Membantu menyusun rencana anggaran biaya untuk berbagai program kerja mahasiswa di Departemen Teknik Elektro UI.</li>
+                      <li>Menyusun laporan keuangan secara rapi dan transparan agar setiap penggunaan anggaran mudah dipertanggungjawabkan.</li>
                     </>
                   ) : (
                     <>
-                      <li>Managed and coordinated student character-building initiatives and community fellowship programs within the Department of Electrical Engineering UI.</li>
-                      <li>Organized periodic developmental discussions, community outreach efforts, and student welfare sessions.</li>
-                      <li>Prepared transparent post-event activity accountability reports and maintained cross-divisional collaboration.</li>
+                      <li>Managed organizational bookkeeping, cash flow, and income/expense tracking for student programs at IME FTUI.</li>
+                      <li>Assisted in budgeting and financial planning across student initiatives within the Department of Electrical Engineering UI.</li>
+                      <li>Prepared clear and transparent financial accountability reports for organizational stakeholders.</li>
                     </>
                   )}
                 </ul>
@@ -1488,9 +1488,9 @@ export default function PortfolioPage() {
                 <ul className="text-xs sm:text-sm text-zinc-300 space-y-2 list-disc list-inside text-justify">
                   {lang === "id" ? (
                     <>
-                      <li>Merumuskan rencana keselamatan darurat dan evakuasi venue acara Pelepasan Sarjana Baru FTUI.</li>
-                      <li>Mengkoordinasikan manajemen kerumunan (crowd control) untuk 500+ wisudawan dan tamu undangan.</li>
-                      <li>Memastikan seluruh rangkaian acara berlangsung tertib, aman, dan tanpa insiden kecelakaan.</li>
+                      <li>Menyiapkan jalur evakuasi dan prosedur keamanan lokasi acara Pelepasan Sarjana Baru FTUI.</li>
+                      <li>Ikut mengatur alur keluar-masuk serta kerumunan lebih dari 500 wisudawan dan tamu undangan agar tetap tertib.</li>
+                      <li>Menjaga seluruh rangkaian acara berjalan aman, lancar, dan tanpa kendala.</li>
                     </>
                   ) : (
                     <>
@@ -1517,18 +1517,18 @@ export default function PortfolioPage() {
             
             <div className="max-w-2xl">
               <span className="font-mono text-xs uppercase tracking-widest text-sky-400/90 block mb-3">
-                05 // {lang === "id" ? "INISIASI KOMUNIKASI" : "GET IN TOUCH"}
+                05 // {lang === "id" ? "KONTAK" : "GET IN TOUCH"}
               </span>
               
               <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4 leading-tight">
                 {lang === "id"
-                  ? "Mari Membangun Sistem yang Terukur & Aman"
+                  ? "Terbuka untuk Diskusi & Peluang Kerja Sama"
                   : "Let's Build Resilient, Scalable Software"}
               </h2>
 
               <p className="font-sans text-sm sm:text-base text-zinc-300 mb-8 leading-relaxed text-justify">
                 {lang === "id"
-                  ? "Saya selalu terbuka untuk mendiskusikan peluang magang (software engineering, data engineering, network security), kolaborasi riset rekayasa sistem, atau sekadar bertukar wawasan seputar teknologi sistem komputasi."
+                  ? "Saat ini saya terbuka untuk peluang magang di bidang Software Engineering maupun Data Engineering, kolaborasi proyek, atau sekadar ngobrol santai seputar teknologi."
                   : "I am actively seeking software engineering, data, and security internship opportunities. Whether exploring potential engineering collaboration or discussing systems architectures, my inbox is open."}
               </p>
 
@@ -1555,11 +1555,11 @@ export default function PortfolioPage() {
               {/* Privacy Notice for Credentials & CV */}
               <div className="p-3.5 rounded bg-white/[0.02] border border-white/[0.07] mb-8 font-mono text-xs text-zinc-400">
                 <span className="text-sky-400 font-semibold block mb-1">
-                  // {lang === "id" ? "AKSES RESMI CURRICULUM VITAE" : "OFFICIAL CV & CREDENTIAL ACCESS"}
+                  // {lang === "id" ? "PERMINTAAN CV & TRANSKRIP" : "OFFICIAL CV & CREDENTIAL ACCESS"}
                 </span>
                 <span className="leading-relaxed">
                   {lang === "id"
-                    ? "Curriculum Vitae (CV) lengkap, portofolio privat, dan transkrip akademik tersedia melalui permintaan langsung via email untuk keperluan rekrutmen magang & profesional."
+                    ? "Untuk keperluan rekrutmen atau magang, CV lengkap dan transkrip akademik bisa langsung diminta lewat email di atas."
                     : "Official Curriculum Vitae (CV), private project records, and academic transcripts are provided upon direct email request for internship and professional recruitment inquiries."}
                 </span>
               </div>
@@ -1636,7 +1636,7 @@ export default function PortfolioPage() {
             <div className="flex-shrink-0 p-5 sm:p-6 pb-4 border-b border-white/[0.08] flex items-start justify-between gap-4">
               <div>
                 <span className="font-mono text-[10px] text-sky-400 uppercase tracking-widest block mb-1">
-                  // {lang === "id" ? "DOKUMENTASI REKAYASA TEKNIS" : "TECHNICAL ENGINEERING DOSSIER"}
+                  // {lang === "id" ? "DETAIL PROYEK" : "PROJECT DETAILS"}
                 </span>
                 <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] font-mono text-[11px] text-zinc-300">
                   {activeProjectModal.badge[lang]}
@@ -1666,7 +1666,7 @@ export default function PortfolioPage() {
                 </p>
                 <div className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
-                  <span>{lang === "id" ? "Dokumentasi Arsitektur & Rekayasa Terverifikasi" : "Verified Engineering Architecture & Dossier"}</span>
+                  <span>{lang === "id" ? "Ringkasan Arsitektur & Kontribusi Proyek" : "Verified Engineering Architecture & Dossier"}</span>
                 </div>
               </div>
 
@@ -1674,7 +1674,7 @@ export default function PortfolioPage() {
               <div>
                 <h4 className="text-xs font-mono uppercase tracking-wider text-sky-400 mb-2 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-sky-400"></span>
-                  <span>{lang === "id" ? "Arsitektur & Desain Sistem:" : "Technical Architecture & System Design:"}</span>
+                  <span>{lang === "id" ? "Cara Kerja & Arsitektur:" : "Technical Architecture & System Design:"}</span>
                 </h4>
                 <p className="text-xs text-zinc-300 leading-relaxed p-4 rounded bg-[#090a0c] border border-white/[0.06] font-mono text-justify">
                   {activeProjectModal.documentation[lang].architecture}
@@ -1685,7 +1685,7 @@ export default function PortfolioPage() {
               <div>
                 <h4 className="text-xs font-mono uppercase tracking-wider text-sky-400 mb-2 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-sky-400"></span>
-                  <span>{lang === "id" ? "Kontribusi Spesifik Rifqi:" : "Rifqi's Verified Contribution:"}</span>
+                  <span>{lang === "id" ? "Peran & Kontribusi Saya:" : "Rifqi's Verified Contribution:"}</span>
                 </h4>
                 <p className="text-xs text-zinc-200 leading-relaxed p-4 rounded bg-white/[0.02] border border-white/[0.08] font-sans text-justify">
                   {activeProjectModal.documentation[lang].contribution}
@@ -1696,7 +1696,7 @@ export default function PortfolioPage() {
               <div>
                 <h4 className="text-xs font-mono uppercase tracking-wider text-sky-400 mb-2 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-sky-400"></span>
-                  <span>{lang === "id" ? "Tantangan Teknis Kritis & Solusi:" : "Key Technical Challenges Solved:"}</span>
+                  <span>{lang === "id" ? "Tantangan & Solusi:" : "Key Technical Challenges Solved:"}</span>
                 </h4>
                 <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside font-sans text-justify">
                   {activeProjectModal.documentation[lang].keyChallenges.map((c, i) => (
@@ -1709,7 +1709,7 @@ export default function PortfolioPage() {
               <div>
                 <h4 className="text-xs font-mono uppercase tracking-wider text-sky-400 mb-2 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-sky-400"></span>
-                  <span>{lang === "id" ? "Deliverable & Hasil Rekayasa:" : "Deliverables & Artifacts:"}</span>
+                  <span>{lang === "id" ? "Hasil yang Dibuat:" : "Deliverables & Artifacts:"}</span>
                 </h4>
                 <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside font-sans text-justify">
                   {activeProjectModal.documentation[lang].deliverables.map((d, i) => (
@@ -1721,7 +1721,7 @@ export default function PortfolioPage() {
               {/* Metrics */}
               {activeProjectModal.documentation[lang].metrics && (
                 <div className="p-3.5 rounded bg-[#090a0c] border border-sky-500/30 text-xs text-zinc-300 font-mono">
-                  <strong className="text-sky-400">{lang === "id" ? "Tolok Ukur: " : "Benchmark: "}</strong>
+                  <strong className="text-sky-400">{lang === "id" ? "Pencapaian: " : "Benchmark: "}</strong>
                   {activeProjectModal.documentation[lang].metrics}
                 </div>
               )}
@@ -1732,7 +1732,7 @@ export default function PortfolioPage() {
             <div className="flex-shrink-0 p-4 sm:p-5 border-t border-white/[0.08] flex items-center justify-between bg-[#0a0c0f]">
               <div className="text-xs font-mono text-zinc-400 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
-                <span>{lang === "id" ? "Dokumentasi Arsitektur Resmi" : "Official Architecture Dossier"}</span>
+                <span>{lang === "id" ? "Terverifikasi dari Dokumen Proyek" : "Official Architecture Dossier"}</span>
               </div>
 
               <button
