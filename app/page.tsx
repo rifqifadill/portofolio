@@ -720,15 +720,22 @@ export default function PortfolioPage() {
                 <span className="text-zinc-400 font-normal"> Itsnain</span>
               </h1>
 
-              {/* Mobile Academic Strip (No Personal Photo) */}
-              <div className="lg:hidden my-3 p-3 rounded bg-[#0e1014] border border-white/[0.09] font-mono text-xs flex flex-wrap items-center justify-between gap-2">
-                <div>
-                  <span className="text-sky-400 font-semibold block text-[11px]">UNIVERSITAS INDONESIA</span>
-                  <span className="text-zinc-400 text-[10px]">S1 Teknik Komputer (DTE FTUI)</span>
+              {/* Mobile Portrait Frame (Empty Slot Ready for Photo) */}
+              <div className="lg:hidden my-4 max-w-xs mx-auto w-full bg-[#0e1014] p-2.5 rounded border border-white/[0.09] shadow-xl">
+                <div className="relative aspect-[4/5] w-full rounded overflow-hidden bg-[#0a0c0f] border border-dashed border-white/[0.12] flex flex-col items-center justify-center p-4 text-center">
+                  <div className="w-12 h-12 rounded-full bg-white/[0.04] border border-white/[0.1] flex items-center justify-center mb-3">
+                    <svg className="w-5 h-5 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500 block">
+                    {lang === "id" ? "Slot Foto Profil" : "Profile Photo Slot"}
+                  </span>
+                  <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2 rounded bg-[#090a0c]/95 backdrop-blur-sm border border-white/[0.1] font-mono text-[10px] text-zinc-300 text-left">
+                    <span className="text-sky-400 block font-semibold">UNIVERSITAS INDONESIA</span>
+                    <span className="text-zinc-400 block text-[9px]">DTE FTUI • IPK Kumulatif: 3.60 / 4.00</span>
+                  </div>
                 </div>
-                <span className="px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.08] text-sky-400 font-semibold text-[11px]">
-                  IPK: 3.60 / 4.00
-                </span>
               </div>
 
               {/* Bio Paragraph (Justified, Exact Authentic Content) */}
@@ -825,47 +832,34 @@ export default function PortfolioPage() {
 
             </div>
 
-            {/* Right Column (4 cols): Editorial Engineering Profile Sheet (No Personal Photo) */}
+            {/* Right Column (4 cols): Desktop Portrait Monograph Frame (Empty Slot Ready for Photo) */}
             <div className="hidden lg:flex lg:col-span-4 flex-col items-end">
-              <div className="w-full max-w-sm bg-[#0e1014] p-5 rounded border border-white/[0.09] shadow-2xl font-mono">
-                <div className="pb-3 mb-4 border-b border-white/[0.08] flex items-center justify-between">
-                  <span className="text-[11px] uppercase tracking-widest text-sky-400 font-semibold">
-                    // {lang === "id" ? "RINGKASAN PROFIL" : "PROFILE SUMMARY"}
+              <div className="w-full max-w-sm bg-[#0e1014] p-3 rounded border border-white/[0.09] shadow-2xl">
+                
+                <div className="relative aspect-[4/5] w-full rounded overflow-hidden bg-[#0a0c0f] border border-dashed border-white/[0.12] flex flex-col items-center justify-center p-6 text-center">
+                  <div className="w-14 h-14 rounded-full bg-white/[0.04] border border-white/[0.1] flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-zinc-500 block">
+                    {lang === "id" ? "Slot Foto Profil" : "Profile Photo Slot"}
                   </span>
-                  <span className="w-2 h-2 rounded-full bg-sky-400"></span>
-                </div>
+                  <span className="font-mono text-[10px] text-zinc-600 block mt-1">
+                    4:5 Portrait Frame
+                  </span>
 
-                <div className="mb-4">
-                  <span className="text-white font-display text-base font-bold block">Universitas Indonesia</span>
-                  <span className="text-zinc-400 text-xs block mt-0.5">S1 Teknik Komputer • DTE FTUI</span>
-                </div>
-
-                <div className="space-y-2.5 py-3 border-y border-white/[0.07] text-xs">
-                  <div className="flex items-center justify-between">
-                    <span className="text-zinc-400">{lang === "id" ? "IPK Kumulatif" : "Cumulative GPA"}</span>
-                    <span className="text-sky-400 font-semibold">3.60 / 4.00</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-zinc-400">{lang === "id" ? "Proyek Pilihan" : "Verified Projects"}</span>
-                    <span className="text-zinc-200 font-semibold">06 {lang === "id" ? "Proyek" : "Works"}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-zinc-400">{lang === "id" ? "Dokumen PDF" : "Project Docs"}</span>
-                    <span className="text-zinc-200">07 PDF {lang === "id" ? "Tersedia" : "Uploaded"}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-zinc-400">{lang === "id" ? "Lokasi" : "Location"}</span>
-                    <span className="text-zinc-200">Depok / Jakarta</span>
+                  <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded bg-[#090a0c]/95 backdrop-blur-sm border border-white/[0.1] font-mono text-[11px] text-zinc-300 text-left">
+                    <span className="text-sky-400 block font-semibold">UNIVERSITAS INDONESIA</span>
+                    <span className="text-zinc-400 block text-[10px]">Departemen Teknik Elektro (DTE FTUI)</span>
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-wrap gap-1.5 text-[10px]">
-                  {["Next.js / React", "Python ML", "SUMO TraCI", "Hadoop"].map((tag) => (
-                    <span key={tag} className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-zinc-300">
-                      {tag}
-                    </span>
-                  ))}
+                <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between font-mono text-xs text-zinc-400">
+                  <span>S1 TEKNIK KOMPUTER</span>
+                  <span className="text-sky-400 font-semibold">IPK: 3.60 / 4.00</span>
                 </div>
+
               </div>
             </div>
 
