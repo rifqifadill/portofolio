@@ -16,6 +16,12 @@ const SOCIAL_LINKS = {
 type Language = "id" | "en";
 type Category = "all" | "ai_data" | "software_systems";
 
+interface ProjectDocumentFile {
+  label: { id: string; en: string };
+  url: string;
+  meta: { id: string; en: string };
+}
+
 interface ProjectDoc {
   architecture: string;
   keyChallenges: string[];
@@ -32,6 +38,7 @@ interface Project {
   tagline: { id: string; en: string };
   description: { id: string; en: string };
   tech: string[];
+  docs: ProjectDocumentFile[];
   documentation: {
     id: ProjectDoc;
     en: ProjectDoc;
@@ -59,6 +66,13 @@ const projectsData: Project[] = [
       en: "An integrated AI health platform developed for the TechnoScape National Hackathon 2025 (Team Fantastic Four). Combines Retrieval-Augmented Generation (RAG) for emergency clinical triage with machine learning pipelines predicting healthcare worker burnout and regional disease surges."
     },
     tech: ["Next.js 16", "Python FastAPI", "FAISS RAG", "Scikit-Learn", "Supabase", "Tailwind CSS"],
+    docs: [
+      {
+        label: { id: "Proposal Hackathon (PDF)", en: "Hackathon Proposal (PDF)" },
+        url: "/docs/healthauth-proposal.pdf",
+        meta: { id: "PDF • 15 Hal", en: "PDF • 15 Pages" }
+      }
+    ],
     documentation: {
       id: {
         architecture: "Frontend Next.js 16 (App Router) memisahkan dashboard khusus nakes (asisten chat & catatan shift) dan pemerintah/admin (pantauan tren penyakit). Di sisi backend, Python FastAPI menjalankan pencarian vektor FAISS dari dokumen SOP resmi IGD, dipadukan dengan pipeline Scikit-Learn untuk membaca pola kelelahan kerja.",
@@ -109,6 +123,18 @@ const projectsData: Project[] = [
       en: "A comprehensive microscopic traffic simulator in Eclipse SUMO instrumented via Python TraCI. Mitigates upstream bottleneck spillback caused by urban infrastructure excavations by applying a fluid hydraulic valve principle across autonomous sensing, gating, and rerouting agents."
     },
     tech: ["Eclipse SUMO", "Python (TraCI)", "Multi-Agent Systems", "Netconvert", "Traffic Engineering"],
+    docs: [
+      {
+        label: { id: "Slide Presentasi (PDF)", en: "Presentation Deck (PDF)" },
+        url: "/docs/katup-presentation.pdf",
+        meta: { id: "PDF • 33 Slide", en: "PDF • 33 Slides" }
+      },
+      {
+        label: { id: "Laporan Teknis Bab 1–5 (PDF)", en: "Engineering Report Ch. 1–5 (PDF)" },
+        url: "/docs/katup-engineering-report.pdf",
+        meta: { id: "PDF • 47 Hal", en: "PDF • 47 Pages" }
+      }
+    ],
     documentation: {
       id: {
         architecture: "Engine Eclipse SUMO terhubung secara real-time ke skrip Python katup_controller.py lewat soket TCP/IP TraCI. AgenPengamat membaca kepadatan kendaraan tiap detik, AgenKatup mengatur durasi lampu hijau di simpang sebelumnya agar antrean tidak meluber mengunci persimpangan, dan AgenRute mengarahkan kendaraan ke jalan alternatif.",
@@ -159,6 +185,13 @@ const projectsData: Project[] = [
       en: "A 2D top-down survival horror exploration game set in 'Desa Tumpang' engineered in Java LibGDX paired with a Spring Boot REST API backend. Implements 8 verified OOP design patterns, dynamic stamina and stealth mechanics, and persistent cloud save slot synchronization."
     },
     tech: ["Java 17", "LibGDX (LWJGL3)", "Spring Boot", "PostgreSQL (Neon)", "Gradle"],
+    docs: [
+      {
+        label: { id: "Slide Presentasi & Arsitektur (PDF)", en: "Presentation & Architecture Deck (PDF)" },
+        url: "/docs/is-there-anyone-presentation.pdf",
+        meta: { id: "PDF • 19 Slide", en: "PDF • 19 Slides" }
+      }
+    ],
     documentation: {
       id: {
         architecture: "Client game berbasis Java LibGDX (LWJGL3) mengatur tampilan peta dari Tiled (.tmx), tabrakan objek, dan perpindahan layar permainan. Backend Spring Boot (port 9090) mengurus login akun serta sinkronisasi slot save game ke database PostgreSQL Neon.",
@@ -209,6 +242,13 @@ const projectsData: Project[] = [
       en: "A dedicated campus marketplace and community platform built for Universitas Indonesia students. Features faculty-scoped catalog filtering, Redis TTL automated reservation timers (2–72h), Supabase realtime chat, multi-channel alerts, and Double-Confirmation COD verification."
     },
     tech: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma ORM v7", "Redis (TTL)", "TailwindCSS v4"],
+    docs: [
+      {
+        label: { id: "Slide Presentasi & Skema DB (PDF)", en: "Presentation & DB Schema (PDF)" },
+        url: "/docs/lapak-ui-presentation.pdf",
+        meta: { id: "PDF • 12 Slide", en: "PDF • 12 Slides" }
+      }
+    ],
     documentation: {
       id: {
         architecture: "Monorepo Next.js 16 (App Router) dengan PostgreSQL & Prisma ORM v7 (13 entitas ternormalisasi), Redis untuk timer kedaluwarsa reservasi (TTL 2–72 jam) tanpa polling cron ke database, serta realtime chat berbasis Supabase. Autentikasi diamankan dengan bcrypt (salt 12), cookie httpOnly JWT (jose), SameSite Strict, dan Edge middleware.",
@@ -259,6 +299,13 @@ const projectsData: Project[] = [
       en: "Automated computer hardware pricing pipeline built with supervised regression on a 100,000-row specification dataset (33 features, 0% missing values). Implements all 6 CRISP-DM phases including IQR Winsorization, encoding, Ridge RFE feature selection, and 5-fold cross-validated benchmarking across five regression models."
     },
     tech: ["Python", "Scikit-Learn", "Pandas", "Random Forest", "Ridge RFE", "GridSearchCV"],
+    docs: [
+      {
+        label: { id: "Dek Analisis CRISP-DM & ML (PDF)", en: "CRISP-DM & ML Analytics Deck (PDF)" },
+        url: "/docs/dad-computer-price-prediction.pdf",
+        meta: { id: "PDF • 56 Slide", en: "PDF • 56 Slides" }
+      }
+    ],
     documentation: {
       id: {
         architecture: "Pipeline CRISP-DM lengkap pada 100.000 baris × 33 kolom (13 kategorikal & 20 numerikal): Outlier pada harga (976 data) dan RAM (60 data) dideteksi lewat IQR lalu ditangani dengan Winsorization tanpa menghapus baris. Setelah Price Binning, One-Hot, dan Ordinal Encoding (51 fitur), seleksi fitur Wrapper Method (Ridge Regression + RFE) memilih 15 fitur paling berpengaruh (df_wrapper.csv) sebelum dilatih pada 5 model dengan 5-Fold Cross Validation.",
@@ -309,6 +356,13 @@ const projectsData: Project[] = [
       en: "Design and implementation of distributed big data processing algorithms on Apache Hadoop 3.x and HDFS. Implements an in-memory bounded min-heap TreeMap pattern reducing network shuffle transfer overhead by over 99%, paired with high-throughput web server access log analytical pipelines."
     },
     tech: ["Apache Hadoop 3.3.6", "HDFS", "Java MapReduce", "YARN", "Distributed Computing"],
+    docs: [
+      {
+        label: { id: "Laporan Praktikum MapReduce (PDF)", en: "MapReduce Lab Reports (PDF)" },
+        url: "/docs/hadoop-mapreduce-reports.pdf",
+        meta: { id: "PDF • 15 Hal", en: "PDF • 15 Pages" }
+      }
+    ],
     documentation: {
       id: {
         architecture: "File data berukuran besar dipecah ke dalam blok HDFS. Di tahap Map, program menyimpan 10 data teratas sementara di struktur TreeMap (bounded min-heap) dalam memori lokal, sehingga hanya 10 kandidat terbaik yang dikirim lewat jaringan ke tahap Reduce.",
@@ -351,6 +405,7 @@ export default function PortfolioPage() {
   const [lang, setLang] = useState<Language>("id");
   const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [activeProjectModal, setActiveProjectModal] = useState<Project | null>(null);
+  const [activeDocPreview, setActiveDocPreview] = useState<{ projectTitle: string; doc: ProjectDocumentFile } | null>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTabHealthAuth, setActiveTabHealthAuth] = useState<"flow" | "security" | "stack">("flow");
@@ -938,7 +993,7 @@ export default function PortfolioPage() {
                   </div>
 
                   {/* Actions Bar */}
-                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/[0.07]">
+                  <div className="flex flex-wrap items-center gap-2.5 pt-4 border-t border-white/[0.07]">
                     <button
                       onClick={() => setActiveProjectModal(projectsData[0])}
                       className="px-4 py-2 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold tracking-wide transition-all flex items-center gap-1.5"
@@ -948,7 +1003,18 @@ export default function PortfolioPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
-
+                    {projectsData[0].docs.map((doc) => (
+                      <button
+                        key={doc.url}
+                        onClick={() => setActiveDocPreview({ projectTitle: projectsData[0].title[lang], doc })}
+                        className="px-3.5 py-2 rounded bg-white/[0.04] hover:bg-white/[0.09] border border-white/[0.12] text-zinc-200 hover:text-white font-mono text-xs transition-colors flex items-center gap-1.5"
+                      >
+                        <svg className="w-3.5 h-3.5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>{doc.label[lang]}</span>
+                      </button>
+                    ))}
                   </div>
                 </div>
 
@@ -1112,7 +1178,7 @@ export default function PortfolioPage() {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/[0.07]">
+                  <div className="flex flex-wrap items-center gap-2.5 pt-4 border-t border-white/[0.07]">
                     <button
                       onClick={() => setActiveProjectModal(projectsData[1])}
                       className="px-4 py-2 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold tracking-wide transition-all flex items-center gap-1.5"
@@ -1122,7 +1188,18 @@ export default function PortfolioPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
-
+                    {projectsData[1].docs.map((doc) => (
+                      <button
+                        key={doc.url}
+                        onClick={() => setActiveDocPreview({ projectTitle: projectsData[1].title[lang], doc })}
+                        className="px-3.5 py-2 rounded bg-white/[0.04] hover:bg-white/[0.09] border border-white/[0.12] text-zinc-200 hover:text-white font-mono text-xs transition-colors flex items-center gap-1.5"
+                      >
+                        <svg className="w-3.5 h-3.5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>{doc.label[lang]}</span>
+                      </button>
+                    ))}
                   </div>
                 </div>
 
@@ -1252,6 +1329,18 @@ export default function PortfolioPage() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                   </svg>
                                 </button>
+                                {p.docs.map((doc) => (
+                                  <button
+                                    key={doc.url}
+                                    onClick={() => setActiveDocPreview({ projectTitle: p.title[lang], doc })}
+                                    className="w-full py-2 px-3 rounded bg-white/[0.04] hover:bg-white/[0.09] border border-white/[0.1] font-mono text-xs text-zinc-200 hover:text-white transition-colors flex items-center justify-center gap-1.5"
+                                  >
+                                    <svg className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                    <span className="truncate">{doc.label[lang]}</span>
+                                  </button>
+                                ))}
 
 
                               </div>
@@ -1714,10 +1803,48 @@ export default function PortfolioPage() {
                 <p className="text-xs font-mono text-zinc-400 mb-3">
                   {activeProjectModal.tech.join(" • ")}
                 </p>
-                <div className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400">
+                <div className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 mb-4">
                   <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                   <span>{lang === "id" ? "Ringkasan Arsitektur & Kontribusi Proyek" : "Verified Engineering Architecture & Dossier"}</span>
                 </div>
+
+                {/* Attached Documentation Files */}
+                {activeProjectModal.docs.length > 0 && (
+                  <div className="p-3.5 rounded bg-[#090a0c] border border-white/[0.08] space-y-2">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-sky-400 block">
+                      {lang === "id" ? "Dokumen Proyek Tersedia:" : "Available Project Documentation:"}
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {activeProjectModal.docs.map((doc) => (
+                        <div key={doc.url} className="flex flex-wrap items-center gap-1.5">
+                          <button
+                            onClick={() => setActiveDocPreview({ projectTitle: activeProjectModal.title[lang], doc })}
+                            className="px-3 py-1.5 rounded bg-sky-500/15 hover:bg-sky-500/25 border border-sky-500/30 text-sky-200 font-mono text-xs transition-colors flex items-center gap-1.5"
+                          >
+                            <svg className="w-3.5 h-3.5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            <span>{doc.label[lang]}</span>
+                            <span className="text-[10px] text-sky-300/80">({doc.meta[lang]})</span>
+                          </button>
+                          <a
+                            href={doc.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-2.5 py-1.5 rounded bg-white/[0.04] hover:bg-white/[0.1] border border-white/[0.1] text-zinc-300 hover:text-white font-mono text-[11px] transition-colors flex items-center gap-1"
+                            title={lang === "id" ? "Buka di tab baru / Unduh PDF" : "Open in new tab / Download PDF"}
+                          >
+                            <span>{lang === "id" ? "Unduh" : "Open"}</span>
+                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Architecture Overview */}
@@ -1793,6 +1920,86 @@ export default function PortfolioPage() {
               </button>
             </div>
 
+          </div>
+        </div>
+      )}
+
+
+      {/* =========================================================================
+          EMBEDDED PDF DOCUMENTATION VIEWER MODAL
+         ========================================================================= */}
+      {activeDocPreview && (
+        <div
+          className="fixed inset-0 z-[60] bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+          onClick={() => setActiveDocPreview(null)}
+        >
+          <div
+            className="w-full max-w-5xl h-[90vh] flex flex-col bg-[#0e1014] border border-white/[0.14] rounded shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex-shrink-0 px-4 sm:px-6 py-3.5 border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-3 bg-[#0a0c0f]">
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 mb-0.5">
+                  <span className="font-mono text-[10px] text-sky-400 uppercase tracking-widest">
+                    // {lang === "id" ? "DOKUMENTASI PROYEK" : "PROJECT DOCUMENTATION"}
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.08] font-mono text-[10px] text-zinc-300">
+                    {activeDocPreview.doc.meta[lang]}
+                  </span>
+                </div>
+                <h3 className="font-display text-sm sm:text-base font-bold text-white truncate max-w-[65vw]">
+                  {activeDocPreview.projectTitle} — {activeDocPreview.doc.label[lang]}
+                </h3>
+              </div>
+
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <a
+                  href={activeDocPreview.doc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded bg-white text-[#090a0c] hover:bg-zinc-200 font-mono text-xs font-semibold transition-colors flex items-center gap-1.5"
+                >
+                  <span>{lang === "id" ? "Buka Tab Baru / Unduh" : "Open / Download PDF"}</span>
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <button
+                  onClick={() => setActiveDocPreview(null)}
+                  className="w-8 h-8 rounded bg-white/[0.05] hover:bg-white/[0.12] border border-white/[0.08] text-zinc-400 hover:text-white flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-sky-400"
+                  aria-label="Tutup dokumen"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Embedded PDF Frame */}
+            <div className="flex-1 bg-[#14161c] relative">
+              <iframe
+                src={`${activeDocPreview.doc.url}#view=FitH`}
+                title={activeDocPreview.doc.label[lang]}
+                className="w-full h-full border-0"
+              />
+            </div>
+
+            {/* Mobile Friendly Fallback Notice */}
+            <div className="flex-shrink-0 px-4 py-2 border-t border-white/[0.08] bg-[#0a0c0f] flex items-center justify-between text-[11px] font-mono text-zinc-400">
+              <span>
+                {lang === "id"
+                  ? "Jika tampilan PDF tidak muncul di browser HP, klik 'Buka Tab Baru / Unduh' di kanan atas."
+                  : "If PDF preview doesn't render on mobile browsers, click 'Open / Download PDF' above."}
+              </span>
+              <button
+                onClick={() => setActiveDocPreview(null)}
+                className="text-zinc-300 hover:text-white underline ml-3 flex-shrink-0"
+              >
+                {lang === "id" ? "Tutup" : "Close"}
+              </button>
+            </div>
           </div>
         </div>
       )}
