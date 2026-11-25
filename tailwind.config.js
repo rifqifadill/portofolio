@@ -21,9 +21,9 @@ module.exports = {
           border: "#20232a",
         },
         accent: {
-          DEFAULT: "#10b981",
-          bright: "#34d399",
-          lime: "#84cc16",
+          DEFAULT: "#e4e4e7",
+          bright: "#ffffff",
+          muted: "#a1a1aa",
         }
       }
     },

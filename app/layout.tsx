@@ -41,7 +41,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#090a0c] text-[#e4e4e7] font-sans antialiased selection:bg-emerald-500/20 selection:text-emerald-200">
+      <body className="bg-[#090a0c] text-[#e4e4e7] font-sans antialiased selection:bg-white/20 selection:text-white">
         {children}
       </body>
     </html>
