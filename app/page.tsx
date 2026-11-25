@@ -37,6 +37,8 @@ interface Project {
   badge: { id: string; en: string };
   tagline: { id: string; en: string };
   description: { id: string; en: string };
+  image: string;
+  imageCaption: { id: string; en: string };
   tech: string[];
   docs: ProjectDocumentFile[];
   documentation: {
@@ -64,6 +66,11 @@ const projectsData: Project[] = [
     description: {
       id: "Platform AI yang dibuat bersama tim Fantastic Four untuk Hackathon Nasional TechnoScape 2025. Memadukan asisten pencarian SOP darurat berbasis RAG dengan model machine learning untuk memprediksi risiko kelelahan (burnout) tenaga kesehatan dan potensi lonjakan penyakit di faskes.",
       en: "An integrated AI health platform developed for the TechnoScape National Hackathon 2025 (Team Fantastic Four). Combines Retrieval-Augmented Generation (RAG) for emergency clinical triage with machine learning pipelines predicting healthcare worker burnout and regional disease surges."
+    },
+    image: "/projects/healthauth.png",
+    imageCaption: {
+      id: "Confusion Matrix Model Prediksi Lonjakan Penyakit (Random Forest)",
+      en: "Disease Surge Random Forest Model Confusion Matrix"
     },
     tech: ["Next.js 16", "Python FastAPI", "FAISS RAG", "Scikit-Learn", "Supabase", "Tailwind CSS"],
     docs: [
@@ -121,6 +128,11 @@ const projectsData: Project[] = [
     description: {
       id: "Simulasi lalu lintas di Eclipse SUMO yang dikendalikan langsung lewat Python TraCI untuk mengurangi macet akibat penyempitan lajur galian jalan. Sistem ini meniru cara kerja katup air dengan memadukan agen pengamat antrean, pengatur lampu di simpang hulu, dan pengarah rute alternatif.",
       en: "A comprehensive microscopic traffic simulator in Eclipse SUMO instrumented via Python TraCI. Mitigates upstream bottleneck spillback caused by urban infrastructure excavations by applying a fluid hydraulic valve principle across autonomous sensing, gating, and rerouting agents."
+    },
+    image: "/projects/katup.png",
+    imageCaption: {
+      id: "Tampilan Simulasi Lalu Lintas KATUP (Koridor 2 → 1 Lajur)",
+      en: "KATUP Urban Flow Microscopic Simulation Interface"
     },
     tech: ["Eclipse SUMO", "Python (TraCI)", "Multi-Agent Systems", "Netconvert", "Traffic Engineering"],
     docs: [
@@ -184,6 +196,11 @@ const projectsData: Project[] = [
       id: "Game survival horor 2D top-down berlatar 'Desa Tumpang' yang dibuat dengan Java LibGDX dan backend Spring Boot. Game ini menerapkan 8 design pattern OOP, mekanik stamina dan bersembunyi, serta penyimpanan progres pemain secara online.",
       en: "A 2D top-down survival horror exploration game set in 'Desa Tumpang' engineered in Java LibGDX paired with a Spring Boot REST API backend. Implements 8 verified OOP design patterns, dynamic stamina and stealth mechanics, and persistent cloud save slot synchronization."
     },
+    image: "/projects/is-there-anyone.jpg",
+    imageCaption: {
+      id: "Poster & Visual Game 2D Survival Horror Is There Anyone?",
+      en: "Is There Anyone? 2D Top-Down Survival Horror Visual Showcase"
+    },
     tech: ["Java 17", "LibGDX (LWJGL3)", "Spring Boot", "PostgreSQL (Neon)", "Gradle"],
     docs: [
       {
@@ -240,6 +257,11 @@ const projectsData: Project[] = [
     description: {
       id: "Platform jual-beli barang bekas, jasa, dan forum diskusi khusus untuk mahasiswa Universitas Indonesia. Dilengkapi katalog filter fakultas, timer reservasi otomatis berbasis Redis (2–72 jam), chat real-time Supabase, notifikasi multi-kanal, serta sistem COD konfirmasi ganda.",
       en: "A dedicated campus marketplace and community platform built for Universitas Indonesia students. Features faculty-scoped catalog filtering, Redis TTL automated reservation timers (2–72h), Supabase realtime chat, multi-channel alerts, and Double-Confirmation COD verification."
+    },
+    image: "/projects/lapak-ui.png",
+    imageCaption: {
+      id: "Tampilan Katalog Marketplace & Form Reservasi COD Lapak UI",
+      en: "Lapak UI Marketplace Catalog & COD Reservation Screens"
     },
     tech: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma ORM v7", "Redis (TTL)", "TailwindCSS v4"],
     docs: [
@@ -298,6 +320,11 @@ const projectsData: Project[] = [
       id: "Sistem prediksi harga komputer otomatis berbasis supervised machine learning memakai 100.000 data spesifikasi hardware (33 atribut, 0% missing values). Mengikuti 6 tahapan CRISP-DM mulai dari audit outlier IQR & Winsorization, feature engineering, seleksi fitur RFE, sampai evaluasi 5 algoritma regresi dengan Random Forest sebagai model terbaik.",
       en: "Automated computer hardware pricing pipeline built with supervised regression on a 100,000-row specification dataset (33 features, 0% missing values). Implements all 6 CRISP-DM phases including IQR Winsorization, encoding, Ridge RFE feature selection, and 5-fold cross-validated benchmarking across five regression models."
     },
+    image: "/projects/dad-pricing.png",
+    imageCaption: {
+      id: "Scatter Plot Aktual vs Prediksi Harga Komputer (Random Forest R² 87,85%)",
+      en: "Actual vs Predicted Hardware Price Scatter Plot (Random Forest)"
+    },
     tech: ["Python", "Scikit-Learn", "Pandas", "Random Forest", "Ridge RFE", "GridSearchCV"],
     docs: [
       {
@@ -355,6 +382,11 @@ const projectsData: Project[] = [
       id: "Implementasi pengolahan data terdistribusi menggunakan MapReduce di cluster Apache Hadoop 3.x dan HDFS. Memakai teknik bounded min-heap di memori Mapper untuk memangkas transfer data antar-node lebih dari 99% saat menyaring peringkat teratas maupun menganalisis log server.",
       en: "Design and implementation of distributed big data processing algorithms on Apache Hadoop 3.x and HDFS. Implements an in-memory bounded min-heap TreeMap pattern reducing network shuffle transfer overhead by over 99%, paired with high-throughput web server access log analytical pipelines."
     },
+    image: "/projects/hadoop-mapreduce.png",
+    imageCaption: {
+      id: "Grafik Analisis Lalu Lintas Endpoint & Konsumsi Bandwidth Log Web Server",
+      en: "Hadoop MapReduce Web Server Endpoint Hits & Bandwidth Analysis"
+    },
     tech: ["Apache Hadoop 3.3.6", "HDFS", "Java MapReduce", "YARN", "Distributed Computing"],
     docs: [
       {
@@ -406,6 +438,7 @@ export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [activeProjectModal, setActiveProjectModal] = useState<Project | null>(null);
   const [activeDocPreview, setActiveDocPreview] = useState<{ projectTitle: string; doc: ProjectDocumentFile } | null>(null);
+  const [activeImageLightbox, setActiveImageLightbox] = useState<{ src: string; title: string; caption: string } | null>(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeTabHealthAuth, setActiveTabHealthAuth] = useState<"flow" | "security" | "stack">("flow");
@@ -687,20 +720,15 @@ export default function PortfolioPage() {
                 <span className="text-zinc-400 font-normal"> Itsnain</span>
               </h1>
 
-              {/* Mobile Portrait Frame (Clean, Authenticated) */}
-              <div className="lg:hidden my-4 max-w-xs mx-auto w-full bg-[#0e1014] p-2.5 rounded border border-white/[0.09] shadow-xl">
-                <div className="relative aspect-[4/5] w-full rounded overflow-hidden bg-zinc-900 border border-white/[0.05]">
-                  <img
-                    src="/profile.jpg"
-                    alt="Muhamad Rifqi Fadil Itsnain - Computer Engineering UI"
-                    className="w-full h-full object-cover filter contrast-[1.04] brightness-[0.98]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#090a0c]/85 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2 rounded bg-[#090a0c]/90 backdrop-blur-sm border border-white/[0.1] font-mono text-[10px] text-zinc-300">
-                    <span className="text-sky-400 block font-semibold">UNIVERSITAS INDONESIA</span>
-                    <span className="text-zinc-400 block text-[9px]">DTE FTUI • IPK Kumulatif: 3.60 / 4.00</span>
-                  </div>
+              {/* Mobile Academic Strip (No Personal Photo) */}
+              <div className="lg:hidden my-3 p-3 rounded bg-[#0e1014] border border-white/[0.09] font-mono text-xs flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <span className="text-sky-400 font-semibold block text-[11px]">UNIVERSITAS INDONESIA</span>
+                  <span className="text-zinc-400 text-[10px]">S1 Teknik Komputer (DTE FTUI)</span>
                 </div>
+                <span className="px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.08] text-sky-400 font-semibold text-[11px]">
+                  IPK: 3.60 / 4.00
+                </span>
               </div>
 
               {/* Bio Paragraph (Justified, Exact Authentic Content) */}
@@ -797,29 +825,47 @@ export default function PortfolioPage() {
 
             </div>
 
-            {/* Right Column (4 cols): Desktop Portrait Monograph Frame */}
+            {/* Right Column (4 cols): Editorial Engineering Profile Sheet (No Personal Photo) */}
             <div className="hidden lg:flex lg:col-span-4 flex-col items-end">
-              <div className="w-full max-w-sm bg-[#0e1014] p-3 rounded border border-white/[0.09] shadow-2xl">
-                
-                <div className="relative aspect-[4/5] w-full rounded overflow-hidden bg-zinc-900 border border-white/[0.05]">
-                  <img
-                    src="/profile.jpg"
-                    alt="Muhamad Rifqi Fadil Itsnain - Computer Engineering UI"
-                    className="w-full h-full object-cover filter contrast-[1.04] brightness-[0.98]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#090a0c]/80 via-transparent to-transparent pointer-events-none"></div>
-                  
-                  <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded bg-[#090a0c]/90 backdrop-blur-sm border border-white/[0.1] font-mono text-[11px] text-zinc-300">
-                    <span className="text-sky-400 block font-semibold">UNIVERSITAS INDONESIA</span>
-                    <span className="text-zinc-400 block text-[10px]">Departemen Teknik Elektro (DTE FTUI)</span>
+              <div className="w-full max-w-sm bg-[#0e1014] p-5 rounded border border-white/[0.09] shadow-2xl font-mono">
+                <div className="pb-3 mb-4 border-b border-white/[0.08] flex items-center justify-between">
+                  <span className="text-[11px] uppercase tracking-widest text-sky-400 font-semibold">
+                    // {lang === "id" ? "RINGKASAN PROFIL" : "PROFILE SUMMARY"}
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-sky-400"></span>
+                </div>
+
+                <div className="mb-4">
+                  <span className="text-white font-display text-base font-bold block">Universitas Indonesia</span>
+                  <span className="text-zinc-400 text-xs block mt-0.5">S1 Teknik Komputer • DTE FTUI</span>
+                </div>
+
+                <div className="space-y-2.5 py-3 border-y border-white/[0.07] text-xs">
+                  <div className="flex items-center justify-between">
+                    <span className="text-zinc-400">{lang === "id" ? "IPK Kumulatif" : "Cumulative GPA"}</span>
+                    <span className="text-sky-400 font-semibold">3.60 / 4.00</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-zinc-400">{lang === "id" ? "Proyek Pilihan" : "Verified Projects"}</span>
+                    <span className="text-zinc-200 font-semibold">06 {lang === "id" ? "Proyek" : "Works"}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-zinc-400">{lang === "id" ? "Dokumen PDF" : "Project Docs"}</span>
+                    <span className="text-zinc-200">07 PDF {lang === "id" ? "Tersedia" : "Uploaded"}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-zinc-400">{lang === "id" ? "Lokasi" : "Location"}</span>
+                    <span className="text-zinc-200">Depok / Jakarta</span>
                   </div>
                 </div>
 
-                <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between font-mono text-xs text-zinc-400">
-                  <span>S1 TEKNIK KOMPUTER</span>
-                  <span className="text-sky-400 font-semibold">IPK: 3.60 / 4.00</span>
+                <div className="mt-4 flex flex-wrap gap-1.5 text-[10px]">
+                  {["Next.js / React", "Python ML", "SUMO TraCI", "Hadoop"].map((tag) => (
+                    <span key={tag} className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-zinc-300">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-
               </div>
             </div>
 
@@ -1018,9 +1064,29 @@ export default function PortfolioPage() {
                   </div>
                 </div>
 
-                {/* Right Column: Architectural Pipeline Inspector */}
+                {/* Right Column: Project Screenshot & Architectural Inspector */}
                 <div className="lg:col-span-5 p-6 sm:p-8 bg-[#090a0c] flex flex-col justify-between">
                   <div>
+                    {/* Real Project Visual Preview */}
+                    <div
+                      onClick={() => setActiveImageLightbox({
+                        src: projectsData[0].image,
+                        title: projectsData[0].title[lang],
+                        caption: projectsData[0].imageCaption[lang]
+                      })}
+                      className="group relative aspect-video w-full rounded overflow-hidden border border-white/[0.1] bg-[#0c0e12] mb-5 cursor-pointer"
+                    >
+                      <img
+                        src={projectsData[0].image}
+                        alt={projectsData[0].imageCaption[lang]}
+                        className="w-full h-full object-contain bg-white p-1.5 transition-transform duration-300 group-hover:scale-[1.02]"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-[#090a0c]/85 backdrop-blur-sm border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-zinc-300">
+                        <span className="truncate">{projectsData[0].imageCaption[lang]}</span>
+                        <span className="text-sky-400 flex-shrink-0 ml-2">{lang === "id" ? "Perbesar ↗" : "Zoom ↗"}</span>
+                      </div>
+                    </div>
+
                     <div className="flex items-center justify-between pb-3 mb-4 border-b border-white/[0.08]">
                       <span className="font-mono text-xs text-zinc-400 uppercase tracking-wider">
                         // ARCHITECTURE INSPECTOR
@@ -1116,10 +1182,30 @@ export default function PortfolioPage() {
             <div className="mb-14 sm:mb-16 rounded border border-white/[0.1] bg-[#0c0e12] overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-12">
                 
-                {/* Left Column: Simulation Topology & Telemetry */}
+                {/* Left Column: Simulation Screenshot & Telemetry */}
                 <div className="lg:col-span-5 p-6 sm:p-8 bg-[#090a0c] border-b lg:border-b-0 lg:border-r border-white/[0.08] flex flex-col justify-between">
                   <div>
-                    <span className="font-mono text-xs text-zinc-400 uppercase tracking-wider block mb-4">
+                    {/* Real Simulation UI Screenshot */}
+                    <div
+                      onClick={() => setActiveImageLightbox({
+                        src: projectsData[1].image,
+                        title: projectsData[1].title[lang],
+                        caption: projectsData[1].imageCaption[lang]
+                      })}
+                      className="group relative aspect-video w-full rounded overflow-hidden border border-white/[0.1] bg-[#0c0e12] mb-5 cursor-pointer"
+                    >
+                      <img
+                        src={projectsData[1].image}
+                        alt={projectsData[1].imageCaption[lang]}
+                        className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-[#090a0c]/85 backdrop-blur-sm border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-zinc-300">
+                        <span className="truncate">{projectsData[1].imageCaption[lang]}</span>
+                        <span className="text-sky-400 flex-shrink-0 ml-2">{lang === "id" ? "Perbesar ↗" : "Zoom ↗"}</span>
+                      </div>
+                    </div>
+
+                    <span className="font-mono text-xs text-zinc-400 uppercase tracking-wider block mb-3">
                       // SIMULATION TOPOLOGY & ACTUATION
                     </span>
 
@@ -1237,10 +1323,17 @@ export default function PortfolioPage() {
                         onClick={() => setExpandedIndexProject(isExpanded ? null : p.id)}
                         className="p-4 sm:p-6 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 select-none"
                       >
-                        <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
+                        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                           <span className="font-mono text-xs text-sky-400/90 font-bold w-6 flex-shrink-0">
                             0{idx + 3}.
                           </span>
+                          <div className="w-20 sm:w-28 aspect-video rounded overflow-hidden border border-white/[0.1] bg-[#0c0e12] flex-shrink-0">
+                            <img
+                              src={p.image}
+                              alt={p.title[lang]}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                           <div className="min-w-0">
                             <div className="flex flex-wrap items-center gap-2 mb-1">
                               <h4 className="font-display text-base sm:text-lg font-bold text-white hover:text-sky-300 transition-colors">
@@ -1272,6 +1365,26 @@ export default function PortfolioPage() {
                           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                             
                             <div className="lg:col-span-8 space-y-4">
+                              {/* Real Project Visual Showcase */}
+                              <div
+                                onClick={() => setActiveImageLightbox({
+                                  src: p.image,
+                                  title: p.title[lang],
+                                  caption: p.imageCaption[lang]
+                                })}
+                                className="group relative aspect-video w-full rounded overflow-hidden border border-white/[0.1] bg-[#0c0e12] cursor-pointer"
+                              >
+                                <img
+                                  src={p.image}
+                                  alt={p.imageCaption[lang]}
+                                  className="w-full h-full object-contain bg-[#0c0e12] transition-transform duration-300 group-hover:scale-[1.01]"
+                                />
+                                <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-[#090a0c]/85 backdrop-blur-sm border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-zinc-300">
+                                  <span className="truncate">{p.imageCaption[lang]}</span>
+                                  <span className="text-sky-400 flex-shrink-0 ml-2">{lang === "id" ? "Klik untuk perbesar ↗" : "Click to zoom ↗"}</span>
+                                </div>
+                              </div>
+
                               <div>
                                 <span className="font-mono text-[10px] uppercase tracking-wider text-sky-400 block mb-1">
                                   {lang === "id" ? "TENTANG PROYEK" : "PROJECT OVERVIEW"}
@@ -1847,6 +1960,26 @@ export default function PortfolioPage() {
                 )}
               </div>
 
+              {/* Project Screenshot inside Modal */}
+              <div
+                onClick={() => setActiveImageLightbox({
+                  src: activeProjectModal.image,
+                  title: activeProjectModal.title[lang],
+                  caption: activeProjectModal.imageCaption[lang]
+                })}
+                className="group relative aspect-video w-full rounded overflow-hidden border border-white/[0.1] bg-[#090a0c] cursor-pointer"
+              >
+                <img
+                  src={activeProjectModal.image}
+                  alt={activeProjectModal.imageCaption[lang]}
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                />
+                <div className="absolute inset-x-0 bottom-0 px-3 py-1.5 bg-[#090a0c]/85 backdrop-blur-sm border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-zinc-300">
+                  <span className="truncate">{activeProjectModal.imageCaption[lang]}</span>
+                  <span className="text-sky-400 flex-shrink-0 ml-2">{lang === "id" ? "Perbesar ↗" : "Zoom ↗"}</span>
+                </div>
+              </div>
+
               {/* Architecture Overview */}
               <div>
                 <h4 className="text-xs font-mono uppercase tracking-wider text-sky-400 mb-2 flex items-center gap-2">
@@ -1996,6 +2129,58 @@ export default function PortfolioPage() {
               <button
                 onClick={() => setActiveDocPreview(null)}
                 className="text-zinc-300 hover:text-white underline ml-3 flex-shrink-0"
+              >
+                {lang === "id" ? "Tutup" : "Close"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+
+      {/* =========================================================================
+          FULL-SIZE PROJECT IMAGE LIGHTBOX MODAL
+         ========================================================================= */}
+      {activeImageLightbox && (
+        <div
+          className="fixed inset-0 z-[70] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+          onClick={() => setActiveImageLightbox(null)}
+        >
+          <div
+            className="w-full max-w-5xl bg-[#0e1014] border border-white/[0.15] rounded shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="px-4 sm:px-6 py-3 border-b border-white/[0.08] flex items-center justify-between gap-4 bg-[#0a0c0f]">
+              <div className="min-w-0">
+                <span className="font-mono text-[10px] text-sky-400 uppercase tracking-widest block">
+                  // {lang === "id" ? "PRATINJAU VISUAL PROYEK" : "PROJECT VISUAL PREVIEW"}
+                </span>
+                <h3 className="font-display text-sm sm:text-base font-bold text-white truncate">
+                  {activeImageLightbox.title}
+                </h3>
+              </div>
+              <button
+                onClick={() => setActiveImageLightbox(null)}
+                className="w-8 h-8 rounded bg-white/[0.05] hover:bg-white/[0.12] border border-white/[0.08] text-zinc-400 hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
+                aria-label="Tutup gambar"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="p-3 sm:p-5 bg-[#090a0c] flex items-center justify-center max-h-[75vh]">
+              <img
+                src={activeImageLightbox.src}
+                alt={activeImageLightbox.caption}
+                className="max-h-[70vh] w-auto object-contain rounded"
+              />
+            </div>
+            <div className="px-4 sm:px-6 py-2.5 border-t border-white/[0.08] bg-[#0a0c0f] text-xs font-mono text-zinc-400 flex items-center justify-between gap-4">
+              <span className="truncate">{activeImageLightbox.caption}</span>
+              <button
+                onClick={() => setActiveImageLightbox(null)}
+                className="text-zinc-200 hover:text-white underline flex-shrink-0"
               >
                 {lang === "id" ? "Tutup" : "Close"}
               </button>
