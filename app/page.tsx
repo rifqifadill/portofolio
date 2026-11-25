@@ -359,7 +359,7 @@ export default function PortfolioPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#090a0c] text-[#e4e4e7] selection:bg-white/20 selection:text-white relative overflow-hidden font-sans">
+    <div className="min-h-screen bg-[#090a0c] text-[#e4e4e7] selection:bg-sky-500/20 selection:text-sky-200 relative overflow-hidden font-sans">
       
       {/* Background Architectural Grid & Subtle Vignette */}
       <div className="fixed inset-0 bg-editorial-grid pointer-events-none opacity-25 z-0"></div>
@@ -375,13 +375,13 @@ export default function PortfolioPage() {
           <div className="flex items-center gap-3 min-w-0">
             <a
               href="#hero"
-              className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-1 focus-visible:ring-zinc-300 rounded"
+              className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-1 focus-visible:ring-sky-400 rounded"
             >
-              <div className="w-8 h-8 rounded bg-white/[0.05] border border-white/[0.12] flex items-center justify-center font-mono text-xs font-bold text-white group-hover:border-white/40 transition-colors flex-shrink-0">
+              <div className="w-8 h-8 rounded bg-white/[0.05] border border-white/[0.12] flex items-center justify-center font-mono text-xs font-bold text-white group-hover:border-sky-400/60 transition-colors flex-shrink-0">
                 RF
               </div>
               <div className="flex flex-col min-w-0">
-                <span className="font-display text-sm font-semibold tracking-tight text-white group-hover:text-zinc-200 transition-colors truncate">
+                <span className="font-display text-sm font-semibold tracking-tight text-white group-hover:text-sky-300 transition-colors truncate">
                   Muhamad Rifqi
                 </span>
                 <span className="font-mono text-[10px] text-zinc-400 tracking-wider truncate max-w-[130px] sm:max-w-none">
@@ -397,7 +397,7 @@ export default function PortfolioPage() {
               href="#about"
               className={`transition-colors ${
                 activeSection === "about"
-                  ? "text-zinc-100 font-semibold"
+                  ? "text-sky-400 font-semibold"
                   : "text-zinc-400 hover:text-white"
               }`}
             >
@@ -407,7 +407,7 @@ export default function PortfolioPage() {
               href="#projects"
               className={`transition-colors ${
                 activeSection === "projects"
-                  ? "text-zinc-100 font-semibold"
+                  ? "text-sky-400 font-semibold"
                   : "text-zinc-400 hover:text-white"
               }`}
             >
@@ -417,7 +417,7 @@ export default function PortfolioPage() {
               href="#capabilities"
               className={`transition-colors ${
                 activeSection === "capabilities"
-                  ? "text-zinc-100 font-semibold"
+                  ? "text-sky-400 font-semibold"
                   : "text-zinc-400 hover:text-white"
               }`}
             >
@@ -427,7 +427,7 @@ export default function PortfolioPage() {
               href="#experience"
               className={`transition-colors ${
                 activeSection === "experience"
-                  ? "text-zinc-100 font-semibold"
+                  ? "text-sky-400 font-semibold"
                   : "text-zinc-400 hover:text-white"
               }`}
             >
@@ -437,7 +437,7 @@ export default function PortfolioPage() {
               href="#contact"
               className={`transition-colors ${
                 activeSection === "contact"
-                  ? "text-zinc-100 font-semibold"
+                  ? "text-sky-400 font-semibold"
                   : "text-zinc-400 hover:text-white"
               }`}
             >
@@ -454,7 +454,7 @@ export default function PortfolioPage() {
                 onClick={() => setLang("id")}
                 className={`px-2 py-0.5 rounded transition-all ${
                   lang === "id"
-                    ? "bg-white/[0.12] text-white font-semibold border border-white/25"
+                    ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30"
                     : "text-zinc-400 hover:text-white"
                 }`}
                 title="Bahasa Indonesia"
@@ -465,7 +465,7 @@ export default function PortfolioPage() {
                 onClick={() => setLang("en")}
                 className={`px-2 py-0.5 rounded transition-all ${
                   lang === "en"
-                    ? "bg-white/[0.12] text-white font-semibold border border-white/25"
+                    ? "bg-sky-500/20 text-sky-300 font-semibold border border-sky-500/30"
                     : "text-zinc-400 hover:text-white"
                 }`}
                 title="English"
@@ -477,7 +477,7 @@ export default function PortfolioPage() {
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded text-zinc-400 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-zinc-300"
+              className="md:hidden p-2 rounded text-zinc-400 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-sky-400"
               aria-label="Toggle navigation menu"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -500,7 +500,7 @@ export default function PortfolioPage() {
               href="#about"
               onClick={() => setMobileMenuOpen(false)}
               className={`block transition-colors ${
-                activeSection === "about" ? "text-zinc-100 font-semibold" : "text-zinc-300 hover:text-white"
+                activeSection === "about" ? "text-sky-400 font-semibold" : "text-zinc-300 hover:text-sky-400"
               }`}
             >
               01. {lang === "id" ? "Tentang Saya" : "About"}
@@ -509,7 +509,7 @@ export default function PortfolioPage() {
               href="#projects"
               onClick={() => setMobileMenuOpen(false)}
               className={`block transition-colors ${
-                activeSection === "projects" ? "text-zinc-100 font-semibold" : "text-zinc-300 hover:text-white"
+                activeSection === "projects" ? "text-sky-400 font-semibold" : "text-zinc-300 hover:text-sky-400"
               }`}
             >
               02. {lang === "id" ? "Proyek Rekayasa" : "Engineering Works"}
@@ -518,7 +518,7 @@ export default function PortfolioPage() {
               href="#capabilities"
               onClick={() => setMobileMenuOpen(false)}
               className={`block transition-colors ${
-                activeSection === "capabilities" ? "text-zinc-100 font-semibold" : "text-zinc-300 hover:text-white"
+                activeSection === "capabilities" ? "text-sky-400 font-semibold" : "text-zinc-300 hover:text-sky-400"
               }`}
             >
               03. {lang === "id" ? "Keahlian Sistem" : "Capabilities Matrix"}
@@ -527,7 +527,7 @@ export default function PortfolioPage() {
               href="#experience"
               onClick={() => setMobileMenuOpen(false)}
               className={`block transition-colors ${
-                activeSection === "experience" ? "text-zinc-100 font-semibold" : "text-zinc-300 hover:text-white"
+                activeSection === "experience" ? "text-sky-400 font-semibold" : "text-zinc-300 hover:text-sky-400"
               }`}
             >
               04. {lang === "id" ? "Rekam Jejak" : "Experience & Education"}
@@ -536,13 +536,13 @@ export default function PortfolioPage() {
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
               className={`block transition-colors ${
-                activeSection === "contact" ? "text-zinc-100 font-semibold" : "text-zinc-300 hover:text-white"
+                activeSection === "contact" ? "text-sky-400 font-semibold" : "text-zinc-300 hover:text-sky-400"
               }`}
             >
               05. {lang === "id" ? "Kontak" : "Contact"}
             </a>
             <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs">
-              <span className="text-zinc-100 font-semibold tracking-wide">
+              <span className="text-sky-400 font-semibold tracking-wide">
                 {lang === "id" ? "STATUS: TERBUKA UNTUK MAGANG" : "STATUS: OPEN FOR INTERNSHIP"}
               </span>
               <span className="text-zinc-400">IPK: 3.60 / 4.00</span>
@@ -568,7 +568,7 @@ export default function PortfolioPage() {
               
               {/* Availability Beacon */}
               <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded bg-white/[0.03] border border-white/[0.08] w-fit mb-5">
-                <span className="w-2 h-2 rounded-full bg-zinc-200 shadow-[0_0_8px_rgba(255,255,255,0.45)]"></span>
+                <span className="w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
                 <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-300">
                   {lang === "id"
                     ? "Terbuka untuk Peluang Magang // Depok & Jakarta"
@@ -592,7 +592,7 @@ export default function PortfolioPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#090a0c]/85 via-transparent to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2 rounded bg-[#090a0c]/90 backdrop-blur-sm border border-white/[0.1] font-mono text-[10px] text-zinc-300">
-                    <span className="text-zinc-100 block font-semibold">UNIVERSITAS INDONESIA</span>
+                    <span className="text-sky-400 block font-semibold">UNIVERSITAS INDONESIA</span>
                     <span className="text-zinc-400 block text-[9px]">DTE FTUI • IPK Kumulatif: 3.60 / 4.00</span>
                   </div>
                 </div>
@@ -705,14 +705,14 @@ export default function PortfolioPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#090a0c]/80 via-transparent to-transparent pointer-events-none"></div>
                   
                   <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded bg-[#090a0c]/90 backdrop-blur-sm border border-white/[0.1] font-mono text-[11px] text-zinc-300">
-                    <span className="text-zinc-100 block font-semibold">UNIVERSITAS INDONESIA</span>
+                    <span className="text-sky-400 block font-semibold">UNIVERSITAS INDONESIA</span>
                     <span className="text-zinc-400 block text-[10px]">Departemen Teknik Elektro (DTE FTUI)</span>
                   </div>
                 </div>
 
                 <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between font-mono text-xs text-zinc-400">
                   <span>S1 TEKNIK KOMPUTER</span>
-                  <span className="text-zinc-100 font-semibold">IPK: 3.60 / 4.00</span>
+                  <span className="text-sky-400 font-semibold">IPK: 3.60 / 4.00</span>
                 </div>
 
               </div>
@@ -730,7 +730,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
             
             <div className="lg:col-span-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-zinc-300 block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-sky-400/90 block mb-2">
                 01 // {lang === "id" ? "TENTANG SAYA" : "ABOUT ME"}
               </span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
@@ -758,7 +758,7 @@ export default function PortfolioPage() {
               <div className="border-t border-white/[0.08] divide-y divide-white/[0.06] font-mono text-xs">
                 
                 <div className="py-4 grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-baseline">
-                  <div className="md:col-span-4 text-zinc-100 font-semibold tracking-wider">
+                  <div className="md:col-span-4 text-sky-400 font-semibold tracking-wider">
                     01. MECHANICAL SYMPATHY
                   </div>
                   <div className="md:col-span-8 text-zinc-300 font-sans text-xs leading-relaxed text-justify">
@@ -769,7 +769,7 @@ export default function PortfolioPage() {
                 </div>
 
                 <div className="py-4 grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-baseline">
-                  <div className="md:col-span-4 text-zinc-100 font-semibold tracking-wider">
+                  <div className="md:col-span-4 text-sky-400 font-semibold tracking-wider">
                     02. DETERMINISTIC CONCURRENCY
                   </div>
                   <div className="md:col-span-8 text-zinc-300 font-sans text-xs leading-relaxed text-justify">
@@ -780,7 +780,7 @@ export default function PortfolioPage() {
                 </div>
 
                 <div className="py-4 grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-baseline">
-                  <div className="md:col-span-4 text-zinc-100 font-semibold tracking-wider">
+                  <div className="md:col-span-4 text-sky-400 font-semibold tracking-wider">
                     03. ZERO-TRUST RIGOR
                   </div>
                   <div className="md:col-span-8 text-zinc-300 font-sans text-xs leading-relaxed text-justify">
@@ -806,7 +806,7 @@ export default function PortfolioPage() {
           {/* Header & Category Controls */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-zinc-300 block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-sky-400/90 block mb-2">
                 02 // {lang === "id" ? "PROYEK REKAYASA SISTEM" : "ENGINEERING SYSTEMS PORTFOLIO"}
               </span>
               <h2 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
@@ -847,7 +847,7 @@ export default function PortfolioPage() {
                 <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/[0.08]">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-3">
-                      <span className="px-2.5 py-0.5 rounded bg-white/[0.06] border border-white/20 font-mono text-[11px] text-zinc-200 font-medium">
+                      <span className="px-2.5 py-0.5 rounded bg-sky-500/10 border border-sky-500/30 font-mono text-[11px] text-sky-300 font-medium">
                         Finalis Hackathon TechnoScape 2025
                       </span>
                       <span className="font-mono text-xs text-zinc-400">• AI & Health Systems</span>
@@ -873,7 +873,7 @@ export default function PortfolioPage() {
                       </div>
                       <div className="p-3 rounded bg-[#090a0c] border border-white/[0.06]">
                         <span className="text-zinc-400 block text-[10px]">VALIDATED METRIC</span>
-                        <span className="text-zinc-100">Sub-800ms Semantic Query Latency</span>
+                        <span className="text-sky-400">Sub-800ms Semantic Query Latency</span>
                       </div>
                     </div>
 
@@ -934,15 +934,15 @@ export default function PortfolioPage() {
                     {activeTabHealthAuth === "flow" && (
                       <div className="space-y-2.5 font-mono text-xs">
                         <div className="p-2.5 rounded bg-[#0c0e12] border border-white/[0.06]">
-                          <span className="text-zinc-100 text-[10px] block">STAGE 01 // INGESTION</span>
+                          <span className="text-sky-400 text-[10px] block">STAGE 01 // INGESTION</span>
                           <p className="text-zinc-300 text-[11px] leading-snug">Certified ER SOPs &amp; Medical PDFs &rarr; HuggingFace Vector Embeddings</p>
                         </div>
                         <div className="p-2.5 rounded bg-[#0c0e12] border border-white/[0.06]">
-                          <span className="text-zinc-100 text-[10px] block">STAGE 02 // VECTORSTORE</span>
+                          <span className="text-sky-400 text-[10px] block">STAGE 02 // VECTORSTORE</span>
                           <p className="text-zinc-300 text-[11px] leading-snug">FAISS In-Memory Index &rarr; Top-K similarity chunking &lt;800ms</p>
                         </div>
                         <div className="p-2.5 rounded bg-[#0c0e12] border border-white/[0.06]">
-                          <span className="text-zinc-100 text-[10px] block">STAGE 03 // CLIENT INTERACTION</span>
+                          <span className="text-sky-400 text-[10px] block">STAGE 03 // CLIENT INTERACTION</span>
                           <p className="text-zinc-300 text-[11px] leading-snug">Next.js 16 Client App Router &harr; FastAPI Microservice</p>
                         </div>
                       </div>
@@ -951,11 +951,11 @@ export default function PortfolioPage() {
                     {activeTabHealthAuth === "security" && (
                       <div className="space-y-2.5 font-mono text-xs">
                         <div className="p-2.5 rounded bg-[#0c0e12] border border-white/[0.06]">
-                          <span className="text-zinc-100 text-[10px] block">GUARDRAIL 01 // PROMPT GROUNDING</span>
+                          <span className="text-sky-400 text-[10px] block">GUARDRAIL 01 // PROMPT GROUNDING</span>
                           <p className="text-zinc-300 text-[11px] leading-snug">Restricted retrieval window mitigating medical hallucinations</p>
                         </div>
                         <div className="p-2.5 rounded bg-[#0c0e12] border border-white/[0.06]">
-                          <span className="text-zinc-100 text-[10px] block">GUARDRAIL 02 // ROLE-BASED ACCESS</span>
+                          <span className="text-sky-400 text-[10px] block">GUARDRAIL 02 // ROLE-BASED ACCESS</span>
                           <p className="text-zinc-300 text-[11px] leading-snug">Supabase auth separating clinical chat from admin telemetry</p>
                         </div>
                       </div>
@@ -985,7 +985,7 @@ export default function PortfolioPage() {
 
                   <div className="pt-4 mt-6 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-zinc-400">
                     <span>STATUS: VALIDATED PROTOTYPE</span>
-                    <span className="text-zinc-100 font-semibold">TECHNOSCAPE 2025</span>
+                    <span className="text-sky-400 font-semibold">TECHNOSCAPE 2025</span>
                   </div>
                 </div>
 
@@ -1009,17 +1009,17 @@ export default function PortfolioPage() {
 
                     <div className="p-4 rounded bg-[#0c0e12] border border-white/[0.06] font-mono text-xs space-y-3 mb-4">
                       <div>
-                        <span className="text-[10px] text-zinc-100 block uppercase">CORRIDOR NETWORK</span>
+                        <span className="text-[10px] text-sky-400 block uppercase">CORRIDOR NETWORK</span>
                         <p className="text-zinc-200 text-xs font-semibold">Urban Multi-Intersection Network</p>
                         <p className="text-[11px] text-zinc-400 mt-1">Virtual induction loops observing lane queue depths in 1-second intervals</p>
                       </div>
                       <div className="pt-3 border-t border-white/[0.06]">
-                        <span className="text-[10px] text-zinc-100 block uppercase">MEASURED DELAY OUTCOME</span>
+                        <span className="text-[10px] text-sky-400 block uppercase">MEASURED DELAY OUTCOME</span>
                         <p className="text-white text-base font-bold">-28% Transit Delay</p>
                         <p className="text-[11px] text-zinc-400 mt-0.5">Statistically evaluated against fixed-time signal baseline</p>
                       </div>
                       <div className="pt-3 border-t border-white/[0.06]">
-                        <span className="text-[10px] text-zinc-100 block uppercase">SOCKET CONTROLLER</span>
+                        <span className="text-[10px] text-sky-400 block uppercase">SOCKET CONTROLLER</span>
                         <p className="text-zinc-200 text-[11px]">Python TraCI dynamic green interval actuation daemon</p>
                       </div>
                     </div>
@@ -1027,7 +1027,7 @@ export default function PortfolioPage() {
 
                   <div className="text-[11px] font-mono text-zinc-400 pt-3 border-t border-white/[0.06] flex items-center justify-between">
                     <span>SIMULATOR: ECLIPSE SUMO</span>
-                    <span className="text-zinc-100 font-semibold">UI SYSTEMS '26</span>
+                    <span className="text-sky-400 font-semibold">UI SYSTEMS '26</span>
                   </div>
                 </div>
 
@@ -1035,7 +1035,7 @@ export default function PortfolioPage() {
                 <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-3">
-                      <span className="px-2.5 py-0.5 rounded bg-white/[0.06] border border-white/20 font-mono text-[11px] text-zinc-200 font-medium">
+                      <span className="px-2.5 py-0.5 rounded bg-sky-500/10 border border-sky-500/30 font-mono text-[11px] text-sky-300 font-medium">
                         {projectsData[1].badge[lang]}
                       </span>
                       <span className="font-mono text-xs text-zinc-400">• Traffic Simulation &amp; TraCI</span>
@@ -1087,7 +1087,7 @@ export default function PortfolioPage() {
             <div>
               <div className="flex items-center justify-between pb-3 mb-6 border-b border-white/[0.08]">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-100 font-semibold">
+                  <span className="font-mono text-xs uppercase tracking-wider text-sky-400 font-semibold">
                     // {lang === "id" ? "INDEKS SPESIFIKASI PROYEK" : "PROJECT SPECIFICATION INDEX"}
                   </span>
                   <span className="font-mono text-xs text-zinc-400">
@@ -1111,12 +1111,12 @@ export default function PortfolioPage() {
                         className="p-4 sm:p-6 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 select-none"
                       >
                         <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
-                          <span className="font-mono text-xs text-zinc-300 font-bold w-6 flex-shrink-0">
+                          <span className="font-mono text-xs text-sky-400/90 font-bold w-6 flex-shrink-0">
                             0{idx + 3}.
                           </span>
                           <div className="min-w-0">
                             <div className="flex flex-wrap items-center gap-2 mb-1">
-                              <h4 className="font-display text-base sm:text-lg font-bold text-white hover:text-white transition-colors">
+                              <h4 className="font-display text-base sm:text-lg font-bold text-white hover:text-sky-300 transition-colors">
                                 {p.title[lang]}
                               </h4>
                               <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] font-mono text-[10px] text-zinc-400">
@@ -1146,7 +1146,7 @@ export default function PortfolioPage() {
                             
                             <div className="lg:col-span-8 space-y-4">
                               <div>
-                                <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-100 block mb-1">
+                                <span className="font-mono text-[10px] uppercase tracking-wider text-sky-400 block mb-1">
                                   {lang === "id" ? "RINGKASAN REKAYASA" : "ENGINEERING SUMMARY"}
                                 </span>
                                 <p className="font-sans text-xs text-zinc-300 leading-relaxed text-justify">
@@ -1164,7 +1164,7 @@ export default function PortfolioPage() {
                               </div>
 
                               <div className="p-3 rounded bg-white/[0.02] border border-white/[0.05] font-mono text-xs">
-                                <span className="text-[10px] text-zinc-100 uppercase block mb-1">
+                                <span className="text-[10px] text-sky-400 uppercase block mb-1">
                                   {lang === "id" ? "KONTRIBUSI SPESIFIK RIFQI" : "RIFQI'S SPECIFIC CONTRIBUTION"}
                                 </span>
                                 <p className="text-zinc-300 text-[11px] leading-relaxed text-justify">
@@ -1186,8 +1186,8 @@ export default function PortfolioPage() {
                               </div>
 
                               {p.documentation[lang].metrics && (
-                                <div className="p-2.5 rounded bg-white/[0.04] border border-white/15">
-                                  <span className="text-[9px] text-zinc-100 uppercase block font-semibold">TOLOK UKUR / METRIK</span>
+                                <div className="p-2.5 rounded bg-sky-500/[0.06] border border-sky-500/20">
+                                  <span className="text-[9px] text-sky-400 uppercase block font-semibold">TOLOK UKUR / METRIK</span>
                                   <span className="text-zinc-200 text-[11px]">{p.documentation[lang].metrics}</span>
                                 </div>
                               )}
@@ -1227,7 +1227,7 @@ export default function PortfolioPage() {
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-zinc-300 block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-sky-400/90 block mb-2">
                 03 // {lang === "id" ? "KAPABILITAS TEKNIS" : "TECHNICAL CAPABILITIES"}
               </span>
               <h2 className="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight">
@@ -1247,7 +1247,7 @@ export default function PortfolioPage() {
             {/* Layer 01: Programming Languages */}
             <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
-                <span className="font-mono text-[10px] text-zinc-100 font-bold block">CATEGORY 01</span>
+                <span className="font-mono text-[10px] text-sky-400 font-bold block">CATEGORY 01</span>
                 <h3 className="font-display text-sm font-bold text-white">Programming Languages</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Core Foundations</span>
               </div>
@@ -1270,7 +1270,7 @@ export default function PortfolioPage() {
             {/* Layer 02: Frontend & Backend Development */}
             <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
-                <span className="font-mono text-[10px] text-zinc-100 font-bold block">CATEGORY 02</span>
+                <span className="font-mono text-[10px] text-sky-400 font-bold block">CATEGORY 02</span>
                 <h3 className="font-display text-sm font-bold text-white">Frontend &amp; Backend</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Web &amp; Microservices</span>
               </div>
@@ -1293,7 +1293,7 @@ export default function PortfolioPage() {
             {/* Layer 03: Databases & Data Engineering */}
             <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
-                <span className="font-mono text-[10px] text-zinc-100 font-bold block">CATEGORY 03</span>
+                <span className="font-mono text-[10px] text-sky-400 font-bold block">CATEGORY 03</span>
                 <h3 className="font-display text-sm font-bold text-white">Databases &amp; Big Data</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Storage &amp; Analytics</span>
               </div>
@@ -1316,7 +1316,7 @@ export default function PortfolioPage() {
             {/* Layer 04: AI & Intelligent Systems */}
             <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
-                <span className="font-mono text-[10px] text-zinc-100 font-bold block">CATEGORY 04</span>
+                <span className="font-mono text-[10px] text-sky-400 font-bold block">CATEGORY 04</span>
                 <h3 className="font-display text-sm font-bold text-white">AI &amp; Simulation</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Microscopic &amp; RAG</span>
               </div>
@@ -1339,7 +1339,7 @@ export default function PortfolioPage() {
             {/* Layer 05: Networking & Cybersecurity */}
             <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
-                <span className="font-mono text-[10px] text-zinc-100 font-bold block">CATEGORY 05</span>
+                <span className="font-mono text-[10px] text-sky-400 font-bold block">CATEGORY 05</span>
                 <h3 className="font-display text-sm font-bold text-white">Networking &amp; Security</h3>
                 <span className="font-mono text-[11px] text-zinc-400">Hardening &amp; Defense</span>
               </div>
@@ -1362,7 +1362,7 @@ export default function PortfolioPage() {
             {/* Layer 06: Development Tools & Infrastructure */}
             <div className="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-baseline">
               <div className="md:col-span-3">
-                <span className="font-mono text-[10px] text-zinc-100 font-bold block">CATEGORY 06</span>
+                <span className="font-mono text-[10px] text-sky-400 font-bold block">CATEGORY 06</span>
                 <h3 className="font-display text-sm font-bold text-white">Tools &amp; Infrastructure</h3>
                 <span className="font-mono text-[11px] text-zinc-400">DevOps &amp; Toolchain</span>
               </div>
@@ -1394,7 +1394,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
             
             <div className="lg:col-span-4">
-              <span className="font-mono text-xs uppercase tracking-widest text-zinc-300 block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-sky-400/90 block mb-2">
                 04 // {lang === "id" ? "REKAM JEJAK" : "ACADEMIC & LEADERSHIP"}
               </span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -1407,10 +1407,10 @@ export default function PortfolioPage() {
               
               {/* Milestone 01: Universitas Indonesia */}
               <div className="relative">
-                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-zinc-200 ring-4 ring-[#090a0c]"></div>
+                <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-sky-400 ring-4 ring-[#090a0c]"></div>
 
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5 font-mono text-xs">
-                  <span className="text-zinc-100 font-semibold tracking-wider">2024 — SEKARANG</span>
+                  <span className="text-sky-400 font-semibold tracking-wider">2024 — SEKARANG</span>
                   <span className="text-zinc-400 text-[11px]">DEPOK, INDONESIA</span>
                 </div>
                 
@@ -1419,7 +1419,7 @@ export default function PortfolioPage() {
                 </h3>
                 
                 <p className="font-mono text-xs text-zinc-400 mb-3">
-                  Fakultas Teknik, Departemen Teknik Elektro (DTE FTUI) • IPK Kumulatif: <strong className="text-zinc-100 font-semibold">3.60 / 4.00</strong>
+                  Fakultas Teknik, Departemen Teknik Elektro (DTE FTUI) • IPK Kumulatif: <strong className="text-sky-400 font-semibold">3.60 / 4.00</strong>
                 </p>
                 
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-4 text-justify">
@@ -1447,7 +1447,7 @@ export default function PortfolioPage() {
                   Ikatan Mahasiswa Elektro (IME FTUI)
                 </h3>
 
-                <p className="font-sans text-xs font-semibold text-zinc-100 mb-3">
+                <p className="font-sans text-xs font-semibold text-sky-400 mb-3">
                   {lang === "id" ? "Staff Bidang RETRO (Rohani Islam Elektro)" : "Staff of RETRO Division (Rohani Islam Elektro)"}
                 </p>
 
@@ -1481,7 +1481,7 @@ export default function PortfolioPage() {
                   Pelepasan Sarjana Baru (PSB FTUI)
                 </h3>
 
-                <p className="font-sans text-xs font-semibold text-zinc-100 mb-3">
+                <p className="font-sans text-xs font-semibold text-sky-400 mb-3">
                   {lang === "id" ? "Divisi K3 (Keselamatan & Keamanan)" : "Safety & Security Division (K3)"}
                 </p>
 
@@ -1516,7 +1516,7 @@ export default function PortfolioPage() {
           <div className="rounded border border-white/[0.1] bg-[#0c0e12] p-6 sm:p-14">
             
             <div className="max-w-2xl">
-              <span className="font-mono text-xs uppercase tracking-widest text-zinc-300 block mb-3">
+              <span className="font-mono text-xs uppercase tracking-widest text-sky-400/90 block mb-3">
                 05 // {lang === "id" ? "INISIASI KOMUNIKASI" : "GET IN TOUCH"}
               </span>
               
@@ -1554,7 +1554,7 @@ export default function PortfolioPage() {
 
               {/* Privacy Notice for Credentials & CV */}
               <div className="p-3.5 rounded bg-white/[0.02] border border-white/[0.07] mb-8 font-mono text-xs text-zinc-400">
-                <span className="text-zinc-100 font-semibold block mb-1">
+                <span className="text-sky-400 font-semibold block mb-1">
                   // {lang === "id" ? "AKSES RESMI CURRICULUM VITAE" : "OFFICIAL CV & CREDENTIAL ACCESS"}
                 </span>
                 <span className="leading-relaxed">
@@ -1571,7 +1571,7 @@ export default function PortfolioPage() {
                   href={SOCIAL_LINKS.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1.5"
+                  className="hover:text-sky-300 transition-colors flex items-center gap-1.5"
                 >
                   <span>LinkedIn</span>
                 </a>
@@ -1580,14 +1580,14 @@ export default function PortfolioPage() {
                   href={SOCIAL_LINKS.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1.5"
+                  className="hover:text-sky-300 transition-colors flex items-center gap-1.5"
                 >
                   <span>Instagram</span>
                 </a>
                 <span className="text-zinc-700 hidden sm:inline">•</span>
                 <a
                   href={`tel:${SOCIAL_LINKS.phone}`}
-                  className="hover:text-white transition-colors flex items-center gap-1.5"
+                  className="hover:text-sky-300 transition-colors flex items-center gap-1.5"
                 >
                   <span>{SOCIAL_LINKS.phone}</span>
                 </a>
@@ -1635,7 +1635,7 @@ export default function PortfolioPage() {
             {/* Modal Header */}
             <div className="flex-shrink-0 p-5 sm:p-6 pb-4 border-b border-white/[0.08] flex items-start justify-between gap-4">
               <div>
-                <span className="font-mono text-[10px] text-zinc-100 uppercase tracking-widest block mb-1">
+                <span className="font-mono text-[10px] text-sky-400 uppercase tracking-widest block mb-1">
                   // {lang === "id" ? "DOKUMENTASI REKAYASA TEKNIS" : "TECHNICAL ENGINEERING DOSSIER"}
                 </span>
                 <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] font-mono text-[11px] text-zinc-300">
@@ -1644,7 +1644,7 @@ export default function PortfolioPage() {
               </div>
               <button
                 onClick={() => setActiveProjectModal(null)}
-                className="w-8 h-8 rounded bg-white/[0.05] hover:bg-white/[0.12] border border-white/[0.08] text-zinc-400 hover:text-white flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-zinc-300"
+                className="w-8 h-8 rounded bg-white/[0.05] hover:bg-white/[0.12] border border-white/[0.08] text-zinc-400 hover:text-white flex items-center justify-center transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-sky-400"
                 aria-label="Tutup modal"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1665,15 +1665,15 @@ export default function PortfolioPage() {
                   {activeProjectModal.tech.join(" • ")}
                 </p>
                 <div className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400">
-                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-200"></span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                   <span>{lang === "id" ? "Dokumentasi Arsitektur & Rekayasa Terverifikasi" : "Verified Engineering Architecture & Dossier"}</span>
                 </div>
               </div>
 
               {/* Architecture Overview */}
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-100 mb-2 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-zinc-200"></span>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-sky-400 mb-2 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-sky-400"></span>
                   <span>{lang === "id" ? "Arsitektur & Desain Sistem:" : "Technical Architecture & System Design:"}</span>
                 </h4>
                 <p className="text-xs text-zinc-300 leading-relaxed p-4 rounded bg-[#090a0c] border border-white/[0.06] font-mono text-justify">
@@ -1683,8 +1683,8 @@ export default function PortfolioPage() {
 
               {/* Verified Contribution */}
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-100 mb-2 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-zinc-200"></span>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-sky-400 mb-2 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-sky-400"></span>
                   <span>{lang === "id" ? "Kontribusi Spesifik Rifqi:" : "Rifqi's Verified Contribution:"}</span>
                 </h4>
                 <p className="text-xs text-zinc-200 leading-relaxed p-4 rounded bg-white/[0.02] border border-white/[0.08] font-sans text-justify">
@@ -1694,8 +1694,8 @@ export default function PortfolioPage() {
 
               {/* Key Challenges */}
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-100 mb-2 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-zinc-200"></span>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-sky-400 mb-2 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-sky-400"></span>
                   <span>{lang === "id" ? "Tantangan Teknis Kritis & Solusi:" : "Key Technical Challenges Solved:"}</span>
                 </h4>
                 <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside font-sans text-justify">
@@ -1707,8 +1707,8 @@ export default function PortfolioPage() {
 
               {/* Deliverables */}
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-100 mb-2 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-zinc-200"></span>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-sky-400 mb-2 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-sky-400"></span>
                   <span>{lang === "id" ? "Deliverable & Hasil Rekayasa:" : "Deliverables & Artifacts:"}</span>
                 </h4>
                 <ul className="text-xs text-zinc-300 space-y-2 list-disc list-inside font-sans text-justify">
@@ -1720,8 +1720,8 @@ export default function PortfolioPage() {
 
               {/* Metrics */}
               {activeProjectModal.documentation[lang].metrics && (
-                <div className="p-3.5 rounded bg-[#090a0c] border border-white/20 text-xs text-zinc-300 font-mono">
-                  <strong className="text-zinc-100">{lang === "id" ? "Tolok Ukur: " : "Benchmark: "}</strong>
+                <div className="p-3.5 rounded bg-[#090a0c] border border-sky-500/30 text-xs text-zinc-300 font-mono">
+                  <strong className="text-sky-400">{lang === "id" ? "Tolok Ukur: " : "Benchmark: "}</strong>
                   {activeProjectModal.documentation[lang].metrics}
                 </div>
               )}
@@ -1731,7 +1731,7 @@ export default function PortfolioPage() {
             {/* Modal Footer */}
             <div className="flex-shrink-0 p-4 sm:p-5 border-t border-white/[0.08] flex items-center justify-between bg-[#0a0c0f]">
               <div className="text-xs font-mono text-zinc-400 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-zinc-200"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                 <span>{lang === "id" ? "Dokumentasi Arsitektur Resmi" : "Official Architecture Dossier"}</span>
               </div>
 
