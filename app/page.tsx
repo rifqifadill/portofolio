@@ -201,44 +201,94 @@ const projectsData: Project[] = [
     category: "software_systems",
     badge: { id: "Proyek Sistem Basis Data FTUI (Kelompok 12)", en: "Database Systems Project FTUI (Group 12)" },
     tagline: {
-      id: "Web Fullstack Next.js, 13 Tabel PostgreSQL 3NF, dan Sistem COD Konfirmasi Ganda",
-      en: "Fullstack Next.js Monorepo, 13-Table 3NF Relational Schema & Secure COD Protocol"
+      id: "Next.js 16, 13 Entitas PostgreSQL, Redis TTL Timer, & Realtime Chat Supabase",
+      en: "Next.js 16, 13 PostgreSQL Entities, Redis TTL Timer & Supabase Realtime Chat"
     },
     description: {
-      id: "Platform jual-beli barang bekas, jasa, dan forum diskusi khusus untuk mahasiswa Universitas Indonesia. Dilengkapi katalog produk, chat per barang, serta alur COD dengan konfirmasi dua pihak supaya transaksi antar mahasiswa lebih aman.",
-      en: "A dedicated campus marketplace and community platform engineered for Universitas Indonesia students. Integrates secondhand goods cataloging, student services, campus discussion feeds, product-bound messaging, and a secure Double-Confirmation Cash on Delivery (COD) workflow."
+      id: "Platform jual-beli barang bekas, jasa, dan forum diskusi khusus untuk mahasiswa Universitas Indonesia. Dilengkapi katalog filter fakultas, timer reservasi otomatis berbasis Redis (2–72 jam), chat real-time Supabase, notifikasi multi-kanal, serta sistem COD konfirmasi ganda.",
+      en: "A dedicated campus marketplace and community platform built for Universitas Indonesia students. Features faculty-scoped catalog filtering, Redis TTL automated reservation timers (2–72h), Supabase realtime chat, multi-channel alerts, and Double-Confirmation COD verification."
     },
-    tech: ["Next.js 16.2.5", "React 19", "TypeScript", "PostgreSQL", "Prisma ORM 7.8", "Tailwind CSS"],
+    tech: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma ORM v7", "Redis (TTL)", "TailwindCSS v4"],
     documentation: {
       id: {
-        architecture: "Dibangun dalam satu monorepo Next.js 16 yang menyatukan frontend React 19 dan API route, lalu terhubung ke PostgreSQL lewat Prisma ORM 7.8 (13 tabel ternormalisasi 3NF). Login diamankan dengan hash password bcrypt (salt 12) dan cookie HTTP-Only JWT.",
+        architecture: "Monorepo Next.js 16 (App Router) dengan PostgreSQL & Prisma ORM v7 (13 entitas ternormalisasi), Redis untuk timer kedaluwarsa reservasi (TTL 2–72 jam) tanpa polling cron ke database, serta realtime chat berbasis Supabase. Autentikasi diamankan dengan bcrypt (salt 12), cookie httpOnly JWT (jose), SameSite Strict, dan Edge middleware.",
         keyChallenges: [
-          "Merancang alur COD konfirmasi ganda agar status transaksi baru dianggap selesai setelah pembeli dan penjual sama-sama konfirmasi.",
-          "Menjaga query antar banyak tabel (produk, reservasi, transaksi, chat) tetap cepat tanpa N+1 query.",
-          "Menghubungkan notifikasi lintas platform mulai dari notifikasi web, email Resend, hingga bot Telegram."
+          "Mengganti cron job PostgreSQL dengan Redis TTL expiry key agar pembatalan reservasi otomatis akurat hingga hitungan detik tanpa membebani database.",
+          "Menjaga alur COD konfirmasi ganda serta integrasi notifikasi lintas kanal (In-App, Email, Telegram, dan Google Calendar).",
+          "Menyatukan fitur marketplace, wishlist, rating/review, dan social feed komunitas mahasiswa dalam satu antarmuka yang konsisten."
         ],
         deliverables: [
-          "Website marketplace fullstack Next.js 16 dengan lebih dari 18 halaman aktif.",
-          "Skema migrasi Prisma dan data seeder lengkap untuk 13 tabel relasional PostgreSQL.",
-          "Dokumen panduan teknis yang merinci desain basis data, endpoint API, dan alur transaksi."
+          "Platform marketplace & komunitas fullstack Next.js 16 dengan dashboard admin, penjual, dan pembeli.",
+          "13 entitas relasional PostgreSQL di Prisma v7 + integrasi Redis TTL reservation timer.",
+          "Slide presentasi arsitektur & basis data Kelompok 12 Praktikum Sistem Basis Data FTUI."
         ],
-        contribution: "Mengerjakan halaman frontend untuk jelajah katalog & detail produk (/marketplace, /marketplace/[id]), manajemen jualan (/sell, /my-products), wishlist, serta alur reservasi dan riwayat transaksi.",
-        metrics: "13 Tabel Database 3NF & Sistem COD Konfirmasi Ganda"
+        contribution: "Tim Frontend (bersama Yusri Sukur) yang mengerjakan halaman jelajah katalog & detail produk (/marketplace, /marketplace/[id]), manajemen jualan (/sell, /my-products), wishlist, serta alur reservasi dan riwayat transaksi.",
+        metrics: "13 Entitas PostgreSQL 3NF, Timer Redis TTL (2–72 Jam), & 4 Kanal Notifikasi"
       },
       en: {
-        architecture: "Next.js 16 Fullstack Monorepo: REST API endpoints (app/api/) and UI components (app/) unified within a single repository. Backed by PostgreSQL and Prisma ORM 7.8 (13 normalized 3NF tables, UUID primary keys, cascade deletes). Secured via bcrypt password hashing (salt round 12) and stateless JWT sessions stored in HTTP-Only cookies enforced by Edge middleware.",
+        architecture: "Next.js 16 App Router fullstack platform backed by PostgreSQL & Prisma ORM v7 (13 normalized entities), Redis TTL expiry keys (2–72h) for precision reservation cancellation without database polling, and Supabase realtime chat. Secured via bcrypt (salt-12), httpOnly JWT cookies (jose), SameSite Strict, and Edge middleware.",
         keyChallenges: [
-          "Designing a Double-Confirmation COD protocol where transactions only conclude upon mutual buyer and seller verification.",
-          "Optimizing multi-table relational queries across products, reservations, reviews, and chats avoiding N+1 overhead.",
-          "Architecting multi-channel notification pipelines spanning in-app database events, Resend emails, and Telegram webhooks."
+          "Replacing imprecise PostgreSQL cron jobs with Redis TTL expiry keys for second-accurate reservation auto-cancellation without polling overhead.",
+          "Orchestrating Double-Confirmation COD state transitions with 4-channel notifications (In-App, Email, Telegram, and Google Calendar).",
+          "Unifying product/service listings, community social feeds, wishlists, and real-time buyer-seller messaging in one cohesive UX."
         ],
         deliverables: [
-          "Fullstack Next.js 16 App Router platform featuring 18+ responsive pages.",
-          "Type-safe Prisma migration schema and database seeders managing 13 relational tables.",
-          "In-depth 411-line architectural presentation guide detailing database models, API routes, and transactional state machines."
+          "Fullstack Next.js 16 campus marketplace featuring Seller, Buyer, and Admin dashboards.",
+          "13-entity PostgreSQL relational schema in Prisma v7 paired with Redis TTL reservation automation.",
+          "Database & system architecture presentation deck for Group 12 Database Systems Lab FTUI."
         ],
-        contribution: "Primary frontend engineer for marketplace catalog browsing and product details (/marketplace, /marketplace/[id]), selling management (/sell, /my-products), wishlist bookmarks (/wishlist), and reservation/transaction user flows.",
-        metrics: "13 Normalized 3NF Relational Tables, Double-Confirmation COD Protocol"
+        contribution: "Frontend Engineer (alongside Yusri Sukur) building catalog browsing & product details (/marketplace, /marketplace/[id]), seller listings (/sell, /my-products), wishlists, and reservation/transaction user flows.",
+        metrics: "13 PostgreSQL 3NF Entities, Redis TTL Timer (2–72h) & 4 Notification Channels"
+      }
+    }
+  },
+  {
+    id: "dad-pricing",
+    title: {
+      id: "Prediksi Harga Komputer – Pipeline Machine Learning Regresi (100K Data)",
+      en: "Automated Computer Price Prediction – Regression ML Pipeline (100K Dataset)"
+    },
+    category: "ai_data",
+    badge: { id: "Proyek Dasar Analitik Data UI (Kelompok 8)", en: "Data Analytics Project UI (Group 8)" },
+    tagline: {
+      id: "Metodologi CRISP-DM, Winsorization Outlier, Seleksi Fitur RFE, & Random Forest (R² 87,85%)",
+      en: "CRISP-DM Pipeline, IQR Winsorization, Ridge RFE Selection & Random Forest (87.85% R²)"
+    },
+    description: {
+      id: "Sistem prediksi harga komputer otomatis berbasis supervised machine learning memakai 100.000 data spesifikasi hardware (33 atribut, 0% missing values). Mengikuti 6 tahapan CRISP-DM mulai dari audit outlier IQR & Winsorization, feature engineering, seleksi fitur RFE, sampai evaluasi 5 algoritma regresi dengan Random Forest sebagai model terbaik.",
+      en: "Automated computer hardware pricing pipeline built with supervised regression on a 100,000-row specification dataset (33 features, 0% missing values). Implements all 6 CRISP-DM phases including IQR Winsorization, encoding, Ridge RFE feature selection, and 5-fold cross-validated benchmarking across five regression models."
+    },
+    tech: ["Python", "Scikit-Learn", "Pandas", "Random Forest", "Ridge RFE", "GridSearchCV"],
+    documentation: {
+      id: {
+        architecture: "Pipeline CRISP-DM lengkap pada 100.000 baris × 33 kolom (13 kategorikal & 20 numerikal): Outlier pada harga (976 data) dan RAM (60 data) dideteksi lewat IQR lalu ditangani dengan Winsorization tanpa menghapus baris. Setelah Price Binning, One-Hot, dan Ordinal Encoding (51 fitur), seleksi fitur Wrapper Method (Ridge Regression + RFE) memilih 15 fitur paling berpengaruh (df_wrapper.csv) sebelum dilatih pada 5 model dengan 5-Fold Cross Validation.",
+        keyChallenges: [
+          "Menangani distribusi harga yang miring ke kanan (skewness 0,98, kurtosis 4,89) serta nilai ekstrem tanpa menghilangkan data asli lewat teknik Winsorization.",
+          "Menyaring 51 fitur hasil encoding untuk mencegah redundansi dan multikolinearitas menjadi 15 fitur inti paling optimal.",
+          "Membandingkan secara objektif 5 algoritma regresi (KNN, Linear Regression, SVR, Decision Tree, Random Forest) via GridSearchCV dan analisis residual plot."
+        ],
+        deliverables: [
+          "Dataset bersih hasil seleksi fitur optimal (df_wrapper.csv: 100.000 observasi × 15 fitur terbaik).",
+          "Model Random Forest Regressor ter-tuning dengan performa terbaik: Test R² = 87,85% dan Test MAE = $157.13.",
+          "Dek presentasi analitik lengkap 56 halaman mencakup EDA, heatmap korelasi, hexbin density, residual plot, dan diagnosis overfitting."
+        ],
+        contribution: "Anggota tim Kelompok Keren (bersama Marshal Aufa Diliyana, Yusri Sukur, dan Zahir) yang berkolaborasi menyusun pipeline CRISP-DM mulai dari eksplorasi data, preprocessing, feature selection, hingga evaluasi performa model.",
+        metrics: "Random Forest Regressor: Test R² = 87,85% | Test MAE = $157.13 (100.000 data)"
+      },
+      en: {
+        architecture: "End-to-end 6-phase CRISP-DM pipeline on 100,000 rows × 33 columns (13 categorical & 20 numerical): Outliers in price (976 rows) and RAM (60 rows) are clamped via IQR Winsorization to preserve distribution integrity. Price Binning, One-Hot, and Ordinal Encoding yield 51 features, later pruned via Ridge RFE wrapper selection to 15 top predictors (df_wrapper.csv) and evaluated across 5 models with 5-Fold CV.",
+        keyChallenges: [
+          "Handling right-skewed price distributions (skewness 0.98, kurtosis 4.89) and hardware extremes via Winsorization without dropping records.",
+          "Eliminating feature redundancy and multicollinearity from 51 encoded features down to 15 high-signal predictors.",
+          "Benchmarking KNN, Linear Regression, SVR, Decision Tree, and Random Forest under GridSearchCV, 5-fold CV, and residual diagnostics."
+        ],
+        deliverables: [
+          "Feature-selected modeling dataset (df_wrapper.csv: 100,000 rows × 15 optimal features).",
+          "Tuned Random Forest Regressor achieving Test R² = 87.85% and Test MAE = $157.13.",
+          "Comprehensive 56-slide analytical report covering EDA, correlation heatmaps, hexbin density plots, residual plots, and overfitting diagnosis."
+        ],
+        contribution: "Collaborated within a 4-member team (Kelompok Keren alongside Marshal Aufa Diliyana, Yusri Sukur, and Zahir) across CRISP-DM data exploration, Winsorization preprocessing, RFE feature selection, and regression evaluation.",
+        metrics: "Random Forest Regressor: Test R² = 87.85% | Test MAE = $157.13 (100K rows)"
       }
     }
   },
@@ -817,7 +867,7 @@ export default function PortfolioPage() {
             {/* Category Filter Controls */}
             <div className="flex flex-wrap items-center gap-1.5 p-1 rounded bg-white/[0.03] border border-white/[0.08] text-xs font-mono">
               {[
-                { id: "all", label: lang === "id" ? "Semua (05)" : "All (05)" },
+                { id: "all", label: lang === "id" ? "Semua (06)" : "All (06)" },
                 { id: "ai_data", label: "AI & Data" },
                 { id: "software_systems", label: lang === "id" ? "Sistem & Aplikasi" : "Systems" }
               ].map((c) => (
@@ -1299,7 +1349,7 @@ export default function PortfolioPage() {
               </div>
               <div className="md:col-span-9">
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 font-mono text-xs">
-                  {["PostgreSQL (Neon Serverless)", "Prisma ORM 7.8", "Apache Hadoop 3.3.6", "HDFS", "MapReduce Paradigm", "Supabase"].map((s) => (
+                  {["PostgreSQL (Neon Serverless)", "Prisma ORM v7", "Redis (TTL Cache)", "Apache Hadoop 3.3.6", "HDFS & MapReduce", "Supabase"].map((s) => (
                     <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200 text-[11px] sm:text-xs">
                       {s}
                     </span>
@@ -1322,7 +1372,7 @@ export default function PortfolioPage() {
               </div>
               <div className="md:col-span-9">
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-2 font-mono text-xs">
-                  {["Eclipse SUMO", "Python TraCI", "FAISS Vector Index", "Scikit-Learn", "Prompt Grounding (RAG)", "Multi-Agent Control"].map((s) => (
+                  {["Eclipse SUMO", "Python TraCI", "FAISS Vector Index", "Scikit-Learn & Pandas", "CRISP-DM & RFE", "Prompt Grounding (RAG)"].map((s) => (
                     <span key={s} className="px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.07] text-zinc-200 text-[11px] sm:text-xs">
                       {s}
                     </span>
