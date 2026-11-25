@@ -1448,21 +1448,21 @@ export default function PortfolioPage() {
                 </h3>
 
                 <p className="font-sans text-xs font-semibold text-sky-400 mb-3">
-                  {lang === "id" ? "Bendahara" : "Treasurer"}
+                  {lang === "id" ? "Bendahara Bidang RETRO (Rohani Islam Elektro)" : "Treasurer of RETRO Division (Rohani Islam Elektro)"}
                 </p>
 
                 <ul className="text-xs sm:text-sm text-zinc-300 space-y-2 list-disc list-inside text-justify">
                   {lang === "id" ? (
                     <>
-                      <li>Mengelola pencatatan keuangan, arus kas, serta pemasukan dan pengeluaran dana kegiatan organisasi di IME FTUI.</li>
-                      <li>Membantu menyusun rencana anggaran biaya untuk berbagai program kerja mahasiswa di Departemen Teknik Elektro UI.</li>
-                      <li>Menyusun laporan keuangan secara rapi dan transparan agar setiap penggunaan anggaran mudah dipertanggungjawabkan.</li>
+                      <li>Mengelola pencatatan keuangan, arus kas, serta pemasukan dan pengeluaran dana untuk program kerja Bidang RETRO IME FTUI.</li>
+                      <li>Menyusun rencana anggaran biaya untuk kegiatan kerohanian, kajian rutin, serta program sosial mahasiswa di Departemen Teknik Elektro UI.</li>
+                      <li>Membuat laporan keuangan Bidang RETRO secara rapi dan transparan agar setiap penggunaan dana mudah dipertanggungjawabkan.</li>
                     </>
                   ) : (
                     <>
-                      <li>Managed organizational bookkeeping, cash flow, and income/expense tracking for student programs at IME FTUI.</li>
-                      <li>Assisted in budgeting and financial planning across student initiatives within the Department of Electrical Engineering UI.</li>
-                      <li>Prepared clear and transparent financial accountability reports for organizational stakeholders.</li>
+                      <li>Managed division bookkeeping, cash flow, and income/expense tracking across programs in the RETRO Division of IME FTUI.</li>
+                      <li>Planned and allocated event budgets for student fellowship discussions, community outreach, and character-building initiatives.</li>
+                      <li>Prepared clear and transparent financial accountability reports for the executive board of IME FTUI.</li>
                     </>
                   )}
                 </ul>
