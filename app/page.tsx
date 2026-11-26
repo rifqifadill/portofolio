@@ -709,8 +709,8 @@ export default function PortfolioPage() {
                 <span className="w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
                 <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-300">
                   {lang === "id"
-                    ? "Terbuka untuk Magang // Depok & Jakarta"
-                    : "Available for Software & Data Internships // Depok & Jakarta"}
+                    ? "Terbuka untuk Magang"
+                    : "Available for Software & Data Internships"}
                 </span>
               </div>
 
